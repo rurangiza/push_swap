@@ -6,7 +6,7 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/15 11:21:38 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/15 11:40:57 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,6 @@ OBJ			=	${SOURCE_FILES:.c=.o}
 
 $(NAME): 	$(OBJ) $(LIBFT)
 				@$(COMPILER) $(OBJ) $(LIBFT_DIR)libft.a -o $(NAME)
-				./$(NAME)
 
 $(LIBFT):
 				@make -C $(LIBFT_DIR)
