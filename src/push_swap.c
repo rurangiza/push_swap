@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/15 12:48:40 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/16 14:40:39 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,50 @@
  * using the lowest number of actions
 */
 
+#include <stdio.h>
 #include "../includes/push_swap.h"
 
-int nbrlen(int *nbr)
+int main(int ac, char **av)
 {
-    int i;
+    int stack_size;
 
-    i = 0;
-    while (nbr[i])
-        i++;
-    return (i);
+    if (ac == 1)
+        return (1);
+
+    stack_size = count_numbers(ac, av);
+    if (stack_size == -1)
+        return (error_msg(1, "invalid input"));
+    success_msg(1, "Stack size = %d", stack_size);
+
+    return (0);
 }
 
-int main(void)
+// Some arguments aren't integers
+// Some arguments are bigger than MAX_INT
+// Duplicates
+int count_numbers(int ac, char **av)
 {
-    int unsorted[] = {2, 4, 8, 1};
+    int     counter;
+    int     index;
+    int     j;
     
-    int i = 0;
-    int tmp;
-    int permutation_count;
-
-    while (i < nbrlen(unsorted) - 1)
-        info_msg(1, "%d", unsorted[i++]);
-
-    permutation_count = 1;
-    while (permutation_count > 0)
+    counter = 0;
+    index = 1;
+    while (index < ac)
     {
-        permutation_count = 0;
-        if (i < 3 && unsorted[i] < unsorted[i] + 1)
+        j = 0;
+        while (av[index][j])
         {
-            tmp = unsorted[i];
-            unsorted[i] = unsorted[i + 1];
-            unsorted[i + 1] = tmp;
-            permutation_count++;
+            if (!ft_isdigit(av[index][j]) && !ft_isspace(av[index][j]))
+                return (-1);
+            while (ft_isspace(av[index][j]))
+                j++;
+            if (ft_isdigit(av[index][j]))
+                counter++;
+            while (ft_isdigit(av[index][j]))
+                j++;
         }
-        i++;
+        index++;
     }
-    success_msg(1, "sorted");
-
-    i = 0;
-    while (i < nbrlen(unsorted) - 1)
-        info_msg(1, "%d", unsorted[i++]);
-    return (0);
+    return (counter);
 }

@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/16 14:39:55 by Arsene           ###   ########.fr       */
+/*   Created: 2022/12/16 10:55:11 by Arsene            #+#    #+#             */
+/*   Updated: 2022/12/16 11:05:46 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/push_swap.h"
 
-# include "../src/libft/libft.h"
-# include <stdlib.h> // malloc, free
+/* (rotate a): Shift up all elements of stack a by 1.
+ * The first element becomes the last one.
+*/
+void    ra()
+{
+    
+}
 
-int count_numbers(int ac, char **av);
+/* (rotate b): Shift up all elements of stack b by 1.
+ * The first element becomes the last one.
+*/
+void    rb()
+{
+    
+}
 
-# endif
+/* ra and rb at the same time */
+void    rr()
+{
+    
+}
