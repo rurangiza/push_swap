@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/19 12:01:34 by arurangi         ###   ########.fr       */
+/*   Created: 2022/12/19 11:49:34 by arurangi          #+#    #+#             */
+/*   Updated: 2022/12/19 11:55:47 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stdio.h>
+#include <stdlib.h>
 
-# include "../src/library/libft.h"
-# include <stdlib.h> // malloc, free
+struct node {
+	int			data;
+	struct node	*link;
+};
 
-/* TYPEDEFS AND STRUCTURES */
-typedef struct s_list {
-	int             data;
-	struct s_list	*next;
-}	t_list;
+int main(void)
+{
+	struct node *head = NULL;
 
-/* FUNCTION PROTOTYPES */
-int count_numbers(int ac, char **av);
-
-# endif
+	head = malloc(sizeof(struct node));
+	head->data = 45;
+	head->link = NULL;
+	return (0);
+}
