@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/16 17:29:26 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/19 11:33:51 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,39 +21,41 @@
 
 // Use the linked list when the size of the stack is not known in advance
 
-typedef struct s_name {
-    int *stack_a;
-    int *stack_b;
-} t_name;
-
-typedef struct s_list
-{
-	int             number;
-	struct s_list	*next;
-}	t_list;
-
 int main(int ac, char **av)
 {
-    t_list *stack;
-    int stack_size;
+    t_list  *stack;
+    int     stack_size;
+    int     index;
+    int     number;
 
     if (ac == 1)
-        return (1);
-
-    stack_size = count_numbers(ac, av);
-    if (stack_size == -1)
-        return (error_msg(1, "invalid input"));
-    //success_msg(1, "Stack size = %d", stack_size);
-    
-    stack = malloc(sizeof(int) * stack_size + 1);
-    if (!stack == NULL)
-        return (error_msg(1, "couldn't allocate memory to stack"));
+        return (error_msg(1, "Usage: ./push_swap 1 2 3 or ./push_swap \"1 2 3\"")); // Remove error message
+    else if (ac == 2)
+    {
+        // Break down all numbers of second argument
+        save_nodes();
+    }
+    else
+    {
+        index = 1;
+        while (index < ac)
+        {
+            if (!ft_isdigit(av[index]))
+                return (1, "argument nº%d is not a digit", index);
+            number = ft_atoi(av[index]);
+            if (number < INT_MIN || number > INT_MAX)
+                return (1, "number bigger/lower than INT_MAX/INT_MIN");
+            if (!first_encounter(number))
+                return (1, "there are duplicates of %d", number);
+            add_node(number);
+            index++;
+        }
+        // Free nodes in case of errors
+    }
     return (0);
 }
 
-// Some arguments aren't integers
-// Some arguments are bigger than MAX_INT
-// Duplicates
+
 int count_numbers(int ac, char **av)
 {
     int     counter;

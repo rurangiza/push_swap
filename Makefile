@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/15 11:40:57 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/19 11:34:31 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME	=	push_swap
-LIBFT	=	./src/libft/libft.a
+LIBFT	=	./src/library/libft.a
 
 # DERECTORIES
-LIBFT_DIR	=	./src/libft/
+LIBFT_DIR	=	./src/library/
 
 # SOURCE FILES
 SOURCE_FILES	=	./src/push_swap.c \
