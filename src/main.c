@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/19 13:49:55 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:00:26 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,50 +19,36 @@
 #include <stdio.h>
 #include "../includes/push_swap.h"
 
-// Use the linked list when the size of the stack is not known in advance
-
-int main(int ac, char **av)
+int main(int arg_count, char **argv)
 {
     t_list  *stack;
-    int     stack_size;
-    int     index;  
-    int     number;
     t_list  *head = NULL;
-    
-    head = malloc(sizeof(t_list));
+    int     index;
+    char    **arg_list;
 
-    if (ac == 1)
-        return (error_msg(1, "Usage: ./push_swap 1 2 3 or ./push_swap \"1 2 3\"")); // Remove error message
-    else if (ac == 2)
-    {
-        // Break down all numbers of second argument
-        save_nodes();
-    }
+    if (arg_count == 1)
+        return (error_msg(1, "No numbers to sort")); // Remove error message
+    
+    index = 0;
+    if (arg_count == 2)
+        arg_list = ft_split(argv, ' ');
     else
     {
         index = 1;
-        while (index < ac)
-        {
-            if (valid_number(av[index]))
-            {
-                push(number, stack);
-                index++;
-            }
-            else
+        arg_list = argv;
+    }
 
-            if (!ft_isdigit(av[index]))
-                return (1, "argument nº%d is not a digit", index);
-            number = ft_atoi(av[index]);
-            if (number < INT_MIN || number > INT_MAX)
-                return (1, "number bigger/lower than INT_MAX/INT_MIN");
-            if (!first_encounter(number, av, index))
-                return (1, "there are duplicates of %d", number);
-            push(number, stack);
+    while (arg_list[index])
+    {
+        if (valid_number(arg_list, index))
+        {
+            push(ft_atoi(arg_list[index]), stack);
             index++;
         }
-        // Free nodes in case of errors
+        else
+            return (1);
     }
-    matrix_to_list();
+    
     return (0);
 }
 
