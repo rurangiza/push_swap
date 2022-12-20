@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/19 11:34:31 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/20 17:21:51 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ LIBFT	=	./src/library/libft.a
 
 # DERECTORIES
 LIBFT_DIR	=	./src/library/
+SRC_DIR		=	./src
 
 # SOURCE FILES
-SOURCE_FILES	=	./src/push_swap.c \
+SOURCE_FILES	=	${SRC_DIR}/main.c \
+					${SRC_DIR}/operations/push.c \
 
 # VARIABLES
 COMPILER	= 	gcc

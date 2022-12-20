@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   llist.c                                            :+:      :+:    :+:   */
+/*   dllist.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:53:44 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/20 16:58:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:27:40 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 #include "../includes/push_swap.h"
 
-t_list	*dll_create_node(void *content)
+t_dllist	*dll_create_node(int content)
 {
-	t_list	*node;
+	t_dllist	*node;
 
-	node = (t_list *)malloc(sizeof(t_list));
+	node = (t_dllist *)malloc(sizeof(t_dllist));
 	if (!node)
 		return (NULL);
 	node->content = content;
@@ -29,7 +29,7 @@ t_list	*dll_create_node(void *content)
 	return (node);
 }
 
-void	dll_add_back(t_list **lst, t_list *new)
+void	dll_add_back(t_dllist **lst, t_dllist *new)
 {
 	if (!new || !lst)
 		return ;
