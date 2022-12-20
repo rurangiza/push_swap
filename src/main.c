@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/20 15:15:32 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:52:53 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,33 @@
 #include <stdio.h>
 #include "../includes/push_swap.h"
 
+
+
 int main(int arg_count, char **argv)
 {
-    t_list  *stack;
+    t_list  *stack_a = NULL;
     int     index;
-    char    **arg_list;
+    char    **matrix;
     int     arg_type;
 
-    if (arg_count == 1)
-        return (error_msg(1, "No numbers to sort")); // Remove error message
-    
-    index = 0;
-    if (arg_count == 2)
-    {
-        arg_list = ft_split(argv, ' '); // Free later
-        arg_type = 0;
-    }
-    else
-    {
-        index = 1;
-        arg_list = argv;
-        arg_type = 1;
-    }
+    stack_a = malloc(sizeof(t_list));
+    stack_a->next = NULL;
+    stack_a->previous = NULL;
 
-    while (arg_list[index])
+    matrix = init_matrix(arg_count, argv, &arg_type, &index);
+
+    while (matrix[index])
     {
-        if (valid_number(arg_list, index, arg_type))
+        if (valid_number(matrix, index, arg_type))
         {
-            push(ft_atoi(arg_list[index]), stack);
+            push(ft_atoi(matrix[index]), stack_a);
             index++;
         }
         else
             return (1);
     }
     
+    // I have a singly-linked list starting with {stack_a}
     return (0);
 }
 

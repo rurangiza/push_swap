@@ -6,11 +6,30 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:49:33 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/20 15:16:15 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:26:19 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+char **init_matrix(int arg_count, char **argv, int *arg_type, int *index)
+{
+    if (arg_count == 1)
+        return (error_msg(1, "No numbers to sort")); // Remove error message
+    
+    *index = 0;
+    if (arg_count == 2)
+    {
+        *arg_type = 0;
+        return (ft_split(argv, ' ')); // Free later
+    }
+    else
+    {
+        *index = 1;
+        *arg_type = 1;
+        return (argv);
+    }
+}
 
 /* Valid number */
 int valid_number(char **arg_list, int index, int arg_type)
@@ -35,20 +54,7 @@ int valid_number(char **arg_list, int index, int arg_type)
     return (1);
 }
 
-/* Add an element to the top of a stack */
-void    push(int node_content, t_list **stack)
-{
-    t_list *node;
-    
-    node = ft_lstnew(node_content);
-    if (!node)
-    {
-        error_msg(0, "couldn't create new node");
-        // Shoulw I free?
-        return ;
-    }
-    ft_lstadd_front(stack, node);
-}
+
 
 /* BEWARE!!! index will start with 1 or 0 depending on arg_list type */
 int	first_encounter(int number, char *arguments, int position, int arg_type)

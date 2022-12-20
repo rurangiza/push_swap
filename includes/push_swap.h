@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/19 13:50:32 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:07:12 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 
 /* TYPEDEFS AND STRUCTURES */
 typedef struct s_list {
-	int             data;
+	int            content;
+	int				index;
 	struct s_list	*next;
+	struct s_list	*previous;
 }	t_list;
 
 /* FUNCTION PROTOTYPES */
-int count_numbers(int ac, char **av);
-void    push(int node_content, t_list **stack);
-int	first_encounter(int number, char *arguments, int position);
-int count_numbers(int ac, char **av);
+int		valid_number(char **arg_list, int index, int arg_type);
+void    push(int node_content, t_list *stack);
+int		first_encounter(int number, char *arguments, int position, int arg_type);
+char	**init_matrix(int arg_count, char **argv, int *arg_type, int *index);
 
 # endif

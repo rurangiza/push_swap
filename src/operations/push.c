@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/16 11:04:08 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/20 16:54:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,19 @@ void    pa()
 void    pb()
 {
     
+}
+
+/* Add an element to the top of a stack */
+void    push(int node_content, t_list *stack)
+{
+    t_list *node;
+    
+    node = ft_lstnew(node_content);
+    if (node == NULL)
+    {
+        error_msg(0, "couldn't create new node");
+		ft_lstclear(stack, ft_lstdelone);
+        return ;
+    }
+    ft_lstadd_back(stack, node);
 }
