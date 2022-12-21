@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/21 12:47:09 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/21 14:56:05 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SOURCE_FILES	=	${SRC_DIR}/main.c \
 					${SRC_DIR}/operations/push.c \
 					${SRC_DIR}/operations/linked_list.c \
 					${SRC_DIR}/utils/input_check.c \
+					${SRC_DIR}/initializer.c \
+					${SRC_DIR}/sort.c \
 
 # VARIABLES
 COMPILER	= 	gcc

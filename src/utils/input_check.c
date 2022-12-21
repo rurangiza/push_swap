@@ -6,43 +6,11 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:49:33 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 14:06:44 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:17:14 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-char **init_matrix(int arg_count, char **argv)
-{
-    int     arg_type;
-    char    **matrix;
-    int     index;
-     // Remove error message
-    
-    index = 0;
-    if (arg_count == 2)
-    {
-        arg_type = 0;
-        matrix = ft_split(argv[1], ' '); // Free later
-    }
-    else
-    {
-        index = 1;
-        arg_type = 1;
-        matrix = argv + 1;
-    }
-    while (matrix[index])
-    {
-        if (valid_number(matrix, index, arg_type))
-            index++;
-        else
-        {
-            error_msg(0, "invalid number");
-            return (NULL);
-        }
-    }
-    return (matrix);
-}
 
 /* Valid number */
 int valid_number(char **arg_list, int index, int arg_type)
@@ -50,17 +18,25 @@ int valid_number(char **arg_list, int index, int arg_type)
     int     number;
     char    *strnum;
     int     sign_counter;
+    int     digit_counter;
     int     i;
 
     sign_counter = 0;
+    digit_counter = 0;
     i = 0;
     strnum = arg_list[index];
     while (strnum[i] != '\0')
     {
+        if (ft_strlen(strnum) == 1 && (!ft_isdigit(strnum[i])))
+            return (error_msg(0, "sign only"));
         if (!ft_isdigit(strnum[i]) && !ft_issign(strnum[i]))
             return (error_msg(0, "argument nº%d is not a valid digit", index));
         if (ft_issign(strnum[i]))
             sign_counter++;
+        if (ft_isdigit(strnum[i]))
+            digit_counter++;
+        if (ft_issign(strnum[i]) && digit_counter > 1)
+            return (error_msg(0, "sign after digit"));
         i++;
     }
     if (sign_counter > 1)
