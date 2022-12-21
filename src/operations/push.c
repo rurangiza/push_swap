@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/20 17:24:54 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 09:40:30 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void    push(int node_content, t_dllist *stack)
     if (node == NULL)
     {
         error_msg(0, "couldn't create new node");
-		ft_lstclear(stack, ft_lstdelone);
+		dll_clear_all(&stack, dll_clear_one);
         return ;
     }
-    dll_add_back(stack, node);
+    dll_add_back(&stack, node);
 }

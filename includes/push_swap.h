@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/20 17:26:36 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 09:53:33 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 /* TYPEDEFS AND STRUCTURES */
 typedef struct s_dllist {
 	int            content;
-	int				index;
 	struct s_dllist	*next;
 	struct s_dllist	*previous;
+	int				index;
 }	t_dllist;
 
 /* FUNCTION PROTOTYPES */
@@ -30,7 +30,9 @@ int		first_encounter(int number, char *arguments, int position, int arg_type);
 char	**init_matrix(int arg_count, char **argv, int *arg_type, int *index);
 
 void    push(int node_content, t_dllist *stack);
-t_list	*dll_create_node(int content);
-void	dll_add_back(t_list **lst, t_list *new);
+t_dllist	*dll_create_node(int content);
+void	dll_add_back(t_dllist **lst, t_dllist *new);
+void	dll_clear_all(t_dllist **lst, void (*del)(void *));
+void	dll_clear_one(t_dllist *lst, void (*del)(void *));
 
 # endif
