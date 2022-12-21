@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/20 17:18:24 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 12:07:40 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,19 @@
 
 int main(int arg_count, char **argv)
 {
-    t_dllist  *stack_a = NULL;
+    t_node  *stack_a = NULL;
     int     index;
     char    **matrix;
     int     arg_type;
 
-    stack_a = malloc(sizeof(t_dllist));
-    stack_a->next = NULL;
-    stack_a->previous = NULL;
+    if (arg_count == 1)
+        error_msg(1, "No numbers to sort");
 
     matrix = init_matrix(arg_count, argv, &arg_type, &index);
+
+    stack_a = malloc(sizeof(t_node));
+    stack_a->next = NULL;
+    stack_a->previous = NULL;
 
     while (matrix[index])
     {

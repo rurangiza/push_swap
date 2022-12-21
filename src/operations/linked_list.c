@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dllist.c                                           :+:      :+:    :+:   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:53:44 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 09:39:55 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/21 12:04:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
  * Linked Lists Operations
 */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-t_dllist	*dll_create_node(int content)
+t_node	*create_node(int content)
 {
-	t_dllist	*node;
+	t_node	*node;
 
-	node = (t_dllist *)malloc(sizeof(t_dllist));
+	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
 	node->content = content;
@@ -29,7 +29,7 @@ t_dllist	*dll_create_node(int content)
 	return (node);
 }
 
-void	dll_add_back(t_dllist **lst, t_dllist *new)
+void	add_back(t_node **lst, t_node *new)
 {
 	if (!new || !lst)
 		return ;
@@ -38,32 +38,42 @@ void	dll_add_back(t_dllist **lst, t_dllist *new)
 		*lst = new;
 		return ;
 	}
-	ft_lstlast(*lst)->next = new;
+	get_last_node(*lst)->next = new;
 }
 
-#include "libft.h"
-
-void	dll_clear_all(t_dllist **lst, void (*del)(void *))
+/*
+ * Returns the last node of the list
+*/
+t_node	*get_last_node(t_node *lst)
 {
-	t_dllist	*tmp;
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
 
-	if (!lst || !del)
+void	delete_all_nodes(t_node **lst)
+{
+	t_node	*tmp;
+
+	if (!lst)
 		return ;
 	tmp = *lst;
 	while (*lst)
 	{
 		*lst = (*lst)->next;
-		del(tmp->content);
+		tmp->content = 0;
 		free(tmp);
 		tmp = *lst;
 	}
 	*lst = 0;
 }
 
-void	dll_clear_one(t_dllist *lst, void (*del)(void *))
-{
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
-}
+// void	delete_one_node(t_node *lst)
+// {
+// 	if (!lst)
+// 		return ;
+// 	lst->content = 0;
+// 	free(lst);
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/21 09:40:30 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/21 12:00:08 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ void    pb()
 }
 
 /* Add an element to the top of a stack */
-void    push(int node_content, t_dllist *stack)
+void    push(int node_content, t_node *stack)
 {
-    t_dllist *node;
+    t_node *node;
     
-    node = dll_create_node(node_content);
+    node = create_node(node_content);
     if (node == NULL)
     {
         error_msg(0, "couldn't create new node");
-		dll_clear_all(&stack, dll_clear_one);
+		delete_all_nodes(&stack);
         return ;
     }
-    dll_add_back(&stack, node);
+    add_back(&stack, node);
 }
