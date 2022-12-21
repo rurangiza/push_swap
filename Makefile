@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/21 14:56:05 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/21 15:58:17 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,3 +55,7 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+test:
+		@gcc -Wall -Werror -Wextra practice.c -o runthis
+		@./runthis
