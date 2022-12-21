@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/21 14:48:09 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:28:12 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	delete_one_node(t_node *lst);
 t_node	*get_last_node(t_node *lst);
 
 void	initialize_linkedlist(t_node *stack_a, char **matrix);
-void	duplicate_linkedlist(t_node *stack_a, t_node *stack_b);
-
 
 void	sort(t_node *stack_a, t_node *stack_b);
 

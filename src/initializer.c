@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 15:19:20 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:23:01 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void    initialize_linkedlist(t_node *stack_a, char **matrix)
     index = 0;
     while (matrix[index])
     {
-            success_msg(1, "Added (%d)", ft_atoi(matrix[index]));
-            //push(ft_atoi(matrix[index]), stack_a);
+            success_msg(1, "pushed (%d) => stack A", ft_atoi(matrix[index]));
+            push(ft_atoi(matrix[index]), stack_a);
             index++;
     }
 }

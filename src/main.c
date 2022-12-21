@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/21 15:18:16 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:29:01 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ int main(int arg_count, char **argv)
     stack_a->previous = NULL;
 
     initialize_linkedlist(stack_a, matrix);
-    duplicate_linkedlist(stack_a, stack_b);
 
     sort(stack_a, stack_b);
+    
+    printf("\nStack A's head = %d", stack_a->next->content);
 
     return (0);
 }

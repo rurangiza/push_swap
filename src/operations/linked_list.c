@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:53:44 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 14:51:02 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:28:00 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,30 +68,4 @@ void	delete_all_nodes(t_node **lst)
 		tmp = *lst;
 	}
 	*lst = 0;
-}
-
-/*
- * Copie every node of a linked list
- * into a new linked list
- * after modifying the content of each node with a given function
-*/
-void	duplicate_linkedlist(t_node *stack_a, t_node *stack_b)
-{
-	t_node	*tmp;
-
-	if (!stack_a)
-		error_msg(0, "%duplicate_linkedlist: stack_a is empty");
-	while (stack_a)
-	{
-		tmp = malloc(sizeof(t_node));
-		if (!tmp)
-			delete_all_nodes(&stack_b);
-		else
-		{
-			tmp->content = stack_a->content;
-			tmp->next = NULL;
-			add_back(&stack_b, tmp);
-		}
-		stack_a = stack_a->next;
-	}
 }
