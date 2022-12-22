@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:36:31 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/22 12:25:28 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/22 14:14:08 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,17 @@ int	bubble_sort(int	*unsorted, int size)
 	}
 	return (operations);
 }
+
+/*
+ * Selection sort  
+ *
+ * sorts an array by repeatedly finding the minimum element (considering ascending order)
+ * from the unsorted part and putting it at the beginning. 
+ *
+ * The algorithm maintains two subarrays in a given array:
+ * - The subarray which already sorted. 
+ * - The remaining subarray was unsorted.
+*/
 int	selection_sort(int *unsorted, int size)
 {
 	int	i;
@@ -128,7 +139,6 @@ int	selection_sort(int *unsorted, int size)
 		}
 		if (i != smallest_index)
 		{
-			printf("\n--smallest[%d]: %d", i, unsorted[smallest_index]);
 			swap(&unsorted[i], &unsorted[smallest_index]);
 			operations++;
 		}
@@ -136,18 +146,45 @@ int	selection_sort(int *unsorted, int size)
 	}
 	return (operations);
 }
+
+int	insertion_sort(int *unsorted, int size)
+{
+	int	i;
+	int	j;
+	int	operations;
+	int	key;
+
+	operations = 0;
+	i = 1;
+	while (i < size)
+	{
+		j = i - 1;
+		key = unsorted[i];
+		while (j >= 0 && unsorted[j] > key)
+		{
+			unsorted[j + 1] = unsorted[j];
+			j--;
+		}
+		operations++;
+		unsorted[j + 1] = key;
+		i++;
+	}
+
+	return (operations);
+}
+
 /* MAIN */
 int main(void)
 {
-	int	size = 20;
-	int	*unsorted = random_numbers(size, 100);
+	int	size = 100;
+	int	*unsorted = random_numbers(size, 5000);
 	int	operations;
 
 	printf("\033[31mUnsorted:\033[0m \n");
 	for (int i = 0; i < size; i++)
 		printf("%d ", unsorted[i]);
 	
-	operations = bubble_sort(unsorted, size);
+	operations = selection_sort(unsorted, size);
 	
 	printf("\n\n\033[32mSorted\033[0m\n");
 	for (int i = 0; i < size; i++)
