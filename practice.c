@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:36:31 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 20:42:02 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/22 12:20:36 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	swap(int *a, int *b)
 }
 
 /* SORITNG ALGORTIHMS */
-void	bubble_sort(int	*unsorted, int size)
+int	bubble_sort(int	*unsorted, int size)
 {
 	int	permutation;
 	int	i;
@@ -105,28 +105,54 @@ void	bubble_sort(int	*unsorted, int size)
 			i++;
 		}
 	}
-	// Print results
-	printf("\n=> %d operations\n", operations);
-	//summury(unsorted, size, operations);
+	return (operations);
 }
+int	selection_sort(int *unsorted, int size)
+{
+	int	i;
+	int	j;
+	int	smallest_index;
+	int	operations;
 
+	operations = 0;
+	i = 0;
+	while (i < size)
+	{
+		smallest_index = i;
+		j = i;
+		while (j < size)
+		{
+			if (unsorted[j] < unsorted[i])
+				smallest_index = j;
+			j++;
+		}
+		if (i != smallest_index)
+		{
+			printf("\n--smallest[%d]: %d", i, unsorted[smallest_index]);
+			swap(&unsorted[i], &unsorted[smallest_index]);
+			operations++;
+		}
+		i++;
+	}
+	return (operations);
+}
 /* MAIN */
 int main(void)
 {
-	int	size = 50;
+	int	size = 20;
 	int	*unsorted = random_numbers(size, 100);
+	int	operations;
 
-	printf("\033[31mBefore:\033[0m ");
+	printf("\033[31mUnsorted:\033[0m \n");
 	for (int i = 0; i < size; i++)
 		printf("%d ", unsorted[i]);
-	write(1, "\n", 1);
 	
-	bubble_sort(unsorted, size);
+	operations = selection_sort(unsorted, size);
 	
-	printf("\n\033[32mAfter:\033[0m ");
+	printf("\n\n\033[32mSorted\033[0m\n");
 	for (int i = 0; i < size; i++)
 		printf("%d ", unsorted[i]);
-	write(1, "\n", 1);
+	printf("\n\033[33m(%d operations)\033[0m\n", operations);
 
 	free(unsorted);
 	return (0);
