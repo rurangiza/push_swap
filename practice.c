@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:36:31 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/22 12:20:36 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/22 12:25:28 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	selection_sort(int *unsorted, int size)
 		j = i;
 		while (j < size)
 		{
-			if (unsorted[j] < unsorted[i])
+			if (unsorted[j] < unsorted[smallest_index])
 				smallest_index = j;
 			j++;
 		}
@@ -147,7 +147,7 @@ int main(void)
 	for (int i = 0; i < size; i++)
 		printf("%d ", unsorted[i]);
 	
-	operations = selection_sort(unsorted, size);
+	operations = bubble_sort(unsorted, size);
 	
 	printf("\n\n\033[32mSorted\033[0m\n");
 	for (int i = 0; i < size; i++)
