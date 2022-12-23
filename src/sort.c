@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 16:09:00 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:55:13 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,55 @@ int	already_sorted(t_node *stack_a)
 	return (1);
 }
 
+int		get_smallest(t_node *stack_a)
+{
+	t_node	*current_node;
+	int		smallest;
+
+	current_node = stack_a->next;
+	smallest = current_node->content;
+	while (current_node)
+	{
+		if (current_node->content < smallest)
+			smallest = current_node->content;
+		current_node = current_node->next;
+	}
+	return (smallest);
+}
+
 void	handle_5(t_node *stack_a, t_node *stack_b)
 {
 	// Find smallest
-	// int	smallest;
-	// t_node	*current_node;
+	int		smallest;
+	t_node	*last_node;
+	int		counter;
 
-	// current_node = stack_a->next;
-	// smallest = current_node->content;
-	// while (current_node)
-	// {
-	// 	if (current_node->content < smallest)
-	// 		smallest = current_node->content;
-	// 	current_node = current_node->next;
-	// }
-	
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	if (already_sorted(stack_a))
-		return ;
-	handle_3(stack_a);
+
+	counter = (get_list_size(stack_a) - 1) - 3;
+	while (counter > 0)
+	{
+		smallest = get_smallest(stack_a);
+		last_node = get_last_node(stack_a);
+		if (last_node->content == smallest)
+			rra(stack_a);
+		else
+		{
+			while (stack_a->next->content != smallest)
+			{
+				ra(stack_a);
+			}
+		}
+		pb(stack_a, stack_b);
+		counter--;
+	}
+	if (!already_sorted(stack_a))
+		handle_3(stack_a);
+	counter = (get_list_size(stack_b) - 1);
+	while (counter > 0)
+	{
+		pa(stack_a, stack_b);
+		counter--;
+	}
 }
 
 void	sort(t_node *stack_a, t_node *stack_b)
@@ -116,5 +145,4 @@ void	sort(t_node *stack_a, t_node *stack_b)
 	else
 		handle_500(stack_a, stack_b);
 	*/
-	success_msg(1, "sorted");
 }

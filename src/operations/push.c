@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 16:06:19 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:52:13 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void    pb(t_node *stack_a, t_node *stack_b)
     first_a->next = first_b;
     second_a->previous = stack_a;
     
+    
     stack_b->next = first_a;
 
     if (first_b != NULL)
@@ -50,10 +51,11 @@ void    pa(t_node *stack_a, t_node *stack_b)
     first_b = stack_b->next;
     second_b = first_b->next;
     first_a = stack_a->next;
-    
+
     stack_b->next = second_b;
     first_b->next = first_a;
-    second_b->previous = stack_b;
+    if (second_b != NULL)
+        second_b->previous = stack_b;
     
     stack_a->next = first_b;
 
