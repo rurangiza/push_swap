@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 11:53:39 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 14:44:17 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_node {
 }	t_node;
 
 /* FUNCTION PROTOTYPES */
-int		valid_number(char **arg_list, int index, int arg_type);
-int		first_encounter_arg(int number, char **arguments, int position, int arg_type);
+int		valid_number(char **arg_list, int index);
+int		first_encounter_arg(int number, char **arguments, int position);
 char	**initialize_matrix(int arg_count, char **argv);
 
 void    push(int node_content, t_node *stack);

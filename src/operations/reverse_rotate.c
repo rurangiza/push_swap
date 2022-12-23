@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:05:52 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 12:18:00 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 14:32:05 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    rra(t_node *stack_a)
 
 	old_last->previous = stack_a;
 	first->previous = old_last;
-
+	write(1, "rra\n", 4);
 }
 
 /* (reverse rotate b): Shift down all elements of stack b by 1
