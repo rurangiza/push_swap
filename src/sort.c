@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 17:03:18 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:53:05 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	handle_3(t_node *stack_a)
 		rra(stack_a);
 }
 
-int	already_sorted(t_node *stack_a)
+int	is_sorted(t_node *stack_a)
 {
 	int	prev_largest;
 	
@@ -72,7 +72,7 @@ int	already_sorted(t_node *stack_a)
 	return (1);
 }
 
-int		get_smallest(t_node *stack_a)
+int		find_smallest_nbr(t_node *stack_a)
 {
 	t_node	*current_node;
 	int		smallest;
@@ -98,7 +98,7 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 	counter = (get_list_size(stack_a) - 1) - 3;
 	while (counter > 0)
 	{
-		smallest = get_smallest(stack_a);
+		smallest = find_smallest_nbr(stack_a);
 		last_node = get_last_node(stack_a);
 		if (last_node->content == smallest)
 			rra(stack_a);
@@ -112,7 +112,7 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 		pb(stack_a, stack_b);
 		counter--;
 	}
-	if (!already_sorted(stack_a))
+	if (!is_sorted(stack_a))
 		handle_3(stack_a);
 	counter = (get_list_size(stack_b) - 1);
 	while (counter > 0)
@@ -124,7 +124,8 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 
 void	handle_100(t_node *stack_a, t_node *stack_b)
 {
-	
+	(void)stack_a;
+	(void)stack_b;
 }
 
 void	sort(t_node *stack_a, t_node *stack_b)
@@ -134,7 +135,7 @@ void	sort(t_node *stack_a, t_node *stack_b)
 	(void)stack_b;
 	stack_size = get_list_size(stack_a) - 1;
 
-	if (already_sorted(stack_a))
+	if (is_sorted(stack_a))
 	{
 		success_msg(1, "aleready sorted");
 		return ;

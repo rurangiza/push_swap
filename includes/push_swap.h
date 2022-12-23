@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 17:03:35 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:53:45 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@ void    ra(t_node *stack_a);
 void    rra(t_node *stack_a);
 void    pb(t_node *stack_a, t_node *stack_b);
 void    pa(t_node *stack_a, t_node *stack_b);
+
+int		is_sorted(t_node *stack_a);
+int		find_smallest_nbr(t_node *stack_a);
 
 # endif
