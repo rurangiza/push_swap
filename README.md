@@ -2,7 +2,7 @@
 
 ### A program that sorts data on a stack with specific constrains
 
-## Constrains
+## 🚫 Constrains
 ### ~ in structure 
 We receive a list of unordered numbers and we have to sort them with the least operations possible.
 - 2 stacks : for the sorting, we have 2 stacks (stack A and stack B) at our disposal. They can be an array or a linked list
@@ -28,12 +28,12 @@ Depending on the size of the list, the program must be below a certain number of
     - 2 points if the size of the list of instructions is less than 10000
     - 1 points if the size of the list of instructions is less than 11500
 
-## Implementation
+## 📝 Implementation
 
-## Learnings
+## 💡 Learnings
 
 - Learn about sorting algorithms
 - Learn about big O notation and complexity in algorithms
 - Data structure: implementing a doubly-linked list
 
-## Final thoughts
+## 🫡 Final thoughts
