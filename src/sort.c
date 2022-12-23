@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 16:55:13 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:03:18 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ int		get_smallest(t_node *stack_a)
 
 void	handle_5(t_node *stack_a, t_node *stack_b)
 {
-	// Find smallest
 	int		smallest;
 	t_node	*last_node;
 	int		counter;
@@ -123,6 +122,11 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 	}
 }
 
+void	handle_100(t_node *stack_a, t_node *stack_b)
+{
+	
+}
+
 void	sort(t_node *stack_a, t_node *stack_b)
 {
 	int	stack_size;
@@ -139,9 +143,9 @@ void	sort(t_node *stack_a, t_node *stack_b)
 		handle_3(stack_a);
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
-	/*
 	else if (stack_size <= 100)
 		handle_100(stack_a, stack_b);
+	/*
 	else
 		handle_500(stack_a, stack_b);
 	*/
