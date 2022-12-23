@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:27 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 10:45:37 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:08:06 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,15 @@ void    sa(t_node *stack_a)
 {
 	t_node	*first;
 	t_node	*second;
+	t_node	*third;
 
 	first = stack_a->next;
+	if (first->next == NULL)
+		return ;
 	second = first->next;
+	if (second->next == NULL)
+		return ;
+	third = second->next;
 	
 	stack_a->next = second;
 	first->next = second->next;
@@ -39,6 +45,7 @@ void    sa(t_node *stack_a)
 	
 	second->previous = stack_a;
 	first->previous = second;
+	third->previous = first;
 
 	// stack_a = stack_a->next;
 	// first = stack_a;

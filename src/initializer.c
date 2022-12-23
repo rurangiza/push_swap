@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 09:23:15 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:52:06 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void    initialize_linkedlist(t_node *stack_a, t_node *stack_b, char **matrix)
     stack_a->next = NULL;
     stack_a->previous = NULL;
     stack_a->index = -1;
+
     stack_b->next = NULL;
     stack_b->previous = NULL;
     stack_b->index = -1;

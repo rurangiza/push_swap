@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/23 11:17:35 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/23 11:53:58 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SOURCE_FILES	=	${SRC_DIR}/main.c \
 					${SRC_DIR}/utils/unit_test.c \
 					${SRC_DIR}/operations/swap.c \
 					${SRC_DIR}/operations/rotate.c \
+					${SRC_DIR}/operations/reverse_rotate.c \
 
 # VARIABLES
 COMPILER	= 	gcc

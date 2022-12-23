@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:55:11 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 11:16:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:13:20 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void    ra(t_node *stack_a)
     t_node	*last;
 	
 	first = stack_a->next;
+	if (first->next == NULL)
+		return ;
 	second = first->next;
 	last = get_last_node(stack_a);
 	
