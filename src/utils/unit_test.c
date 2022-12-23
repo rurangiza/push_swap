@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   practice.c                                         :+:      :+:    :+:   */
+/*   unit_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 15:36:31 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/22 14:14:08 by Arsene           ###   ########.fr       */
+/*   Created: 2022/12/23 09:32:16 by arurangi          #+#    #+#             */
+/*   Updated: 2022/12/23 10:16:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	*random_numbers(int size, int threshold)
 }
 
 /* OPERATIONS */
-void	swap(int *a, int *b)
+static void	swap(int *a, int *b)
 {
 	int	tmp;
 
@@ -174,23 +174,23 @@ int	insertion_sort(int *unsorted, int size)
 }
 
 /* MAIN */
-int main(void)
-{
-	int	size = 100;
-	int	*unsorted = random_numbers(size, 5000);
-	int	operations;
+// int main(void)
+// {
+// 	int	size = 100;
+// 	int	*unsorted = random_numbers(size, 5000);
+// 	int	operations;
 
-	printf("\033[31mUnsorted:\033[0m \n");
-	for (int i = 0; i < size; i++)
-		printf("%d ", unsorted[i]);
+// 	printf("\033[31mUnsorted:\033[0m \n");
+// 	for (int i = 0; i < size; i++)
+// 		printf("%d ", unsorted[i]);
 	
-	operations = selection_sort(unsorted, size);
+// 	operations = selection_sort(unsorted, size);
 	
-	printf("\n\n\033[32mSorted\033[0m\n");
-	for (int i = 0; i < size; i++)
-		printf("%d ", unsorted[i]);
-	printf("\n\033[33m(%d operations)\033[0m\n", operations);
+// 	printf("\n\n\033[32mSorted\033[0m\n");
+// 	for (int i = 0; i < size; i++)
+// 		printf("%d ", unsorted[i]);
+// 	printf("\n\033[33m(%d operations)\033[0m\n", operations);
 
-	free(unsorted);
-	return (0);
-}
+// 	free(unsorted);
+// 	return (0);
+// }

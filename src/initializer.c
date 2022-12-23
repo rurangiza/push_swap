@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 15:23:01 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 09:23:15 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ char **initialize_matrix(int arg_count, char **argv)
     int     arg_type;
     char    **matrix;
     int     index;
+    
+    if (arg_count == 1)
+    {
+        error_msg(1, "No numbers to sort");
+        return (NULL);
+    }
     
     index = 0;
     if (arg_count == 2)
@@ -40,15 +46,21 @@ char **initialize_matrix(int arg_count, char **argv)
     return (matrix);
 }
 
-void    initialize_linkedlist(t_node *stack_a, char **matrix)
+void    initialize_linkedlist(t_node *stack_a, t_node *stack_b, char **matrix)
 {
     int index;
 
-    (void)stack_a;
+    stack_a->next = NULL;
+    stack_a->previous = NULL;
+    stack_a->index = -1;
+    stack_b->next = NULL;
+    stack_b->previous = NULL;
+    stack_b->index = -1;
+    
     index = 0;
     while (matrix[index])
     {
-            success_msg(1, "pushed (%d) => stack A", ft_atoi(matrix[index]));
+            //success_msg(1, "pushed (%d) => stack A", ft_atoi(matrix[index]));
             push(ft_atoi(matrix[index]), stack_a);
             index++;
     }

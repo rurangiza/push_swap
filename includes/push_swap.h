@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/21 15:28:12 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:40:10 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../src/library/libft.h"
 # include <stdlib.h> // malloc, free, NULL
+# include <stdio.h>
 
 
 /* TYPEDEFS AND STRUCTURES */
@@ -24,22 +25,28 @@ typedef struct s_node {
 	struct s_node	*next;
 	struct s_node	*previous;
 	int				index;
+	int				order;
 }	t_node;
 
 /* FUNCTION PROTOTYPES */
 int		valid_number(char **arg_list, int index, int arg_type);
-int		first_encounter(int number, char **arguments, int position, int arg_type);
+int		first_encounter_arg(int number, char **arguments, int position, int arg_type);
 char	**initialize_matrix(int arg_count, char **argv);
 
 void    push(int node_content, t_node *stack);
+
 t_node	*create_node(int content);
 void	add_back(t_node **lst, t_node *new);
 void	delete_all_nodes(t_node **lst);
 void	delete_one_node(t_node *lst);
 t_node	*get_last_node(t_node *lst);
+int		get_list_size(t_node *lst);
 
-void	initialize_linkedlist(t_node *stack_a, char **matrix);
+void	initialize_linkedlist(t_node *stack_a, t_node *stack_b, char **matrix);
 
 void	sort(t_node *stack_a, t_node *stack_b);
+
+void    sa(t_node *stack_a);
+void    ra(t_node *stack_a);
 
 # endif

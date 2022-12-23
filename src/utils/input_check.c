@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:49:33 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 15:17:14 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 09:55:30 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int valid_number(char **arg_list, int index, int arg_type)
     number = ft_atoi(strnum);
     if (number < INT_MIN || number > INT_MAX)
         return (error_msg(0, "number bigger/lower than INT_MAX/INT_MIN"));
-    if (!first_encounter(number, arg_list, index, arg_type)) // Replace with comparaison with previous numbers in the stack for quick traversal
+    if (!first_encounter_arg(number, arg_list, index, arg_type)) // Replace with comparaison with previous numbers in the stack for quick traversal
         return (error_msg(0, "there are duplicates of %d", number));
     return (1);
 }
@@ -52,7 +52,7 @@ int valid_number(char **arg_list, int index, int arg_type)
 
 
 /* BEWARE!!! index will start with 1 or 0 depending on arg_list type */
-int	first_encounter(int number, char **arguments, int position, int arg_type)
+int	first_encounter_arg(int number, char **arguments, int position, int arg_type)
 {
 	int index;
 

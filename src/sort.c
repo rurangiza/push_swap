@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/21 15:40:01 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:42:08 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,33 @@
 
 void	sort(t_node *stack_a, t_node *stack_b)
 {
-	(void)stack_a;
+	/*
+	int	stack_size;
+	
+	stack_size = get_list_size(stack_a);
+	
+	if (stack_size <= 3)
+	{
+		// Do this
+	}
+	else if (stack_size <= 5)
+	{
+		// Do this
+	}
+	else if (stack_size <= 100)
+	{
+		// Do this
+	}
+	else
+	{
+		// Do this
+	}
+	*/
+
+	//(void)stack_a;
 	(void)stack_b;
+	ra(stack_a);
+	ra(stack_a);
+	ra(stack_a);
 	return ;
 }
