@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 19:53:05 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/23 21:18:04 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,9 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 {
 	(void)stack_a;
 	(void)stack_b;
+	/* QUICKSORT */
+	// Pick a pivot
+	//  
 }
 
 void	sort(t_node *stack_a, t_node *stack_b)
