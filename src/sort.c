@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 14:28:07 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:09:00 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	handle_3(t_node *stack_a)
 	second = first->next;
 	third = second->next;
 	
-	info_msg(0, "handling \"case 3\"");
 	if (first->content > second->content && first->content < third->content)
 		sa(stack_a);
 	else if (first->content > second->content && second->content > third->content)
@@ -73,6 +72,28 @@ int	already_sorted(t_node *stack_a)
 	return (1);
 }
 
+void	handle_5(t_node *stack_a, t_node *stack_b)
+{
+	// Find smallest
+	// int	smallest;
+	// t_node	*current_node;
+
+	// current_node = stack_a->next;
+	// smallest = current_node->content;
+	// while (current_node)
+	// {
+	// 	if (current_node->content < smallest)
+	// 		smallest = current_node->content;
+	// 	current_node = current_node->next;
+	// }
+	
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	if (already_sorted(stack_a))
+		return ;
+	handle_3(stack_a);
+}
+
 void	sort(t_node *stack_a, t_node *stack_b)
 {
 	int	stack_size;
@@ -87,9 +108,9 @@ void	sort(t_node *stack_a, t_node *stack_b)
 	}
 	if (stack_size <= 3) // 5 cases
 		handle_3(stack_a);
-	/*
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
+	/*
 	else if (stack_size <= 100)
 		handle_100(stack_a, stack_b);
 	else
