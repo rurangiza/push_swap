@@ -2,6 +2,8 @@
 
 > A program that sorts data on a stack with specific constrains
 
+![Animation of a sorting algorithm](./assets/quicksort_anim.gif)
+
 ## 🚫 Constrains
 ### ~ in structure 
 We receive a list of unordered numbers and we have to sort them with the least operations possible.
