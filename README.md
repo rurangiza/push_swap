@@ -4,6 +4,8 @@
 
 ![Animation of a sorting algorithm](./assets/quicksort_anim.gif)
 
+<img src="./assets/quicksort_anim.gif" width="100%" alt="Animation of a sorting algorithm"/>
+
 ## 🚫 Constrains
 ### ~ in structure 
 We receive a list of unordered numbers and we have to sort them with the least operations possible.
