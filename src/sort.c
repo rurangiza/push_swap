@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 21:18:04 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/24 09:27:05 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,13 +122,67 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 	}
 }
 
+int	calc_average(t_node *stack_a)
+{
+	int	stack_size;
+	int	sum;
+	int	average;
+
+	stack_size = get_list_size(stack_a);
+	sum = 0;
+	while (stack_a)
+	{
+		sum += stack_a->content;
+		stack_a = stack_a->next;
+	}
+	average = sum / stack_size;
+	return (average);
+}
+
+int	ft_abs(int x)
+{
+	if (x < 0)
+		return -x;
+	else
+		return (x);
+}
+
+int	find_pivot(t_node *stack_a)
+{
+	int	closest;
+	int	closest_number;
+	int	target;
+
+	target = calc_average(stack_a);
+	
+	closest = INT_MAX;
+	closest_number = 0;
+	stack_a = stack_a->next;
+	while (stack_a)
+	{
+		if (ft_abs(stack_a->content - target) < ft_abs(closest - target))
+		{
+			closest = stack_a->content;
+			closest_number = stack_a->content;
+		}
+		stack_a = stack_a->next;
+	}
+	return (closest_number);
+}
+
 void	handle_100(t_node *stack_a, t_node *stack_b)
 {
-	(void)stack_a;
-	(void)stack_b;
-	/* QUICKSORT */
-	// Pick a pivot
-	//  
+	int	pivot;
+
+	pivot = find_pivot(stack_a);
+	// Base case
+	// if (stack_size < 2)
+	// 	return ;
+	// Find a good pivot element
+		// Calculate average of all numbers (+  Find size of the stack)
+		// Find closest number to the average
+		// Set that number as pivot
+	// Move items around the pivot element (left = smaller, right = bigger)
 }
 
 void	sort(t_node *stack_a, t_node *stack_b)
