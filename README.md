@@ -34,8 +34,8 @@ Depending on the size of the list, the program must be below a certain number of
 
 ## 💡 Learnings
 
-- Learn about sorting algorithms
-- Learn about big O notation and complexity in algorithms
+- Sorting algorithms
+- Big O notation and complexity in algorithms
 - Data structure: implementing and manipulating a doubly-linked list
 
 ## 🫡 Final thoughts
