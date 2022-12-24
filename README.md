@@ -2,8 +2,6 @@
 
 > A program that sorts data on a stack with specific constrains
 
-![Animation of a sorting algorithm](./assets/quicksort_anim.gif)
-
 <img src="./assets/quicksort_anim.gif" width="100%" alt="Animation of a sorting algorithm"/>
 
 ## 🚫 Constrains
