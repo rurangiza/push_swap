@@ -52,7 +52,7 @@ int list_B[] = {12, 4, 6, 1, 8, 1801, 244}; // 244 is the pivot
 ```
 
 2. Partitioning: 
-
+> In computer science, partitioning refers to the division of a computer's hard drive, or other data storage device, into separate areas where data can be stored. These separate areas are called "partitions."
 Key terms: partitioning, pivot, D&C (Devide and Conquer)
 
 ## 💡 Learnings

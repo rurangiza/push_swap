@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 16:56:01 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/25 14:27:46 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,21 @@ int main(int arg_count, char **argv)
     
     sort(stack_a, stack_b);
 
-    // t_node *tmp_a = stack_a->next;
-    // t_node *tmp_b = stack_b->next;
-    // while (tmp_a)
-    // {
-    //     printf("%d", tmp_a->content);
-    //     if (tmp_b != NULL)
-    //     {
-    //         printf(" %d", tmp_b->content);
-    //         tmp_b = tmp_b->next;            
-    //     }
-    //     printf("\n");
-    //     tmp_a = tmp_a->next;
-    // }
-    // printf("_ _\na b\n");
+    t_node *tmp_a = stack_a->next;
+    t_node *tmp_b = stack_b->next;
+    printf("+----------+\n|  STACKS  |\n+----------+\n");
+    while (tmp_a)
+    {
+        printf("%-4d", tmp_a->content);
+        if (tmp_b != NULL)
+        {
+            printf(" %-4d", tmp_b->content);
+            tmp_b = tmp_b->next;            
+        }
+        printf("\n");
+        tmp_a = tmp_a->next;
+    }
+    printf("_    _\nA    B\n");
 
     return (0);
 }
