@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 20:15:19 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 20:42:33 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int		count_pushables(t_node *stack_a, int pivot, int start, int end);
 int		find_pivot(t_node *stack_a, int start, int end, int stack_size);
 int		ft_abs(int x);
 int		calc_average(t_node *stack_a, int start, int end, int stack_size);
-int		push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot);
+int		push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot, int stack_size);
+
+void    display_stack(t_node *stack_a, t_node *stack_b);
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 20:20:18 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 21:18:05 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,26 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	int		pivot;
 	int		stack_size;
 	int     pushables;
-	//int     rotated_items;
+	int		sorted_items;
+	int     rotated_items;
 
 	if (start >= end)
-	{
-		error_msg(0, "start > end");
 		return ;
-	}
 
 	stack_size = end - start;
 	(void)stack_b;
 	pivot = find_pivot(stack_a, start, end, stack_size);
-	success_msg(0, "Pivot = %d", pivot);
 	// Count number of items to push
 	pushables = count_pushables(stack_a, pivot, start, end);
-	info_msg(0, "%d pushables", pushables);
-	/*
+	// Send to back already sorted items
+	sorted_items = 0;
+	while (sorted_items < start)
+	{
+		ra(stack_a);
+		sorted_items++;
+	}
 	// Push items to stack_b (or move out of the way)
-	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot);
+	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot, stack_size);
 	// Replace back in order
 	while (rotated_items-- > 0)
 		rra(stack_a);
@@ -59,11 +61,17 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	// Send back all numbers in stack_b to stack_a
 	while (stack_b->next != NULL)
 		pa(stack_a, stack_b);
+	// Move back sorted items
+	while (sorted_items > 0)
+	{
+		rra(stack_a);
+		sorted_items--;
+	}
+
 	// Recursion
 	int pivot_index = find_node_position(stack_a, pivot);
 	quicksort(stack_a, stack_b, start, pivot_index);
 	quicksort(stack_a, stack_b, pivot_index + 1, end);
-	*/
 }
 
 int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
@@ -97,12 +105,12 @@ int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
 	return (closest_number);
 }
 
-int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot)
+int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot, int stack_size)
 {
 	int	rotation_counter;;
 
 	rotation_counter = 0;
-	while (elements_to_push > 0)
+	while (elements_to_push > 0 && stack_size != 0)
 	{
 		if (stack_a->next->content < pivot)
 		{
@@ -114,15 +122,30 @@ int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot)
 			ra(stack_a);
 			rotation_counter++;
 		}
+		stack_size--;
 	}
 	return (rotation_counter);
 }
 
 void    move_pivot_ontop(t_node *stack_a, int pivot)
 {
-    int pivot_position;
-	int	stack_size;
+    //int pivot_position;
+	//int	stack_size;
+	int	rotated_items;
 
+	rotated_items = 0;
+	while (stack_a->next->content != pivot)
+	{
+		ra(stack_a);
+		rotated_items++;
+	}
+	while (rotated_items != 0)
+	{
+		rra(stack_a);
+		sa(stack_a);
+		rotated_items--;
+	}
+	/*
 	stack_size = get_list_size(stack_a);
     pivot_position = find_node_position(stack_a, pivot);
 	if (pivot_position == -1)
@@ -134,6 +157,7 @@ void    move_pivot_ontop(t_node *stack_a, int pivot)
 		else
 			rra(stack_a);
 	}
+	*/
 }
 
 

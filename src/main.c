@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 19:09:04 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 21:16:17 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,7 @@
 #include "../includes/push_swap.h"
 //#include "../includes/unit_test.h"
 
-void    display_stack(t_node *stack_a, t_node *stack_b)
-{
-    t_node *tmp_a = stack_a->next;
-    t_node *tmp_b = stack_b->next;
 
-    printf("+----------+\n|  STACKS  |\n+----------+\n");
-    while (tmp_a)
-    {
-        printf("%-4d", tmp_a->content);
-        if (tmp_b != NULL)
-        {
-            printf(" %-4d", tmp_b->content);
-            tmp_b = tmp_b->next;            
-        }
-        printf("\n");
-        tmp_a = tmp_a->next;
-    }
-    printf("_    _\nA    B\n");
-}
 
 int main(int arg_count, char **argv)
 {
@@ -55,7 +37,7 @@ int main(int arg_count, char **argv)
 
     init_stack(stack_a, stack_b, matrix);
     sort_stack(stack_a, stack_b);
-    //display_stack(stack_a, stack_b);
+    display_stack(stack_a, stack_b);
 
     return (0);
 }
