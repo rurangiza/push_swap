@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
+#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/23 11:53:58 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/25 15:49:37 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SOURCE_FILES	=	${SRC_DIR}/main.c \
 					${SRC_DIR}/utils/input_check.c \
 					${SRC_DIR}/initializer.c \
 					${SRC_DIR}/sort.c \
+					${SRC_DIR}/partitioning.c \
 					${SRC_DIR}/utils/unit_test.c \
 					${SRC_DIR}/operations/swap.c \
 					${SRC_DIR}/operations/rotate.c \

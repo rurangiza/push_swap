@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/24 09:59:41 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 15:58:01 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,11 @@ int		find_smallest_nbr(t_node *stack_a);
 int	find_pivot(t_node *stack_a);
 int	ft_abs(int x);
 int	calc_average(t_node *stack_a);
+
+/* PARTITION */
+void	partition(t_node *stack_a, t_node *stack_b, int pivot);
+int		find_node_position(t_node *list, int content);
+void	place_pivot_ontop(t_node *stack_a, int pivot);
+int		count_elements_to_push(t_node *stack_a, int pivot);
 
 # endif
