@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 20:42:33 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 22:14:38 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	handle_5(t_node *stack_a, t_node *stack_b);
 void	handle_100(t_node *stack_a, t_node *stack_b);
 
 int		is_sorted(t_node *stack_a);
+int		is_sorted_recursive(t_node *stack_a, int start, int end);
 int		find_smallest_nbr(t_node *stack_a);
 
 /* PARTITION */

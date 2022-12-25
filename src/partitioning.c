@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 21:18:05 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 22:16:27 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,13 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 
 	// Recursion
 	int pivot_index = find_node_position(stack_a, pivot);
-	quicksort(stack_a, stack_b, start, pivot_index);
-	quicksort(stack_a, stack_b, pivot_index + 1, end);
+	if (!is_sorted_recursive(stack_a, start, pivot_index))
+		quicksort(stack_a, stack_b, start, pivot_index);
+	if (!is_sorted_recursive(stack_a, pivot_index + 1, end))
+		quicksort(stack_a, stack_b, pivot_index + 1, end);
 }
+
+
 
 int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
 {
