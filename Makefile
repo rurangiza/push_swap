@@ -6,7 +6,7 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/25 16:14:37 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/25 17:16:53 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIBFT_DIR	=	./src/library/
 SRC_DIR		=	./src/
 UTILS_DIR	=	./src/utils/
 OP_DIR		=	./src/operations/
+UNIT_TEST	=	./src/unit-testing/
 
 # SOURCE FILES
 SOURCE_FILES	=	${SRC_DIR}main.c \
@@ -27,6 +28,8 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${SRC_DIR}sorting.c \
 					${SRC_DIR}partitioning.c \
 					${UTILS_DIR}linked_list.c \
+					${UTILS_DIR}sorting_utils.c \
+					${UTILS_DIR}partitioning_utils.c \
 					${OP_DIR}push.c \
 					${OP_DIR}swap.c \
 					${OP_DIR}rotate.c \

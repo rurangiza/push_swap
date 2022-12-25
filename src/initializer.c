@@ -6,13 +6,13 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:06:57 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 16:07:51 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 17:05:53 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void    initialize_linkedlist(t_node *stack_a, t_node *stack_b, char **matrix)
+void    init_stack(t_node *stack_a, t_node *stack_b, char **matrix)
 {
     int index;
 
@@ -27,7 +27,6 @@ void    initialize_linkedlist(t_node *stack_a, t_node *stack_b, char **matrix)
     index = 0;
     while (matrix[index])
     {
-            //success_msg(1, "pushed (%d) => stack A", ft_atoi(matrix[index]));
             push(ft_atoi(matrix[index]), stack_a);
             index++;
     }

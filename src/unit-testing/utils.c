@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unit_test.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:32:16 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 10:16:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/25 17:16:20 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,28 @@
 #include <stdlib.h>
 #include <time.h>
 #include <limits.h>
+
+#include "../../includes/unit_test.h"
+
+void    display_stack(t_node *stack_a, t_node *stack_b)
+{
+    t_node *tmp_a = stack_a->next;
+    t_node *tmp_b = stack_b->next;
+
+    printf("+----------+\n|  STACKS  |\n+----------+\n");
+    while (tmp_a)
+    {
+        printf("%-4d", tmp_a->content);
+        if (tmp_b != NULL)
+        {
+            printf(" %-4d", tmp_b->content);
+            tmp_b = tmp_b->next;            
+        }
+        printf("\n");
+        tmp_a = tmp_a->next;
+    }
+    printf("_    _\nA    B\n");
+}
 
 /* UTILS */
 void	summury(int *unsorted, int size, int operations)

@@ -6,13 +6,13 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/25 16:07:30 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 17:03:14 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char **initialize_matrix(int arg_count, char **argv)
+char **parse_input(int arg_count, char **argv)
 {
     char    **matrix;
     int     index;
