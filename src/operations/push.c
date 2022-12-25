@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 16:52:13 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:08:04 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,3 @@ void    pa(t_node *stack_a, t_node *stack_b)
     write(1, "pa\n", 3);
 }
 
-/* Add an element to the top of a stack */
-void    push(int node_content, t_node *stack)
-{
-    t_node *node;
-    
-    node = create_node(node_content);
-    if (node == NULL)
-    {
-        error_msg(0, "couldn't create new node");
-		delete_all_nodes(&stack);
-        return ;
-    }
-    add_back(&stack, node);
-}

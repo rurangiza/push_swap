@@ -1,18 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.c                                      :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 13:49:33 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 14:43:43 by arurangi         ###   ########.fr       */
+/*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
+/*   Updated: 2022/12/25 16:07:30 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-/* Valid number */
+char **initialize_matrix(int arg_count, char **argv)
+{
+    char    **matrix;
+    int     index;
+    
+    if (arg_count == 1)
+    {
+        error_msg(1, "No numbers to sort");
+        return (NULL);
+    }
+    
+    index = 0;
+    if (arg_count == 2)
+    {
+        matrix = ft_split(argv[1], ' ');
+    }
+    else
+    {
+        index = 1;
+        matrix = argv + 1;
+    }
+    while (matrix[index])
+    {
+        if (valid_number(matrix, index))
+            index++;
+        else
+            return (NULL);
+    }
+    return (matrix);
+}
+
 int valid_number(char **arg_list, int index)
 {
     int     number;

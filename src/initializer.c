@@ -3,45 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   initializer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 14:47:39 by arurangi         ###   ########.fr       */
+/*   Created: 2022/12/25 16:06:57 by Arsene            #+#    #+#             */
+/*   Updated: 2022/12/25 16:07:51 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-char **initialize_matrix(int arg_count, char **argv)
-{
-    char    **matrix;
-    int     index;
-    
-    if (arg_count == 1)
-    {
-        error_msg(1, "No numbers to sort");
-        return (NULL);
-    }
-    
-    index = 0;
-    if (arg_count == 2)
-    {
-        matrix = ft_split(argv[1], ' ');
-    }
-    else
-    {
-        index = 1;
-        matrix = argv + 1;
-    }
-    while (matrix[index])
-    {
-        if (valid_number(matrix, index))
-            index++;
-        else
-            return (NULL);
-    }
-    return (matrix);
-}
 
 void    initialize_linkedlist(t_node *stack_a, t_node *stack_b, char **matrix)
 {
@@ -62,4 +31,19 @@ void    initialize_linkedlist(t_node *stack_a, t_node *stack_b, char **matrix)
             push(ft_atoi(matrix[index]), stack_a);
             index++;
     }
+}
+
+/* Add an element to the top of a stack */
+void    push(int node_content, t_node *stack)
+{
+    t_node *node;
+    
+    node = create_node(node_content);
+    if (node == NULL)
+    {
+        error_msg(0, "couldn't create new node");
+		delete_all_nodes(&stack);
+        return ;
+    }
+    add_back(&stack, node);
 }

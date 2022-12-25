@@ -6,7 +6,7 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/25 15:49:37 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/25 16:14:37 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,20 +16,21 @@ LIBFT	=	./src/library/libft.a
 
 # DERECTORIES
 LIBFT_DIR	=	./src/library/
-SRC_DIR		=	./src
+SRC_DIR		=	./src/
+UTILS_DIR	=	./src/utils/
+OP_DIR		=	./src/operations/
 
 # SOURCE FILES
-SOURCE_FILES	=	${SRC_DIR}/main.c \
-					${SRC_DIR}/operations/push.c \
-					${SRC_DIR}/operations/linked_list.c \
-					${SRC_DIR}/utils/input_check.c \
-					${SRC_DIR}/initializer.c \
-					${SRC_DIR}/sort.c \
-					${SRC_DIR}/partitioning.c \
-					${SRC_DIR}/utils/unit_test.c \
-					${SRC_DIR}/operations/swap.c \
-					${SRC_DIR}/operations/rotate.c \
-					${SRC_DIR}/operations/reverse_rotate.c \
+SOURCE_FILES	=	${SRC_DIR}main.c \
+					${SRC_DIR}parsing.c \
+					${SRC_DIR}initializer.c \
+					${SRC_DIR}sorting.c \
+					${SRC_DIR}partitioning.c \
+					${UTILS_DIR}linked_list.c \
+					${OP_DIR}push.c \
+					${OP_DIR}swap.c \
+					${OP_DIR}rotate.c \
+					${OP_DIR}reverse_rotate.c \
 
 # VARIABLES
 COMPILER	= 	gcc
