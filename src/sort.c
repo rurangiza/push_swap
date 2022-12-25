@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/24 09:27:05 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/24 17:57:10 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,14 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 {
 	int	pivot;
 
-	pivot = find_pivot(stack_a);
+	if (get_list_size(stack_a) < 2)
+		return ;
+	else
+	{
+		pivot = find_pivot(stack_a);
+		partition()
+		handle
+	}
 	// Base case
 	// if (stack_size < 2)
 	// 	return ;
