@@ -6,26 +6,31 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:28:33 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 16:52:37 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 20:13:54 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	calc_average(t_node *stack_a)
+int	calc_average(t_node *stack_a, int start, int end, int stack_size)
 {
-	int	stack_size;
 	int	sum;
 	int	average;
+	int	position;
 
-	stack_size = get_list_size(stack_a);
+	(void)end;
+	position = 0;
 	sum = 0;
-	while (stack_a)
+	stack_a = stack_a->next;
+	while (stack_a && (position - start < stack_size))
 	{
-		sum += stack_a->content;
+		if (position >= start)
+			sum += stack_a->content;
+		position++;
 		stack_a = stack_a->next;
 	}
 	average = sum / stack_size;
+	
 	return (average);
 }
 

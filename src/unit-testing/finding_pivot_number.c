@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 09:52:50 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/24 09:57:12 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 17:39:31 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_node {
 	int				order;
 }	t_node;
 
-int	calc_average(t_node *stack_a)
+int	calc_average(t_node *stack_a, int start, int end)
 {
 	int	stack_size;
 	int	sum;

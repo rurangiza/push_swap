@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 17:16:37 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 19:09:04 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ int main(int arg_count, char **argv)
 
     init_stack(stack_a, stack_b, matrix);
     sort_stack(stack_a, stack_b);
-    display_stack(stack_a, stack_b);
-
+    //display_stack(stack_a, stack_b);
 
     return (0);
 }

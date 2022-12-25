@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 17:06:47 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 20:13:49 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ int		is_sorted(t_node *stack_a);
 int		find_smallest_nbr(t_node *stack_a);
 
 /* PARTITION */
-void	partition(t_node *stack_a, t_node *stack_b);
+void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end);
 
 int		find_node_position(t_node *list, int content);
 void	move_pivot_ontop(t_node *stack_a, int pivot);
 int		count_pushables(t_node *stack_a, int pivot);
-int		find_pivot(t_node *stack_a);
+int		find_pivot(t_node *stack_a, int start, int end, int stack_size);
 int		ft_abs(int x);
-int		calc_average(t_node *stack_a);
+int		calc_average(t_node *stack_a, int start, int end, int stack_size);
 int		push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot);
 
 # endif
