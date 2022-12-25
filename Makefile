@@ -6,7 +6,7 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/25 20:43:52 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/25 23:08:51 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${SRC_DIR}parsing.c \
 					${SRC_DIR}initializer.c \
 					${SRC_DIR}sorting.c \
-					${SRC_DIR}partitioning.c \
+					${SRC_DIR}quicksort.c \
 					${UTILS_DIR}linked_list.c \
 					${UTILS_DIR}sorting_utils.c \
-					${UTILS_DIR}partitioning_utils.c \
+					${UTILS_DIR}quicksort_utils.c \
 					${UTILS_DIR}display.c \
 					${OP_DIR}push.c \
 					${OP_DIR}swap.c \
