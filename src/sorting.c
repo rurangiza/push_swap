@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/25 19:50:15 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 20:26:59 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		handle_5(stack_a, stack_b);
 	else if (stack_size <= 100)
 	{
-		start = 0;
-		end = get_list_size(stack_a) - 1;
+		start = 1;
+		end = get_list_size(stack_a) - 3;
 		quicksort(stack_a, stack_b, start, end);
 	}
 	/*

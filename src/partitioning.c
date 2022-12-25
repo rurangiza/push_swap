@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 20:14:02 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 20:20:18 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	pivot = find_pivot(stack_a, start, end, stack_size);
 	success_msg(0, "Pivot = %d", pivot);
 	// Count number of items to push
-	pushables = count_pushables(stack_a, pivot);
+	pushables = count_pushables(stack_a, pivot, start, end);
+	info_msg(0, "%d pushables", pushables);
 	/*
 	// Push items to stack_b (or move out of the way)
 	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot);

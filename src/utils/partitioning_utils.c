@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:28:33 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 20:13:54 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/25 20:27:44 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,26 @@ int	ft_abs(int x)
 		return (x);
 }
 
-int count_pushables(t_node *stack_a, int pivot)
+int count_pushables(t_node *stack_a, int pivot, int start, int end)
 {
     t_node  *tmp;
     int     elements_to_push;
+	int		position;
+	int		stack_size;
 
+	stack_size = end - start;
+
+	position = 0;
     tmp = stack_a->next;
 	elements_to_push = 0;
-	while (tmp)
+	while (tmp && (position - start < stack_size))
 	{
-		if (tmp->content < pivot)
-			elements_to_push++;
+		if (position >= start)
+		{
+			if (tmp->content < pivot)
+				elements_to_push++;	
+		}
+		position++;
 		tmp = tmp->next;
 	}
     return (elements_to_push);
