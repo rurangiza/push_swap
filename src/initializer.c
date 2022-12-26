@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:06:57 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 17:05:53 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 20:19:13 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,18 @@ void    init_stack(t_node *stack_a, t_node *stack_b, char **matrix)
     stack_b->index = -1;
     
     index = 0;
+    
     while (matrix[index])
     {
             push(ft_atoi(matrix[index]), stack_a);
             index++;
     }
+    
+//    (void)matrix;
+//     int size = 14;
+//     int *mat = random_numbers(size, 200);
+//     for (int i = 0; i < size; i++)
+//         push(mat[i], stack_a);
 }
 
 /* Add an element to the top of a stack */

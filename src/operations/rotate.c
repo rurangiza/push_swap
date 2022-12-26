@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:55:11 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 16:33:13 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:27:58 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void    ra(t_node *stack_a)
 /* (rotate b): Shift up all elements of stack b by 1.
  * The first element becomes the last one.
 */
-void    rb(t_node *stack_b)
+void    rb(t_node *stack_b, t_node *stack_a)
 {
     t_node	*first;
 	t_node	*second;
     t_node	*last;
 	first = stack_b->next;
 	
-	
+	(void)stack_a;
 	if (first == NULL || first->next == NULL)
 		return ;
 	
@@ -63,8 +63,8 @@ void    rb(t_node *stack_b)
 	first->previous = last;
 	second->previous = stack_b;
 
-	t_node *stack_a = NULL;
-	display_stack(stack_a, stack_b);
+	//t_node *stack_a = NULL;
+	display_hor(stack_a, stack_b);
 	write(1, "rb\n", 3);
 }
 

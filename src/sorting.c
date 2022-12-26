@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/26 19:47:50 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 20:38:59 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,42 +74,35 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 	rrb(stack_b, stack_a);
 	*/
 	
-	//int	largest;
+	int	largest;
 	int	elements_to_push;
 
+	// Move elements to stack_b
 	elements_to_push = stack_size;
-
 	while (elements_to_push != 0)
 	{
 		pb(stack_a, stack_b);
 		elements_to_push--;
 	}
-	
-	// push to stack_b
 
-	
-	/*
 	// Repeat until empty
 	while (stack_b->next != NULL)
 	{
 		// find largest
 		largest = find_largest_nbr(stack_b);
-		info_msg(0, "largest = %d", largest);
-		info_msg(0, "middle = %d", stack_size / 2);
-		info_msg(0, "node position : %d", find_node_position(stack_b, largest));
-		return ;
 		// rb or rrb until reach the largest
-		while (stack_b->content != largest)
+		if (stack_b->next->content != largest)
 		{
 			if (find_node_position(stack_b, largest) < stack_size / 2)
-				rb(stack_b);
+				rb(stack_b, stack_a);
 			else
-				rrb(stack_b);
+				rrb(stack_b, stack_a);
+			
 		}
-		// pa the largest
-		pa(stack_a, stack_b);
+		else
+			pa(stack_a, stack_b);
 	}
-	*/
+	
 }
 
 void	handle_3(t_node *stack_a)

@@ -6,11 +6,13 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:42:01 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 20:11:05 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 20:28:11 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+#include <limits.h>
+#include <time.h>
 
 void    display_hor(t_node *stack_a, t_node *stack_b)
 {
@@ -34,7 +36,7 @@ void    display_hor(t_node *stack_a, t_node *stack_b)
     }
     printf("\n");
 	// Waot before refresh
-	usleep(1000000);
+	usleep(100000);
 }
 
 void    display_stack(t_node *stack_a, t_node *stack_b)
@@ -77,4 +79,44 @@ void    display_stack(t_node *stack_a, t_node *stack_b)
     printf("_    _\nA    B\n");
 	// Waot before refresh
 	usleep(1000000);
+}
+
+int	first_encounter_gen(int number, int *list, int position)
+{
+	int i;
+	
+	i = 0;
+	while (i < position)
+	{
+		if (number == list[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	*random_numbers(int size, int threshold)
+{
+	int	index;
+	int	*list;
+	int	sign;
+	int	number;
+
+	list = malloc(sizeof(int) * size);
+	srand(time(0));
+	index = 0;	
+	while (index < size)
+	{
+		sign = 1;
+		if (rand() % 3 == 1)
+			sign = -1;
+		number = (rand() % threshold) * sign;
+		while (!first_encounter_gen(number, list, index))
+		{
+			number = (rand() % threshold) * sign;
+		}
+		list[index] = number;
+		index ++;
+	}
+	return (list);
 }

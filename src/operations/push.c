@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 20:08:37 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 20:36:14 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,12 @@ void    pa(t_node *stack_a, t_node *stack_b)
     
     stack_a->next = first_b;
 
-    first_a->previous = first_b;
+    if (first_a != NULL)
+        first_a->previous = first_b;
+
     first_b->previous = stack_a;
     
-    display_stack(stack_a, stack_b);
+    display_hor(stack_a, stack_b);
     //write(1, "pa\n", 3);
 }
 

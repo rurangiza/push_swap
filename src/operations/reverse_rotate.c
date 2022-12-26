@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:05:52 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 19:40:30 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 20:24:55 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    rra(t_node *stack_a)
 	first->previous = old_last;
 
 	t_node *stack_b = NULL;
-	display_stack(stack_a, stack_b);
+	display_hor(stack_a, stack_b);
 	//write(1, "rra\n", 4);
 }
 
@@ -63,7 +63,7 @@ void    rrb(t_node *stack_b, t_node *stack_a)
 
 	//t_node *stack_a = NULL;
 	//info_msg(0, "--> here");
-	display_stack(stack_a, stack_b);
+	display_hor(stack_a, stack_b);
 	//write(1, "rrb\n", 4);
 }
 

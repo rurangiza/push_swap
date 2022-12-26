@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:32:16 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/26 20:10:24 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 20:14:06 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,45 +33,7 @@ void	summury(int *unsorted, int size, int operations)
 	printf(" \033[33m(%d operations)\033[0m\n", operations);
 }
 
-int	first_encounter(int number, int *list, int position)
-{
-	int i;
-	
-	i = 0;
-	while (i < position)
-	{
-		if (number == list[i])
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
-int	*random_numbers(int size, int threshold)
-{
-	int	index;
-	int	*list;
-	int	sign;
-	int	number;
-
-	list = malloc(sizeof(int) * size);
-	srand(time(0));
-	index = 0;	
-	while (index < size)
-	{
-		sign = 1;
-		if (rand() % 3 == 1)
-			sign = -1;
-		number = (rand() % threshold) * sign;
-		while (!first_encounter(number, list, index))
-		{
-			number = (rand() % threshold) * sign;
-		}
-		list[index] = number;
-		index ++;
-	}
-	return (list);
-}
 
 /* OPERATIONS */
 static void	swap(int *a, int *b)
