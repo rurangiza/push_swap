@@ -45,6 +45,7 @@ The ideal pivot will seperate your list in half.
 To do so, I wrote a function <code>__find_pivot__</code> which calculates the average of all numbers of the list then finds in the list the closest number to that average, which becomes the pivot. 
 It works perfectly when the list contains numbers close to each other or seprated evenly, but when there are multiple numbers close to each other and a few that are bigger, the function doesn't seperate the list quite as well. 
 Ex:
+
 ```C
 int list_A[] = {12, 4, 6, 1, 8, 18, 10}; // 6 is the pivot
 
