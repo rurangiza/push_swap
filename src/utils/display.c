@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:42:01 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 20:28:11 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 21:53:16 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 #include <limits.h>
 #include <time.h>
 
+
+
 void    display_hor(t_node *stack_a, t_node *stack_b)
 {
+    static int opGlobal = 0;
+    
+    opGlobal++;
     stack_a = stack_a->next;
     stack_b = stack_b->next;
     system("clear");
@@ -36,6 +41,7 @@ void    display_hor(t_node *stack_a, t_node *stack_b)
     }
     printf("\n");
 	// Waot before refresh
+    printf("=> %d operations\n", opGlobal);
 	usleep(100000);
 }
 

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 20:26:54 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 21:50:12 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../src/library/libft.h"
 # include <stdlib.h> // malloc, free, NULL
 # include <stdio.h>
-
 
 /* TYPEDEFS AND STRUCTURES */
 

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/26 20:38:59 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 21:51:39 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		handle_3(stack_a);
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
-	else if (stack_size <= 15)
+	else if (stack_size <= 100)
 	{
 		info_msg(0, "handling 15 case...");
 		handle_15(stack_a, stack_size, stack_b);
@@ -97,7 +97,6 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 				rb(stack_b, stack_a);
 			else
 				rrb(stack_b, stack_a);
-			
 		}
 		else
 			pa(stack_a, stack_b);
