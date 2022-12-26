@@ -55,6 +55,9 @@ int list_B[] = {12, 4, 6, 1, 8, 1801, 244}; // 244 is the pivot
 > In computer science, partitioning refers to the division of a computer's hard drive, or other data storage device, into separate areas where data can be stored. These separate areas are called "partitions."
 Key terms: partitioning, pivot, D&C (Devide and Conquer)
 
+## ~ Optimizations
+- Check if partitions are sorted before feeding them to the recursive quicksort algorithm. This logic cut in half the operations needed to sort the stack, from 10,000 to 5,000
+
 ## 💡 Learnings
 
 - Sorting algorithms
