@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 22:13:07 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 22:31:43 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		sorted_items++;
 	}
 	// Cutoff 
-	if (stack_size <= 15)
+	if (stack_size <= 50)
 	{
 		handle_15(stack_a, stack_size, stack_b);
 		while (sorted_items > 0)
