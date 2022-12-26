@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:55:11 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 20:27:58 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 22:04:08 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 /* (rotate a): Top number goes to bottom of stack A
  * The first element becomes the last one.
 */
-void    ra(t_node *stack_a)
+void    ra(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*first;
 	t_node	*second;
     t_node	*last;
 	
+	(void)stack_b;
 	first = stack_a->next;
 	if (first == NULL || first->next == NULL)
 		return ;
@@ -34,9 +35,8 @@ void    ra(t_node *stack_a)
 	first->previous = last;
 	second->previous = stack_a;
 
-	t_node *stack_b = NULL;
-	display_stack(stack_a, stack_b);
-	write(1, "ra\n", 3);
+	display_hor(stack_a, stack_b);
+	//write(1, "ra\n", 3);
 }
 
 /* (rotate b): Shift up all elements of stack b by 1.
@@ -63,9 +63,8 @@ void    rb(t_node *stack_b, t_node *stack_a)
 	first->previous = last;
 	second->previous = stack_b;
 
-	//t_node *stack_a = NULL;
 	display_hor(stack_a, stack_b);
-	write(1, "rb\n", 3);
+	//write(1, "rb\n", 3);
 }
 
 /* ra and rb at the same time */

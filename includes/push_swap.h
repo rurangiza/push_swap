@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 21:50:12 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 22:12:09 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int		get_list_size(t_node *lst);
 
 
 /* OPERATIONS */
-void    sa(t_node *stack_a);
-void    ra(t_node *stack_a);
-void    rra(t_node *stack_a);
+void    sa(t_node *stack_a, t_node *stack_b);
+void    ra(t_node *stack_a, t_node *stack_b);
+void    rra(t_node *stack_a, t_node *stack_b);
 void    rb(t_node *stack_b, t_node *stack_a);
 void    rrb(t_node *stack_b, t_node *stack_a);
 void    pb(t_node *stack_a, t_node *stack_b);
@@ -57,7 +57,7 @@ void    pa(t_node *stack_a, t_node *stack_b);
 /* SORTING */
 void	sort_stack(t_node *stack_a, t_node *stack_b);
 
-void	handle_3(t_node *stack_a);
+void	handle_3(t_node *stack_a, t_node *stack_b);
 void	handle_5(t_node *stack_a, t_node *stack_b);
 void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b);
 void	handle_100(t_node *stack_a, t_node *stack_b);
@@ -71,7 +71,7 @@ int		find_largest_nbr(t_node *stack_a);
 void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end);
 
 int		find_node_position(t_node *list, int content);
-void	move_pivot_ontop(t_node *stack_a, int pivot);
+void	move_pivot_ontop(t_node *stack_a, int pivot, t_node *stack_b);
 int		count_pushables(t_node *stack_a, int pivot, int start, int end);
 int		find_pivot(t_node *stack_a, int start, int end, int stack_size);
 int		ft_abs(int x);

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 18:54:20 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 22:13:07 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	sorted_items = 0;
 	while (sorted_items < start)
 	{
-		ra(stack_a);
+		ra(stack_a, stack_b);
 		sorted_items++;
 	}
 	// Cutoff 
@@ -66,7 +66,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		handle_15(stack_a, stack_size, stack_b);
 		while (sorted_items > 0)
 		{
-			rra(stack_a);
+			rra(stack_a, stack_b);
 			sorted_items--;
 		}
 		return ;
@@ -75,16 +75,16 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot, stack_size);
 	// Replace back in order
 	while (rotated_items-- > 0)
-		rra(stack_a);
+		rra(stack_a, stack_b);
 	// Move pivot to top of stack_a
-	move_pivot_ontop(stack_a, pivot);
+	move_pivot_ontop(stack_a, pivot, stack_b);
 	// Send back all numbers in stack_b to stack_a
 	while (stack_b->next != NULL)
 		pa(stack_a, stack_b);
 	// Move back sorted items
 	while (sorted_items > 0)
 	{
-		rra(stack_a);
+		rra(stack_a, stack_b);
 		sorted_items--;
 	}
 
@@ -201,7 +201,7 @@ int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot,
 		}
 		else
 		{
-			ra(stack_a);
+			ra(stack_a, stack_b);
 			rotation_counter++;
 		}
 		stack_size--;
@@ -209,7 +209,7 @@ int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot,
 	return (rotation_counter);
 }
 
-void    move_pivot_ontop(t_node *stack_a, int pivot)
+void    move_pivot_ontop(t_node *stack_a, int pivot, t_node *stack_b)
 {
     //int pivot_position;
 	//int	stack_size;
@@ -218,13 +218,13 @@ void    move_pivot_ontop(t_node *stack_a, int pivot)
 	rotated_items = 0;
 	while (stack_a->next->content != pivot)
 	{
-		ra(stack_a);
+		ra(stack_a, stack_b);
 		rotated_items++;
 	}
 	while (rotated_items != 0)
 	{
-		rra(stack_a);
-		sa(stack_a);
+		rra(stack_a, stack_b);
+		sa(stack_a, stack_b);
 		rotated_items--;
 	}
 	/*

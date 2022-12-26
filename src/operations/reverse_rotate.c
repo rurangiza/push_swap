@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:05:52 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 20:24:55 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 22:06:16 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 /* (reverse rotate a): Bottom number goes to top of stack A
  * The last element becomes the first one.
 */
-void    rra(t_node *stack_a)
+void    rra(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*first;
 	t_node	*old_last;
 	t_node	*new_last;
 
+	(void)stack_b;
 	first = stack_a->next;
 	if (first == NULL || first->next == NULL)
 		return ;
@@ -34,7 +35,6 @@ void    rra(t_node *stack_a)
 	old_last->previous = stack_a;
 	first->previous = old_last;
 
-	t_node *stack_b = NULL;
 	display_hor(stack_a, stack_b);
 	//write(1, "rra\n", 4);
 }
@@ -48,6 +48,7 @@ void    rrb(t_node *stack_b, t_node *stack_a)
 	t_node	*old_last;
 	t_node	*new_last;
 
+	(void)stack_a;
 	first = stack_b->next;
 	if (first == NULL || first->next == NULL)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/26 21:51:39 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 22:12:37 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 void	sort_stack(t_node *stack_a, t_node *stack_b)
 {
 	int	stack_size;
-	//int	start;
-	//int	end;
+	int	start;
+	int	end;
 	
 	(void)stack_b;
 	stack_size = get_list_size(stack_a) - 1;
@@ -41,15 +41,16 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		return ;
 	}
 	if (stack_size <= 3) // 5 cases
-		handle_3(stack_a);
+		handle_3(stack_a, stack_b);
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
-	else if (stack_size <= 100)
+	/*
+	else if (stack_size <= )
 	{
 		info_msg(0, "handling 15 case...");
 		handle_15(stack_a, stack_size, stack_b);
 	}
-	/*
+	*/
 	else if (stack_size <= 100)
 	{
 		start = 0;
@@ -57,10 +58,6 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		end = get_list_size(stack_a) - 1;
 		quicksort(stack_a, stack_b, start, end);
 	}
-	
-	else
-		handle_500(stack_a, stack_b);
-	*/
 }
 
 void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
@@ -104,7 +101,7 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 	
 }
 
-void	handle_3(t_node *stack_a)
+void	handle_3(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*first;
 	t_node	*second;
@@ -115,21 +112,21 @@ void	handle_3(t_node *stack_a)
 	third = second->next;
 	
 	if (first->content > second->content && first->content < third->content)
-		sa(stack_a);
+		sa(stack_a, stack_b);
 	else if (first->content > second->content && second->content > third->content)
 	{
-		sa(stack_a);
-		rra(stack_a);
+		sa(stack_a, stack_b);
+		rra(stack_a, stack_b);
 	}
 	else if (first->content > second->content && first->content > third->content)
-		ra(stack_a);
+		ra(stack_a, stack_b);
 	else if (first->content < second->content && first->content < third->content)
 	{
-		sa(stack_a);
-		ra(stack_a);
+		sa(stack_a, stack_b);
+		ra(stack_a, stack_b);
 	}
 	else if (first->content < second->content && first->content > third->content)
-		rra(stack_a);
+		rra(stack_a, stack_b);
 }
 
 void	handle_5(t_node *stack_a, t_node *stack_b)
@@ -145,19 +142,19 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 		smallest = find_smallest_nbr(stack_a);
 		last_node = get_last_node(stack_a);
 		if (last_node->content == smallest)
-			rra(stack_a);
+			rra(stack_a, stack_b);
 		else
 		{
 			while (stack_a->next->content != smallest)
 			{
-				ra(stack_a);
+				ra(stack_a, stack_b);
 			}
 		}
 		pb(stack_a, stack_b);
 		counter--;
 	}
 	if (!is_sorted(stack_a))
-		handle_3(stack_a);
+		handle_3(stack_a, stack_b);
 	counter = (get_list_size(stack_b) - 1);
 	while (counter > 0)
 	{
