@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:27 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 14:12:06 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:33:54 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ void    sa(t_node *stack_a)
 	first->previous = second;
 	third->previous = first;
 
-	write(1, "sa\n", 3);
+	t_node *stack_b = NULL;
+	display_stack(stack_a, stack_b);
+	//write(1, "sa\n", 3);
 }
 
 

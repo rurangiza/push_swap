@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:30:46 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 22:14:21 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 15:59:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,20 @@ int		find_smallest_nbr(t_node *stack_a)
 		current_node = current_node->next;
 	}
 	return (smallest);
+}
+
+int		find_largest_nbr(t_node *stack_a)
+{
+	t_node	*current_node;
+	int		largest;
+
+	current_node = stack_a->next;
+	largest = current_node->content;
+	while (current_node)
+	{
+		if (current_node->content > largest)
+			largest = current_node->content;
+		current_node = current_node->next;
+	}
+	return (largest);
 }

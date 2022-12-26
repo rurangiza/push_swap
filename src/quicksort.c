@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   partitioning.c                                     :+:      :+:    :+:   */
+/*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 22:16:27 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 16:41:29 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 
 #include "../includes/push_swap.h"
 
+//int counterGlobal = 0;
+
 void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 {
 	int		pivot;
@@ -36,12 +38,19 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	int		sorted_items;
 	int     rotated_items;
 
+	// Base case
 	if (start >= end)
 		return ;
-
+	
 	stack_size = end - start;
+		
+	//info_msg(0, "quicksort %d", counterGlobal++);
+
 	(void)stack_b;
+	
 	pivot = find_pivot(stack_a, start, end, stack_size);
+	
+	
 	// Count number of items to push
 	pushables = count_pushables(stack_a, pivot, start, end);
 	// Send to back already sorted items
@@ -50,6 +59,17 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	{
 		ra(stack_a);
 		sorted_items++;
+	}
+	// Cutoff 
+	if (stack_size <= 15)
+	{
+		handle_15(stack_a, stack_size, stack_b);
+		while (sorted_items > 0)
+		{
+			rra(stack_a);
+			sorted_items--;
+		}
+		return ;
 	}
 	// Push items to stack_b (or move out of the way)
 	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot, stack_size);
@@ -74,9 +94,55 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		quicksort(stack_a, stack_b, start, pivot_index);
 	if (!is_sorted_recursive(stack_a, pivot_index + 1, end))
 		quicksort(stack_a, stack_b, pivot_index + 1, end);
+	
 }
 
-
+void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
+{
+	/*
+	(void)stack_size;
+	display_stack(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	rrb(stack_b); */
+	
+	//int	largest;
+	int	elements_to_push;
+	success_msg(0, "stack size = %d", stack_size);
+	elements_to_push = stack_size - 1;
+	// push to stack_b
+	while (elements_to_push != 0)
+	{
+		info_msg(0, "%d elements to push", elements_to_push);
+		pb(stack_a, stack_b);
+		elements_to_push--;
+	}
+	return ;
+	
+	/*
+	// Repeat until empty
+	while (stack_b->next != NULL)
+	{
+		// find largest
+		largest = find_largest_nbr(stack_b);
+		info_msg(0, "largest = %d", largest);
+		info_msg(0, "middle = %d", stack_size / 2);
+		info_msg(0, "node position : %d", find_node_position(stack_b, largest));
+		return ;
+		// rb or rrb until reach the largest
+		while (stack_b->content != largest)
+		{
+			if (find_node_position(stack_b, largest) < stack_size / 2)
+				rb(stack_b);
+			else
+				rrb(stack_b);
+		}
+		// pa the largest
+		pa(stack_a, stack_b);
+	}
+	*/
+}
 
 int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
 {
@@ -86,6 +152,9 @@ int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
 	int	position;
 
 	target = calc_average(stack_a, start, end, stack_size);
+	//target = calc_medthree(stack_a, start, end);
+	//return (success_msg(target, "pivot = %d", target));
+	
 	//info_msg(0, "head: %d", stack_a->next->content);
 	//info_msg(0, "target : %d", target);
 	closest = INT_MAX;
@@ -106,7 +175,61 @@ int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
 		stack_a = stack_a->next;
 	}
 	//info_msg(0, "closest number : %d", closest_number);
+	//pick_best_pivot(stack_a, target, calc_medthree(stack_a, start, end));
+	
 	return (closest_number);
+}
+
+//int	calc_
+
+int	calc_medthree(t_node *stack_a, int start, int end)
+{
+	int	stack_size = end - start;
+	int	medthree[3];
+	int	mt_index = 0;
+	int	index = 0;
+
+	// medthree up three random numbers
+	stack_a = stack_a->next;
+	while (stack_a && (index - start < stack_size))
+	{
+		if (index >= start)
+		{
+			if (index == start || index == stack_size / 2 || index == end - 1)
+			{
+				medthree[mt_index] = stack_a->content;
+				mt_index++;
+			}
+		}
+		index++;
+		stack_a = stack_a->next;
+	}
+	// Calculate average of those three
+	//medthree /= 3;
+	// Pick the middle of the three
+	mt_index = 0;
+	while (mt_index < 3)
+	{
+		int j = 0;
+		int smaller = 0;
+		int larger = 0;
+		while (j < 3)
+		{
+			if (j != mt_index)
+			{
+				if (medthree[j] < medthree[mt_index])
+					smaller++;
+				else
+					larger++;
+			}
+			j++;
+		}
+		if (smaller > 0 && larger > 0)
+			return (medthree[mt_index]);
+		mt_index++;
+	}
+	
+	return (error_msg(-1, "no mid found in calc_medthree"));
 }
 
 int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot, int stack_size)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/25 17:03:14 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 14:43:41 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char **parse_input(int arg_count, char **argv)
     }
     else
     {
-        index = 1;
+        index = 1; // Do I need this?
         matrix = argv + 1;
     }
     while (matrix[index])

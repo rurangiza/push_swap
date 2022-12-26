@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 22:14:38 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 16:02:28 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		get_list_size(t_node *lst);
 void    sa(t_node *stack_a);
 void    ra(t_node *stack_a);
 void    rra(t_node *stack_a);
+void    rb(t_node *stack_b);
+void    rrb(t_node *stack_b);
 void    pb(t_node *stack_a, t_node *stack_b);
 void    pa(t_node *stack_a, t_node *stack_b);
 
@@ -58,11 +60,13 @@ void	sort_stack(t_node *stack_a, t_node *stack_b);
 
 void	handle_3(t_node *stack_a);
 void	handle_5(t_node *stack_a, t_node *stack_b);
+void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b);
 void	handle_100(t_node *stack_a, t_node *stack_b);
 
 int		is_sorted(t_node *stack_a);
 int		is_sorted_recursive(t_node *stack_a, int start, int end);
 int		find_smallest_nbr(t_node *stack_a);
+int		find_largest_nbr(t_node *stack_a);
 
 /* PARTITION */
 void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end);
@@ -72,8 +76,10 @@ void	move_pivot_ontop(t_node *stack_a, int pivot);
 int		count_pushables(t_node *stack_a, int pivot, int start, int end);
 int		find_pivot(t_node *stack_a, int start, int end, int stack_size);
 int		ft_abs(int x);
-int		calc_average(t_node *stack_a, int start, int end, int stack_size);
 int		push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot, int stack_size);
+
+int		calc_average(t_node *stack_a, int start, int end, int stack_size);
+int		calc_medthree(t_node *stack_a, int start, int end);
 
 void    display_stack(t_node *stack_a, t_node *stack_b);
 

@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:55:11 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/23 14:12:23 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:33:13 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    ra(t_node *stack_a)
     t_node	*last;
 	
 	first = stack_a->next;
-	if (first->next == NULL)
+	if (first == NULL || first->next == NULL)
 		return ;
 	second = first->next;
 	last = get_last_node(stack_a);
@@ -33,15 +33,39 @@ void    ra(t_node *stack_a)
 
 	first->previous = last;
 	second->previous = stack_a;
+
+	t_node *stack_b = NULL;
+	display_stack(stack_a, stack_b);
 	write(1, "ra\n", 3);
 }
 
 /* (rotate b): Shift up all elements of stack b by 1.
  * The first element becomes the last one.
 */
-void    rb()
+void    rb(t_node *stack_b)
 {
-    
+    t_node	*first;
+	t_node	*second;
+    t_node	*last;
+	first = stack_b->next;
+	
+	
+	if (first == NULL || first->next == NULL)
+		return ;
+	
+	second = first->next;
+	last = get_last_node(stack_b);
+	
+	stack_b->next = second;
+	first->next = last->next;
+	last->next = first;
+
+	first->previous = last;
+	second->previous = stack_b;
+
+	t_node *stack_a = NULL;
+	display_stack(stack_a, stack_b);
+	write(1, "rb\n", 3);
 }
 
 /* ra and rb at the same time */

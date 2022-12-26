@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/25 21:17:03 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/26 16:42:50 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 void	sort_stack(t_node *stack_a, t_node *stack_b)
 {
 	int	stack_size;
-	int	start;
-	int	end;
+	//int	start;
+	//int	end;
 	
 	(void)stack_b;
 	stack_size = get_list_size(stack_a) - 1;
@@ -44,6 +44,12 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		handle_3(stack_a);
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
+	else if (stack_size <= 15)
+	{
+		info_msg(0, "handling 15 case...");
+		handle_15(stack_a, stack_size, stack_b);
+	}
+	/*
 	else if (stack_size <= 100)
 	{
 		start = 0;
@@ -51,7 +57,7 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		end = get_list_size(stack_a) - 1;
 		quicksort(stack_a, stack_b, start, end);
 	}
-	/*
+	
 	else
 		handle_500(stack_a, stack_b);
 	*/

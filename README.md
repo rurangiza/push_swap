@@ -1,4 +1,4 @@
-# push_swap
+# push_swap [work in progress]
 
 > A program that sorts data on a stack with specific constrains
 
@@ -66,3 +66,15 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
 - Data structure: implementing and manipulating a doubly-linked list
 
 ## 🫡 Final thoughts
+
+# Notes
+
+## Improve pivot selection
+- With average of all numbers
+    - best = 5403
+    - average = 5225
+    - worst = 6152
+- With the "median of three"
+    - best = 5954
+    - average = 6548
+    - worst = 7344
