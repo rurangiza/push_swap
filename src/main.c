@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 16:42:59 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:11:15 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 #include <stdio.h>
 #include "../includes/push_swap.h"
 //#include "../includes/unit_test.h"
-
-
 
 int main(int arg_count, char **argv)
 {
@@ -37,6 +35,7 @@ int main(int arg_count, char **argv)
 
     init_stack(stack_a, stack_b, matrix);
     sort_stack(stack_a, stack_b);
+    display_hor(stack_a, stack_b);
     //display_stack(stack_a, stack_b);
 
     return (0);

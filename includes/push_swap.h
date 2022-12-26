@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 16:02:28 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:09:00 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void    sa(t_node *stack_a);
 void    ra(t_node *stack_a);
 void    rra(t_node *stack_a);
 void    rb(t_node *stack_b);
-void    rrb(t_node *stack_b);
+void    rrb(t_node *stack_b, t_node *stack_a);
 void    pb(t_node *stack_a, t_node *stack_b);
 void    pa(t_node *stack_a, t_node *stack_b);
 
@@ -82,5 +82,6 @@ int		calc_average(t_node *stack_a, int start, int end, int stack_size);
 int		calc_medthree(t_node *stack_a, int start, int end);
 
 void    display_stack(t_node *stack_a, t_node *stack_b);
+void	display_hor(t_node *stack_a, t_node *stack_b);
 
 # endif

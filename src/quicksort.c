@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 16:41:29 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:54:20 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,52 +97,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	
 }
 
-void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
-{
-	/*
-	(void)stack_size;
-	display_stack(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	rrb(stack_b); */
-	
-	//int	largest;
-	int	elements_to_push;
-	success_msg(0, "stack size = %d", stack_size);
-	elements_to_push = stack_size - 1;
-	// push to stack_b
-	while (elements_to_push != 0)
-	{
-		info_msg(0, "%d elements to push", elements_to_push);
-		pb(stack_a, stack_b);
-		elements_to_push--;
-	}
-	return ;
-	
-	/*
-	// Repeat until empty
-	while (stack_b->next != NULL)
-	{
-		// find largest
-		largest = find_largest_nbr(stack_b);
-		info_msg(0, "largest = %d", largest);
-		info_msg(0, "middle = %d", stack_size / 2);
-		info_msg(0, "node position : %d", find_node_position(stack_b, largest));
-		return ;
-		// rb or rrb until reach the largest
-		while (stack_b->content != largest)
-		{
-			if (find_node_position(stack_b, largest) < stack_size / 2)
-				rb(stack_b);
-			else
-				rrb(stack_b);
-		}
-		// pa the largest
-		pa(stack_a, stack_b);
-	}
-	*/
-}
+
 
 int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
 {

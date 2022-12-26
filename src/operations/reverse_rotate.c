@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:05:52 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 16:33:27 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 19:40:30 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    rra(t_node *stack_a)
 /* (reverse rotate b): Shift down all elements of stack b by 1
  * The last element becomes the first one.
 */
-void    rrb(t_node *stack_b)
+void    rrb(t_node *stack_b, t_node *stack_a)
 {
     t_node	*first;
 	t_node	*old_last;
@@ -61,7 +61,8 @@ void    rrb(t_node *stack_b)
 	old_last->previous = stack_b;
 	first->previous = old_last;
 
-	t_node *stack_a = NULL;
+	//t_node *stack_a = NULL;
+	//info_msg(0, "--> here");
 	display_stack(stack_a, stack_b);
 	//write(1, "rrb\n", 4);
 }

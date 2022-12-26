@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 16:41:02 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:08:37 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,18 @@ void    pb(t_node *stack_a, t_node *stack_b)
     first_a = stack_a->next;
     second_a = first_a->next;
     first_b = stack_b->next;
-    
     stack_a->next = second_a;
     first_a->next = first_b;
-    second_a->previous = stack_a;
-    
+    if (second_a != NULL)
+        second_a->previous = stack_a;
     
     stack_b->next = first_a;
 
     if (first_b != NULL)
         first_b->previous = first_a;
     first_a->previous = stack_b;
-
     
-    //display_stack(stack_a, stack_b);
+    display_hor(stack_a, stack_b);
     //write(1, "pb\n", 3);
 }
 
