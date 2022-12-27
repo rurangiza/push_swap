@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/27 14:55:12 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:56:10 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 
 	// Count number of items to push
 	pushables = count_pushables(stack_a, pivot, start, end);
-	// Send to back already sorted items
+	// Move sorted elements
 	sorted_items = 0;
 	while (sorted_items < start)
 	{
 		ra(stack_a, stack_b);
 		sorted_items++;
 	}
-	// Cutoff 
+	// handle smallest sections 
 	if (stack_size <= 50)
 	{
 		handle_15(stack_a, stack_size, stack_b);

@@ -78,3 +78,9 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
     - best = 5954
     - average = 6548
     - worst = 7344
+
+## Optimizations
+### ~ Handle_15
+- swap top of stack_b to keep largest numbers on top
+    for a list of 20 numbers, 134 op -> 112 op
+- swap top of stack_a to push smallest numbers, so they are pushed first to stack_b

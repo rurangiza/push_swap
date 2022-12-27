@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/27 12:06:40 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/27 16:44:22 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${SRC_DIR}sorting.c \
 					${SRC_DIR}quicksort.c \
 					${SRC_DIR}pivot_selection.c \
+					${SRC_DIR}midpoint_alg.c \
 					${UTILS_DIR}linked_list.c \
 					${UTILS_DIR}sorting_utils.c \
 					${UTILS_DIR}quicksort_utils.c \

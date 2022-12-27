@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/27 15:00:54 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:51:12 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		handle_3(stack_a, stack_b);
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
-	/*
-	else if (stack_size <= )
-	{
-		info_msg(0, "handling 15 case...");
-		handle_15(stack_a, stack_size, stack_b);
-	}
-	*/
+	// else
+	// 	midpoint_alg(stack_a, stack_b);
+	// else if (stack_size <= 100)
+	// {
+	// 	//info_msg(0, "handling 15 case...");
+	// 	handle_15(stack_a, stack_size, stack_b);
+	// }
 	else if (stack_size <= 100)
 	{
 		start = 0;
@@ -73,19 +73,28 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 	int	largest;
 	int	elements_to_push;
 	t_node	*first_b;
-	
+	t_node	*first_a;
 
 	// Move elements to stack_b
 	elements_to_push = stack_size;
 	while (elements_to_push != 0)
 	{
-		if (get_list_size(stack_b) > 2)
+		if (get_list_size(stack_a) > 2)
+		{
+			first_a = stack_a->next;
+			if (first_a->content > first_a->next->content)
+				sa(stack_a, stack_b);
+		}
+		
+		if (elements_to_push <= stack_size - 2)
 		{
 			first_b = stack_b->next;
 			if (first_b->content < first_b->next->content)
         		sb(stack_b, stack_a);
 		}
+		
 		pb(stack_a, stack_b);
+		
 		elements_to_push--;
 	}
 
@@ -142,7 +151,6 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 	t_node	*last_node;
 	int		counter;
 
-
 	counter = (get_list_size(stack_a) - 1) - 3;
 	while (counter > 0)
 	{
@@ -169,7 +177,3 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 		counter--;
 	}
 }
-
-// 8 2 1 7 18 3 4 11 6 12
-
-
