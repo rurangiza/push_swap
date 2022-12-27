@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:32:16 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/26 20:14:06 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/27 13:28:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,3 +158,91 @@ int	insertion_sort(int *unsorted, int size)
 // 	free(unsorted);
 // 	return (0);
 // }
+
+int	find_pivot(t_node *stack_a, int start, int end, int stack_size)
+{
+	int	closest;
+	int	closest_number;
+	int	target;
+	int	position;
+
+	target = calc_average(stack_a, start, end, stack_size);
+	//target = calc_medthree(stack_a, start, end);
+	//return (success_msg(target, "pivot = %d", target));
+	
+	//info_msg(0, "head: %d", stack_a->next->content);
+	//info_msg(0, "target : %d", target);
+	closest = INT_MAX;
+	closest_number = 0;
+	stack_a = stack_a->next;
+	position = 0;
+	while (stack_a && (position - start < stack_size))
+	{
+		if (position >= start)
+		{
+			if (ft_abs(stack_a->content - target) < ft_abs(closest - target))
+			{
+				closest = stack_a->content;
+				closest_number = stack_a->content;
+			}
+		}
+		position++;
+		stack_a = stack_a->next;
+	}
+	//info_msg(0, "closest number : %d", closest_number);
+	//pick_best_pivot(stack_a, target, calc_medthree(stack_a, start, end));
+	
+	return (closest_number);
+}
+
+//int	calc_
+
+int	calc_medthree(t_node *stack_a, int start, int end)
+{
+	int	stack_size = end - start;
+	int	medthree[3];
+	int	mt_index = 0;
+	int	index = 0;
+
+	// medthree up three random numbers
+	stack_a = stack_a->next;
+	while (stack_a && (index - start < stack_size))
+	{
+		if (index >= start)
+		{
+			if (index == start || index == stack_size / 2 || index == end - 1)
+			{
+				medthree[mt_index] = stack_a->content;
+				mt_index++;
+			}
+		}
+		index++;
+		stack_a = stack_a->next;
+	}
+	// Calculate average of those three
+	//medthree /= 3;
+	// Pick the middle of the three
+	mt_index = 0;
+	while (mt_index < 3)
+	{
+		int j = 0;
+		int smaller = 0;
+		int larger = 0;
+		while (j < 3)
+		{
+			if (j != mt_index)
+			{
+				if (medthree[j] < medthree[mt_index])
+					smaller++;
+				else
+					larger++;
+			}
+			j++;
+		}
+		if (smaller > 0 && larger > 0)
+			return (medthree[mt_index]);
+		mt_index++;
+	}
+	
+	return (error_msg(-1, "no mid found in calc_medthree"));
+}

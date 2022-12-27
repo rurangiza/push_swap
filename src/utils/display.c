@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:42:01 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 22:26:52 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/27 15:04:02 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void    display_stack(t_node *stack_a, t_node *stack_b)
     }
     printf("_    _\nA    B\n");
 	// Waot before refresh
-	usleep(1000000);
+	usleep(1);
 }
 
 int	first_encounter_gen(int number, int *list, int position)

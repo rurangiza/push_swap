@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 22:12:09 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/27 13:37:25 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		get_list_size(t_node *lst);
 
 /* OPERATIONS */
 void    sa(t_node *stack_a, t_node *stack_b);
+void    sb(t_node *stack_b, t_node *stack_a);
 void    ra(t_node *stack_a, t_node *stack_b);
 void    rra(t_node *stack_a, t_node *stack_b);
 void    rb(t_node *stack_b, t_node *stack_a);
@@ -73,16 +74,21 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end);
 int		find_node_position(t_node *list, int content);
 void	move_pivot_ontop(t_node *stack_a, int pivot, t_node *stack_b);
 int		count_pushables(t_node *stack_a, int pivot, int start, int end);
-int		find_pivot(t_node *stack_a, int start, int end, int stack_size);
+//int		find_pivot(t_node *stack_a, int start, int end, int stack_size);
 int		ft_abs(int x);
 int		push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot, int stack_size);
 
-int		calc_average(t_node *stack_a, int start, int end, int stack_size);
-int		calc_medthree(t_node *stack_a, int start, int end);
+//int		calc_average(t_node *stack_a, int start, int end, int stack_size);
+//int		calc_medthree(t_node *stack_a, int start, int end);
 
 void    display_stack(t_node *stack_a, t_node *stack_b);
 void	display_hor(t_node *stack_a, t_node *stack_b);
 int		first_encounter_gen(int number, int *list, int position);
 int		*random_numbers(int size, int threshold);
+
+int		find_median(t_node *stack_a, int start, int end, int stack_size);
+int		selection_sort(int *unsorted, int size);
+int		insertion_sort(int *unsorted, int size);
+void	swap(int *a, int *b);
 
 # endif

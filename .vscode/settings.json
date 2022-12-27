@@ -3,6 +3,7 @@
 		"push_swap.h": "c",
 		"chrono": "c",
 		"__functional_03": "c",
-		"functional": "c"
+		"functional": "c",
+		"__node_handle": "c"
 	}
 }

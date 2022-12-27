@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/26 22:29:22 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/27 15:00:54 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 	else if (stack_size <= 100)
 	{
 		start = 0;
-		//info_msg(0, "list size = %d", get_list_size(stack_a));
 		end = get_list_size(stack_a) - 1;
 		quicksort(stack_a, stack_b, start, end);
 	}
@@ -73,11 +72,19 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 	
 	int	largest;
 	int	elements_to_push;
+	t_node	*first_b;
+	
 
 	// Move elements to stack_b
 	elements_to_push = stack_size;
 	while (elements_to_push != 0)
 	{
+		if (get_list_size(stack_b) > 2)
+		{
+			first_b = stack_b->next;
+			if (first_b->content < first_b->next->content)
+        		sb(stack_b, stack_a);
+		}
 		pb(stack_a, stack_b);
 		elements_to_push--;
 	}
@@ -90,7 +97,7 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 		// rb or rrb until reach the largest
 		if (stack_b->next->content != largest)
 		{
-			if (find_node_position(stack_b, largest) < stack_size / 2)
+			if (find_node_position(stack_b, largest) < get_list_size(stack_b) / 2)
 				rb(stack_b, stack_a);
 			else
 				rrb(stack_b, stack_a);
