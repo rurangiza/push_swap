@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/27 15:56:10 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/28 07:08:17 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,17 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 			rra(stack_a, stack_b);
 			sorted_items--;
 		}
+		//ra(stack_a, stack_b);
 		return ;
 	}
-	// Push items to stack_b (or move out of the way)
+	// -> stack_b
 	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot, stack_size);
 	// Replace back in order
 	while (rotated_items-- > 0)
 		rra(stack_a, stack_b);
 	// Move pivot to top of stack_a
 	move_pivot_ontop(stack_a, pivot, stack_b);
-	// Send back all numbers in stack_b to stack_a
+	// -> stack_a
 	while (stack_b->next != NULL)
 		pa(stack_a, stack_b);
 	// Move back sorted items

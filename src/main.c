@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/27 12:05:47 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/28 06:53:50 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ int main(int arg_count, char **argv)
 
     init_stack(stack_a, stack_b, matrix);
     sort_stack(stack_a, stack_b);
-    //display_hor(stack_a, stack_b);
+    display_hor(stack_a, stack_b);
 
+    usleep(1000000);
+    if (is_sorted(stack_a))
+        success_msg(0, "OK");
     return (0);
 }
 
