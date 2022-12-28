@@ -69,18 +69,12 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
 
 # Notes
 
-## Improve pivot selection
-- With average of all numbers
-    - best = 5403
-    - average = 5225
-    - worst = 6152
-- With the "median of three"
-    - best = 5954
-    - average = 6548
-    - worst = 7344
 
 ## Optimizations
 ### ~ Handle_15
-- swap top of stack_b to keep largest numbers on top
-    for a list of 20 numbers, 134 op -> 112 op
-- swap top of stack_a to push smallest numbers, so they are pushed first to stack_b
+- 10000 -> 5000 : before calling the quicksort algorithm recursively, I added a condition that check whether the list is already sorted, if it's the case, I stop there
+- 5000 -> 2500 : added a function that replaces quicksort when the list has less then 50 elements in it. That function pushes all elements to stack_b, and once they're all there, pushes them back to stack_b from largest to smallest
+    - after every push to stack_b, swap top of stack_b to keep largest numbers on top (if its top element is smaller than the second from the top)
+        for a list of 20 numbers, 134 op -> 112 op
+    - before pushing to stack_b, swap top of stack_a top to have the smallest go first (if its top element is bigger than the second from the top)
+- 1250 -> 1100 : after I pushed all numbers smaller than the pivot to stack_b, instead of simply pushing them back from top to bottom to stack_a, I pushed the largest numbers first. That way, when they get to stack_a, they're already sorted
