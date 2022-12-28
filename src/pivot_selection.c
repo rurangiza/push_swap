@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:51:24 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/27 13:24:47 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:18:53 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	find_median(t_node *stack_a, int start, int end, int stack_size)
 	// Find median
 	median = array[(stack_size / 2)];
 	
-	//free(array);
+	free(array);
 	return (median);
 
 }

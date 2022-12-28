@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/28 13:25:17 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:30:03 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 
 #include "../includes/push_swap.h"
 
-//int counterGlobal = 0;
-
 void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 {
 	int		pivot;
@@ -38,19 +36,15 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	int		sorted_items;
 	int     rotated_items;
 
+	stack_size = end - start;
+
 	// Base case
 	if (start >= end)
 		return ;
-	
-	stack_size = end - start;
-		
-	(void)stack_b;
-	
-	//pivot = find_pivot(stack_a, start, end, stack_size);
+
+	// Find pivot
 	pivot = find_median(stack_a, start, end, stack_size);
 
-	// Count number of items to push
-	pushables = count_pushables(stack_a, pivot, start, end);
 	// Move sorted elements
 	sorted_items = 0;
 	while (sorted_items < start)
@@ -59,7 +53,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		sorted_items++;
 	}
 
-	// handle smallest sections 
+	// Handle smallest sections 
 	if (stack_size <= 50)
 	{
 		handle_15(stack_a, stack_size, stack_b);
@@ -71,23 +65,20 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		//ra(stack_a, stack_b);
 		return ;
 	}
-	
-	/*
-	 * -> stack_b
-	*/
-	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot, stack_size);
-	// Replace back in order
+
+	// -> stack B
+	pushables = count_pushables(stack_a, pivot, 0, end - start);
+	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot);
 	while (rotated_items-- > 0)
 		rra(stack_a, stack_b);
+
 	// Move pivot to top of stack_a
 	move_pivot_ontop(stack_a, pivot, stack_b);
 	
-	// Repeat until empty
+	// stack A <-
 	while (stack_b->next != NULL)
 	{
-		// find largest
 		int largest = find_largest_nbr(stack_b);
-		// rb or rrb until reach the largest
 		if (stack_b->next->content != largest)
 		{
 			if (find_node_position(stack_b, largest) < get_list_size(stack_b) / 2)
@@ -98,10 +89,6 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		else
 			pa(stack_a, stack_b);
 	}
-
-	// stack_a <-
-	// while (stack_b->next != NULL)
-	// 	pa(stack_a, stack_b);
 	
 	// Move back sorted items
 	while (sorted_items > 0)
@@ -110,6 +97,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		sorted_items--;
 	}
 
+	// Recall quicksort
 	int pivot_index = find_node_position(stack_a, pivot);
 	if (!is_sorted_recursive(stack_a, start, pivot_index))
 		quicksort(stack_a, stack_b, start, pivot_index);
@@ -117,12 +105,12 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		quicksort(stack_a, stack_b, pivot_index + 1, end);
 }
 
-int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot, int stack_size)
+int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot)
 {
-	int	rotation_counter;;
+	int	rotation_counter;
 
 	rotation_counter = 0;
-	while (elements_to_push > 0 && stack_size != 0)
+	while (elements_to_push > 0)
 	{
 		if (stack_a->next->content < pivot)
 		{
@@ -134,7 +122,6 @@ int	push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot,
 			ra(stack_a, stack_b);
 			rotation_counter++;
 		}
-		stack_size--;
 	}
 	return (rotation_counter);
 }

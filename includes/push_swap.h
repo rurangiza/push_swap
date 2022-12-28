@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/28 12:45:10 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:17:34 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	move_pivot_ontop(t_node *stack_a, int pivot, t_node *stack_b);
 int		count_pushables(t_node *stack_a, int pivot, int start, int end);
 //int		find_pivot(t_node *stack_a, int start, int end, int stack_size);
 int		ft_abs(int x);
-int		push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot, int stack_size);
+int		push_to_b(t_node *stack_a, t_node *stack_b, int elements_to_push, int pivot);
 
 //int		calc_average(t_node *stack_a, int start, int end, int stack_size);
 //int		calc_medthree(t_node *stack_a, int start, int end);
