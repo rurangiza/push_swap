@@ -77,4 +77,5 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
     - after every push to stack_b, swap top of stack_b to keep largest numbers on top (if its top element is smaller than the second from the top)
         for a list of 20 numbers, 134 op -> 112 op
     - before pushing to stack_b, swap top of stack_a top to have the smallest go first (if its top element is bigger than the second from the top)
-- 1250 -> 1100 : after I pushed all numbers smaller than the pivot to stack_b, instead of simply pushing them back from top to bottom to stack_a, I pushed the largest numbers first. That way, when they get to stack_a, they're already sorted
+- 2500 -> 2300 : improved the pivot selection. Before I was using the "middle of three" method but since the exercice only care about the required operations, I wrote a function that find the exact median of every list by sorting it first in an array, then cutting the index in half and return the number that is at that position
+- 1300 -> 1100 : after I pushed all numbers smaller than the pivot to stack_b, instead of simply pushing them back from top to bottom to stack_a, I pushed the largest numbers first. That way, when they get to stack_a, they're already sorted
