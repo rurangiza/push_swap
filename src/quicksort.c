@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/28 07:08:17 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:25:17 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		ra(stack_a, stack_b);
 		sorted_items++;
 	}
+
 	// handle smallest sections 
 	if (stack_size <= 50)
 	{
@@ -70,16 +71,38 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 		//ra(stack_a, stack_b);
 		return ;
 	}
-	// -> stack_b
+	
+	/*
+	 * -> stack_b
+	*/
 	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot, stack_size);
 	// Replace back in order
 	while (rotated_items-- > 0)
 		rra(stack_a, stack_b);
 	// Move pivot to top of stack_a
 	move_pivot_ontop(stack_a, pivot, stack_b);
-	// -> stack_a
+	
+	// Repeat until empty
 	while (stack_b->next != NULL)
-		pa(stack_a, stack_b);
+	{
+		// find largest
+		int largest = find_largest_nbr(stack_b);
+		// rb or rrb until reach the largest
+		if (stack_b->next->content != largest)
+		{
+			if (find_node_position(stack_b, largest) < get_list_size(stack_b) / 2)
+				rb(stack_b, stack_a);
+			else
+				rrb(stack_b, stack_a);
+		}
+		else
+			pa(stack_a, stack_b);
+	}
+
+	// stack_a <-
+	// while (stack_b->next != NULL)
+	// 	pa(stack_a, stack_b);
+	
 	// Move back sorted items
 	while (sorted_items > 0)
 	{
