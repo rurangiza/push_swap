@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/29 10:20:37 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/29 16:12:00 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 
 	// Move elements to stack_b
 	elements_to_push = stack_size;
-	while (elements_to_push != 0)
+	while (elements_to_push > 0)
 	{
 
 		if (elements_to_push <= stack_size - 2)
@@ -64,17 +64,11 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
         		sb(stack_b, stack_a);
 		}
 		
-		// if ((get_list_size(stack_a) - 1) > 2)
-		// {
-		// 	first_a = stack_a->next;
-		// 	if (first_a->content > first_a->next->content)
-		// 		sa(stack_a, stack_b);
-		// }
-		
 		pb(stack_a, stack_b);
 		
 		elements_to_push--;
 	}
+	//handle_3any();
 
 	// Repeat until empty
 	while (stack_b->next != NULL)

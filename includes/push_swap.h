@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/28 14:17:34 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/29 12:23:48 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ typedef struct s_node {
 	int				index;
 	int				order;
 }	t_node;
+
+enum e_state {
+	_top = 1,
+	_bottom = 2,
+};
 
 /* PARSING */
 char	**parse_input(int arg_count, char **argv);
