@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/28 13:54:27 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/29 10:20:37 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@
 void	sort_stack(t_node *stack_a, t_node *stack_b)
 {
 	int	stack_size;
-	int	start;
-	int	end;
 	
-	(void)stack_b;
 	stack_size = get_list_size(stack_a) - 1;
 
 	if (is_sorted(stack_a))
@@ -44,19 +41,8 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		handle_3(stack_a, stack_b);
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
-	// else
-	// 	midpoint_alg(stack_a, stack_b);
-	// else if (stack_size <= 100)
-	// {
-	// 	//info_msg(0, "handling 15 case...");
-	// 	handle_15(stack_a, stack_size, stack_b);
-	// }
 	else if (stack_size <= 100)
-	{
-		start = 0;
-		end = get_list_size(stack_a) - 1;
-		quicksort(stack_a, stack_b, start, end);
-	}
+		quicksort(stack_a, stack_b, 0, stack_size);
 }
 
 void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
@@ -70,12 +56,6 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 	elements_to_push = stack_size;
 	while (elements_to_push != 0)
 	{
-		// if (get_list_size(stack_a) > 2)
-		// {
-		// 	first_a = stack_a->next;
-		// 	if (first_a->content > first_a->next->content)
-		// 		sa(stack_a, stack_b);
-		// }
 
 		if (elements_to_push <= stack_size - 2)
 		{
@@ -83,6 +63,13 @@ void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
 			if (first_b->content < first_b->next->content)
         		sb(stack_b, stack_a);
 		}
+		
+		// if ((get_list_size(stack_a) - 1) > 2)
+		// {
+		// 	first_a = stack_a->next;
+		// 	if (first_a->content > first_a->next->content)
+		// 		sa(stack_a, stack_b);
+		// }
 		
 		pb(stack_a, stack_b);
 		
