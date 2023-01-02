@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/02 13:39:15 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/02 17:20:35 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 void	sort_stack(t_node *stack_a, t_node *stack_b)
 {
 	int	stack_size;
-	
+
 	stack_size = get_list_size(stack_a) - 1;
 
 	if (is_sorted(stack_a))
@@ -44,15 +44,15 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 	else if (stack_size <= 100)
 		quicksort(stack_a, stack_b, 0, stack_size);
 	else
-		handle_500(stack_a, stack_b, 0, stack_size);
+		info_msg(0, "");
+		//handle_500(stack_a, stack_b, 0, stack_size);
 }
 
 void	handle_500(t_node *stack_a, t_node *stack_b, int stack_size)
 {
 	int	pivot = find_median(stack_a, 0, stack_size, stack_size);
+
 	int pushables = count_pushables(stack_a, pivot, 0, stack_size);
-	
-	
 	while (pushables > 0)
 	{
 		if (stack_a->next->content < pivot)
