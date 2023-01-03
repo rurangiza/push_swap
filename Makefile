@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/27 16:44:22 by arurangi         ###   ########.fr        #
+#    Updated: 2023/01/03 16:30:13 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${UTILS_DIR}sorting_utils.c \
 					${UTILS_DIR}quicksort_utils.c \
 					${UTILS_DIR}display.c \
+					${UTILS_DIR}break_msg.c \
 					${OP_DIR}push.c \
 					${OP_DIR}swap.c \
 					${OP_DIR}rotate.c \

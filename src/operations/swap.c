@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:27 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/27 13:48:02 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/03 10:35:34 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ void    sa(t_node *stack_a, t_node *stack_b)
 	if (first->next == NULL)
 		return ;
 	second = first->next;
-	if (second->next == NULL)
-		return ;
-	third = second->next;
+	if (second->next != NULL)
+		third = second->next;
 	
 	stack_a->next = second;
 	first->next = second->next;
@@ -46,8 +45,8 @@ void    sa(t_node *stack_a, t_node *stack_b)
 	
 	second->previous = stack_a;
 	first->previous = second;
-	third->previous = first;
-
+	if (second->next != NULL)
+		third->previous = first;
 	display_hor(stack_a, stack_b);
 	//write(1, "sa\n", 3);
 }

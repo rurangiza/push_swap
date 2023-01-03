@@ -6,13 +6,13 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:51:24 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/28 14:18:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:27:36 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	find_median(t_node *stack_a, int start, int end, int stack_size)
+int	find_median(t_node *stack, int start, int end, int stack_size)
 {
 	int	stack_pos;
 	int	*array;
@@ -24,15 +24,15 @@ int	find_median(t_node *stack_a, int start, int end, int stack_size)
 	// Store in array
 	stack_pos = 0;
 	array_pos = 0;
-	while (stack_a && (stack_pos - start < stack_size))
+	while (stack && (stack_pos - start < stack_size))
 	{
 		if (stack_pos >= start)
 		{
-			array[array_pos] = stack_a->next->content;
+			array[array_pos] = stack->next->content;
 			array_pos++;
 		}
 		stack_pos++;
-		stack_a = stack_a->next;
+		stack = stack->next;
 	}
 	// Sort array
 	selection_sort(array, stack_size);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   partitioning_utils.c                               :+:      :+:    :+:   */
+/*   quicksort_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:28:33 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/25 20:27:44 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/03 11:28:12 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_abs(int x)
 		return (x);
 }
 
-int count_pushables(t_node *stack_a, int pivot, int start, int end)
+int count_pushables(t_node *stack, int pivot, int start, int end)
 {
     t_node  *tmp;
     int     elements_to_push;
@@ -52,7 +52,7 @@ int count_pushables(t_node *stack_a, int pivot, int start, int end)
 	stack_size = end - start;
 
 	position = 0;
-    tmp = stack_a->next;
+    tmp = stack->next;
 	elements_to_push = 0;
 	while (tmp && (position - start < stack_size))
 	{

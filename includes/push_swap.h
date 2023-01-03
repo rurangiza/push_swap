@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/02 17:17:28 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/03 16:29:29 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ int		insertion_sort(int *unsorted, int size);
 void	swap(int *a, int *b);
 
 void	midpoint_alg(t_node *stack_a, t_node *stack_b);
+
+void	break_msg(char *message, ...);
 
 # endif
