@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/29 16:49:14 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/04 11:05:16 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	if (start >= end)
 		return ;
 	
-	
-
 	// Find pivot
 	pivot = find_median(stack_a, start, end, stack_size);
 	success_msg(0, "pivot = %d", pivot);

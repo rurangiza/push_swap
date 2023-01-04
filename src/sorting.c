@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/03 12:07:45 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:34:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		handle_3(stack_a, stack_b);
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
-	else if (stack_size <= 20)
+	else if (stack_size <= 50)
 		midpoint_alg(stack_a, stack_b);
 	else if (stack_size <= 100)
 		quicksort(stack_a, stack_b, 0, stack_size);
-	// else
-	// 	midpoint_alg(stack_a, stack_b);
+	else
+		quicksort(stack_a, stack_b, 0, stack_size);
 }
 
 void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b)
@@ -132,21 +132,32 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 	{
 		smallest = find_smallest_nbr(stack_a);
 		last_node = get_last_node(stack_a);
-		if (last_node->content == smallest)
-			rra(stack_a, stack_b);
-		else
+		// if (last_node->content == smallest)
+		// 	rra(stack_a, stack_b);
+		// else
+		// {
+		// 	while (stack_a->next->content != smallest)
+		// 	{
+		// 		ra(stack_a, stack_b);
+		// 	}
+		// }
+		if (smallest == stack_a->next->content)
 		{
-			while (stack_a->next->content != smallest)
-			{
-				ra(stack_a, stack_b);
-			}
+			pb(stack_a, stack_b);
+			counter--;
 		}
-		pb(stack_a, stack_b);
-		counter--;
+		else if (find_node_position(stack_a, smallest) < (get_list_size(stack_a) - 1) / 2)
+			ra(stack_a, stack_b);
+		else
+			rra(stack_a, stack_b);
+			
 	}
 	if (!is_sorted(stack_a))
 		handle_3(stack_a, stack_b);
-	counter = (get_list_size(stack_b) - 1);
+	if ((get_list_size(stack_b) - 1) >= 2)
+		counter = 2;
+	else
+		counter = 1;
 	while (counter > 0)
 	{
 		pa(stack_a, stack_b);

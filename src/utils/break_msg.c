@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:24:25 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/03 16:29:20 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:55:33 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void	break_msg(char *message, ...)
 		index++;
 	}
 	write(1, "\n", 1);
-	usleep(1500000);
+	usleep(1000000);
 }
