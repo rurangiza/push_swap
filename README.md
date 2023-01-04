@@ -81,3 +81,4 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
 - 1300 -> 1100 : after I pushed all numbers smaller than the pivot to stack_b, instead of simply pushing them back from top to bottom to stack_a, I pushed the largest numbers first. That way, when they get to stack_a, they're already sorted
     - move_pivot_ontop() : check whether it's closer to the top or bottom, and do ra or rra based on that
 - 1100 -> 950 : removed an extra step when partinioning. In the first iteration of quicksort, after I found the pivot, I would send every number smaller than the pivot to stack_b with the pb function, and the other numbers would be sent to the bottom of stack_a, then repositioned at the top of stack_a. That last step was useful when I called the quicksort algorithm multiple times but since I only use if once, to cut the list in two, then I use selection sort, than that last step was not necessary.
+- 950 -> 750 : 

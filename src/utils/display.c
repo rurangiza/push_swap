@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:42:01 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/04 16:34:09 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:16:11 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,31 @@ void    display_hor(t_node *stack_a, t_node *stack_b)
     static int opGlobal = 0;
     
     opGlobal++;
-    stack_a = stack_a->next;
-    stack_b = stack_b->next;
+    t_node *tmp_a = stack_a->next;
+    t_node *tmp_b = stack_b->next;
     system("clear");
 	// Print stack A
     printf("\033[32mStack A: \033[0m");
-    while (stack_a)
+    while (tmp_a)
     {
-        printf("%d ", stack_a->content);
-        stack_a = stack_a->next;
+        if (tmp_a->previous != NULL && tmp_a->next != NULL)
+        {
+            if (stack_a->next->content == tmp_a->content && tmp_a->content < tmp_a->next->content)
+                printf("\033[32m%d \033[0m", tmp_a->content);
+            else if (tmp_a->previous->content < tmp_a->content && tmp_a->next->content > tmp_a->content)
+                printf("\033[32m%d \033[0m", tmp_a->content);
+            else
+                printf("\033[31m%d\033[0m ", tmp_a->content);
+        }
+        tmp_a = tmp_a->next;
     }
     printf("\n");
     // Print stack B
     printf("\033[33mStack B: \033[0m");
-    while (stack_b)
+    while (tmp_b)
     {
-        printf("%d ", stack_b->content);
-        stack_b = stack_b->next;
+        printf("%d ", tmp_b->content);
+        tmp_b = tmp_b->next;
     }
     printf("\n");
 	// Waot before refresh

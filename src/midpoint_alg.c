@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/04 16:46:05 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:22:07 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,11 +141,12 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 		//chunks[index] -= pushables;
 		//index++;
 	}
+
 	if (!is_sorted(stack_a))
 		handle_5(stack_a, stack_b);
-	
+	/*
 	int		largest;
-	t_node	*first_a;
+	//t_node	*first_a;
 	while (stack_b->next != NULL)
 	{
 		// Find largest
@@ -161,15 +162,16 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 		}
 		pa(stack_a, stack_b);
 		
-		first_a = stack_a->next;
-		if (first->next != NULL)
-		{
-			if (first_a->content > first->next->content)
-			{
-				break_msg("--- Here");
-				sa(stack_a, stack_b);
-			}
-		}
+		// first_a = stack_a->next;
+		// if (first->next != NULL)
+		// {
+		// 	if (first_a->content > first->next->content)
+		// 	{
+		// 		break_msg("--- Here");
+		// 		sa(stack_a, stack_b);
+		// 	}
+		// }
+		*/
 	}
 	
 
@@ -244,9 +246,9 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 	// 	index--;
 	// 	stack_size = get_list_size(stack_b) - 1;
 	// }
-	break_msg("Finished!");
+	//break_msg("Finished!");
 	//break_msg("Selection sort..");
 	//quicksort(stack_a, get_list_size(stack_a) - 1, stack_b);
 	/*
-	*/
 }
+	*/
