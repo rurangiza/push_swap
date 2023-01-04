@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/04 17:22:07 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:28:43 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 		pivot = find_median(stack_a, 0, stack_size, stack_size);
 		// Move elements smaller than median -> stack_b
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
-		//chunks[index] = pushables; // Remember different chunks size
 		while (pushables > 0 && stack_size > 5)
 		{
 			first = stack_a->next;
