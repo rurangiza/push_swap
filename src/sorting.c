@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/04 13:34:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:28:52 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 	else if (stack_size <= 50)
 		midpoint_alg(stack_a, stack_b);
 	else if (stack_size <= 100)
-		quicksort(stack_a, stack_b, 0, stack_size);
+		midpoint_alg(stack_a, stack_b);
+		//quicksort(stack_a, stack_b, 0, stack_size);
 	else
 		quicksort(stack_a, stack_b, 0, stack_size);
 }

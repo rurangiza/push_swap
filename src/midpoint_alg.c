@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/04 16:17:13 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:46:05 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 		while (pushables > 0 && stack_size > 5)
 		{
 			first = stack_a->next;
-			break_msg("Pushables %d", pushables);
 			// Push pivot instead of last pushable
 			if (pushables == 1 && first->next->content < first->content)
 			{
@@ -144,14 +143,35 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 	}
 	if (!is_sorted(stack_a))
 		handle_5(stack_a, stack_b);
-	/*
-	*/
-	// Print result
-	// for (int i = index - 1; i >= 0; i--)
-	// {
-	// 	info_msg("%d chunks", chunks[i]);
-	// 	usleep(1000000);
-	// }
+	
+	int		largest;
+	t_node	*first_a;
+	while (stack_b->next != NULL)
+	{
+		// Find largest
+		largest = find_largest_nbr(stack_b);
+		// Move it on top or bottom depending on quickest
+		while (stack_b->next->content != largest)
+		{
+			// Push it to stack_a
+			if (find_node_position(stack_b, largest) < (get_list_size(stack_b) - 1) / 2)
+				rb(stack_b, stack_a);
+			else
+				rrb(stack_b, stack_a);
+		}
+		pa(stack_a, stack_b);
+		
+		first_a = stack_a->next;
+		if (first->next != NULL)
+		{
+			if (first_a->content > first->next->content)
+			{
+				break_msg("--- Here");
+				sa(stack_a, stack_b);
+			}
+		}
+	}
+	
 
 	
 	// Midpoint algorithm for stack_b
