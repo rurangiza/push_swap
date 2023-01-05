@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/04 17:28:43 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 10:19:04 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,20 @@ int	is_sorted_desc(t_node *stack, int start, int end)
 	return (1);
 }
 
-void	midpoint_alg(t_node *stack_a, t_node *stack_b)
+void	handle_100(t_node *stack_a, t_node *stack_b)
 {
 	int		pivot;
 	int		pushables;
 	int		stack_size;
 	t_node *first;
-	//int		*chunks;
-	//int		index;
 
+	// Push -> stack_b (smallest first)
 	stack_size = get_list_size(stack_a) - 1;
-	//chunks = malloc(sizeof(int) * divisions_by_two(stack_size)); 
-	//index = 0;
-
-	// Midpoint algorithm for stack_a
 	while (stack_size > 5)
 	{
 		// Find the median
 		pivot = find_median(stack_a, 0, stack_size, stack_size);
-		// Move elements smaller than median -> stack_b
+		// Push all numbers < median -> stack_b
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
 		while (pushables > 0 && stack_size > 5)
 		{
@@ -99,8 +94,9 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 				pb(stack_a, stack_b); // Push to stack_b
 				pushables--;
 			}
-			// First and Last < pivot
-			else if (first->content < pivot && get_last_node(stack_a)->content < pivot)
+			
+			// First && Last < pivot
+			if (first->content < pivot && get_last_node(stack_a)->content < pivot)
 			{
 				if (first->content < get_last_node(stack_a)->content)
 					pb(stack_a, stack_b);
@@ -111,7 +107,7 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 				}
 				pushables--;
 			}
-			// First or Last < pivot
+			// First || Last < pivot
 			else if (first->content < pivot || get_last_node(stack_a)->content < pivot)
 			{
 				if (first->content < pivot)
@@ -137,117 +133,31 @@ void	midpoint_alg(t_node *stack_a, t_node *stack_b)
 			}
 			stack_size = get_list_size(stack_a) - 1;
 		}
-		//chunks[index] -= pushables;
-		//index++;
 	}
 
+	// Sort stack_a	
 	if (!is_sorted(stack_a))
 		handle_5(stack_a, stack_b);
-	/*
+	
+	// Push -> stack_a (largest first)
 	int		largest;
-	//t_node	*first_a;
+	int		lgst_position;
+	t_node	*first_a;
 	while (stack_b->next != NULL)
 	{
-		// Find largest
-		largest = find_largest_nbr(stack_b);
-		// Move it on top or bottom depending on quickest
-		while (stack_b->next->content != largest)
+		largest = find_largest_nbr(stack_b); // Find largest
+		lgst_position = find_node_position(stack_b, largest);
+		while (stack_b->next->content != largest) // Move it on top or bottom depending on quickest
 		{
-			// Push it to stack_a
-			if (find_node_position(stack_b, largest) < (get_list_size(stack_b) - 1) / 2)
+			if (lgst_position < (get_list_size(stack_b) - 1) / 2)
 				rb(stack_b, stack_a);
 			else
 				rrb(stack_b, stack_a);
 		}
 		pa(stack_a, stack_b);
 		
-		// first_a = stack_a->next;
-		// if (first->next != NULL)
-		// {
-		// 	if (first_a->content > first->next->content)
-		// 	{
-		// 		break_msg("--- Here");
-		// 		sa(stack_a, stack_b);
-		// 	}
-		// }
-		*/
+		first_a = stack_a->next;
+		if (first_a->content > first_a->next->content)
+			sa(stack_a, stack_b);
 	}
-	
-
-	
-	// Midpoint algorithm for stack_b
-	// stack_size = get_list_size(stack_b) - 1;
-	// int chunk_size;
-	// t_node *first_b;
-	// index -= 1;
-	// while (stack_b->next != NULL)
-	// {
-	// 	chunk_size = chunks[index];
-	// 	while (chunk_size > 0)
-	// 	{
-	// 		pivot = find_median(stack_b, 0, chunk_size, chunk_size);
-	// 		break_msg("Midpoint = %d", pivot);
-	// 		pushables = count_pushables(stack_b, pivot, 0, chunk_size);
-	// 		int	rotations = 0;
-	// 		if (chunk_size == 1)
-	// 		{
-	// 			break_msg("1st case (chunk == 1)");
-	// 			break_msg("    pushing (%d) -> A", stack_b->next->content);
-	// 			pa(stack_a, stack_b);
-	// 			chunk_size--;
-	// 		}
-	// 		else if (chunk_size == 2)
-	// 		{
-	// 			break_msg("2nd case (chunk == 2)");
-	// 			if (find_largest_nbr(stack_b) != stack_b->next->content)
-	// 			{
-	// 				break_msg("    swaping (%d)", stack_b->next->content);
-	// 				sb(stack_b, stack_a);
-	// 			}
-	// 			break_msg("    pushing (%d) -> A", stack_b->next->content);
-	// 			pa(stack_a, stack_b);
-	// 			pa(stack_a, stack_b);
-	// 			chunk_size -= 2;
-	// 		}
-	// 		else
-	// 		{
-	// 			while (pushables > 0)
-	// 			{
-	// 				break_msg("3rd case : chunks %d", chunk_size);
-	// 				first_b = stack_b->next;
-	// 				if (first_b->content > pivot)
-	// 				{
-	// 					break_msg("    pushing (%d) -> A", stack_b->next->content);
-	// 					pa(stack_a, stack_b);
-	// 					pushables--;
-	// 					chunk_size--;
-	// 				}
-	// 				else if (first_b->content == pivot && pushables == 1)
-	// 				{
-	// 					break_msg("    pushing midpoint (%d) -> A", stack_b->next->content);
-	// 					pa(stack_a, stack_b);
-	// 					pushables--;
-	// 					chunk_size--;
-	// 				}
-	// 				else
-	// 				{
-	// 					rb(stack_b, stack_a);
-	// 					rotations++;
-	// 				}
-	// 			}
-	// 			while (rotations > 0 && index != 0) // Not last chunk
-	// 			{
-	// 				rrb(stack_b, stack_a);
-	// 				rotations--;
-	// 			}
-	// 		}
-	// 	}
-	// 	index--;
-	// 	stack_size = get_list_size(stack_b) - 1;
-	// }
-	//break_msg("Finished!");
-	//break_msg("Selection sort..");
-	//quicksort(stack_a, get_list_size(stack_a) - 1, stack_b);
-	/*
 }
-	*/
