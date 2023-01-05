@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 11:23:12 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:29:32 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 	int		pivot;
 	int		pushables;
 	int		stack_size;
-	t_node *first;
-	int pivot_switcher = 0;
+	t_node	*first;
+	t_node	*last;
 
 	// Push -> stack_b (smallest first)
 	stack_size = get_list_size(stack_a) - 1;
@@ -72,10 +72,11 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 		while (pushables > 0 && stack_size > 5)
 		{
 			first = stack_a->next;
+			last = get_last_node(stack_a);
 			// First && Last < pivot
-			if (first->content < pivot && get_last_node(stack_a)->content < pivot)
+			if (first->content < pivot && last->content < pivot)
 			{
-				if (first->content < get_last_node(stack_a)->content)
+				if (first->content < last->content)
 					pb(stack_a, stack_b);
 				else
 				{
@@ -85,7 +86,7 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 				pushables--;
 			}
 			// First || Last < pivot
-			else if (first->content < pivot || get_last_node(stack_a)->content < pivot)
+			else if (first->content < pivot || last->content < pivot)
 			{
 				if (first->content < pivot)
 					pb(stack_a, stack_b);
@@ -110,7 +111,6 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 			}
 			stack_size = get_list_size(stack_a) - 1;
 		}
-		pivot_switcher++;
 	}
 
 	// Sort stack_a	
