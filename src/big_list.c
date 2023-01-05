@@ -6,11 +6,42 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:59:30 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 13:12:01 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:24:25 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	closest_pushable(t_node *stack, int pivot)
+{
+	t_node	*front;
+	t_node	*back;
+	int		front_counter;
+	int		back_counter;
+
+	front = stack->next;
+	front_counter = 0;
+	while (front != NULL)
+	{
+		if (front->content < pivot)
+			break ;
+		front_counter++;
+		front = front->next;
+	}
+
+	back = get_last_node(stack);
+	back_counter = 0;
+	while (back != NULL)
+	{
+		if (back->content < pivot)
+			break ;
+		back_counter++;
+		back = back->previous;
+	}
+	if (front_counter < back_counter)
+		return (1);
+	return (0);
+}
 
 void	handle_500(t_node *stack_a, t_node *stack_b)
 {
@@ -19,6 +50,7 @@ void	handle_500(t_node *stack_a, t_node *stack_b)
 	int		stack_size;
 	t_node	*first;
 	t_node	*last;
+
 
 	// Push -> stack_b (smallest first)
 	stack_size = get_list_size(stack_a) - 1;
@@ -29,6 +61,7 @@ void	handle_500(t_node *stack_a, t_node *stack_b)
 			pivot = find_octile(stack_a, 0, stack_size, stack_size);
 		else
 			pivot = find_quartile(stack_a, 0, stack_size, stack_size);
+
 		// Push numbers < pivot -> stack_b (smallest first)
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
 		while (pushables > 0 && stack_size > 5)
@@ -74,8 +107,8 @@ void	handle_500(t_node *stack_a, t_node *stack_b)
 			stack_size = get_list_size(stack_a) - 1;
 		}
 	}
-
 	// Sort stack_a	
+	break_msg("5 Hundred Triage");
 	if (!is_sorted(stack_a))
 		handle_5(stack_a, stack_b);
 	
@@ -100,6 +133,8 @@ void	handle_500(t_node *stack_a, t_node *stack_b)
 		if (first_a->content > first_a->next->content)
 			sa(stack_a, stack_b);
 	}
+	/*
+	*/
 }
 
 void	handle_100(t_node *stack_a, t_node *stack_b)
