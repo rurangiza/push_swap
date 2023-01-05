@@ -86,3 +86,4 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
     2. Then I sort the 5 remaining numbers with handle_5(). 
     3. And finaly, I push all numbers in stack_b to stack_a (largest first).
 - 750 -> 725 (best < 700) : instead of using a median as pivot, I'm using a quartile (number that seperates a list of numbers in 4 equal parts)
+- 725 -> 690 (average) : remove the piece of code that "pushes pivot instead of last pushable". It was useless and added unecessary operations
