@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 14:23:40 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:17:46 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,13 +123,13 @@ void	handle_5(t_node *stack_a, t_node *stack_b)
 {
 	int		smallest;
 	int		sm_index;
-	t_node	*last_node;
+	//t_node	*last_node;
 	int		counter;
 	counter = (get_list_size(stack_a) - 1) - 3;
 	while (counter > 0)
 	{
 		smallest = find_smallest_nbr(stack_a);
-		last_node = get_last_node(stack_a);
+		//last_node = get_last_node(stack_a);
 		sm_index = find_node_position(stack_a, smallest);
 
 		while (stack_a->next->content != smallest)

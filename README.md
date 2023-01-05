@@ -65,11 +65,6 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
 - Big O notation and complexity in algorithms
 - Data structure: implementing and manipulating a doubly-linked list
 
-## 🫡 Final thoughts
-
-# Notes
-
-
 ## Optimizations
 ### ~ Handle 100 numbers
 - 10000 -> 5000 : before calling the quicksort algorithm recursively, I added a condition that check whether the list is already sorted, if it's the case, I stop there
@@ -85,9 +80,12 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
     1. I push all numbers of stack_a to stack_b leaving only 5. I do that by finding the median, pushing everything below that median to stack_b, repeating this action until there is only 5 numbers in stack_a.
     2. Then I sort the 5 remaining numbers with handle_5(). 
     3. And finaly, I push all numbers in stack_b to stack_a (largest first).
-- 750 -> 725 (best < 700) : instead of using a median as pivot, I'm using a quartile (number that seperates a list of numbers in 4 equal parts)
+- 750 -> 725 (best < 700) : instead of using a **median** as pivot, I'm using a **quartile** (number that seperates a list of numbers in 4 equal parts)
 - 725 -> 690 (average) : remove the piece of code that "pushes pivot instead of last pushable". It was useless and added unecessary operations
 
 ### ~ Handle 500 numbers
 Using the same algorithm as the one for 100 numbers, I got 7913 operations (average of 5).
 - 7913 -> 6998 : use octile as pivot until the size of stack_a falls below 100. At that point, I use quartiles as pivots. 
+
+
+## 🫡 Final thoughts
