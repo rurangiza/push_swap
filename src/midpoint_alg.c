@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 11:51:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 12:05:42 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,37 +51,6 @@ int	is_sorted_desc(t_node *stack, int start, int end)
 		stack = stack->next;
 	}
 	return (1);
-}
-
-int	closest_pushable(t_node *stack, int pivot)
-{
-	t_node	*front;
-	t_node	*back;
-	int		front_counter;
-	int		back_counter;
-	
-	front = stack->next;
-	front_counter = 0;
-	while (front != NULL)
-	{
-		if (front->content < pivot)
-			break ;
-		front_counter++;
-		front = front->next;
-	}
-	
-	back = get_last_node(stack);
-	back_counter = 0;
-	while (back != NULL)
-	{
-		if (back->content < pivot)
-			break ;
-		back_counter++;
-		back = back->previous;
-	}
-	if (front_counter < back_counter)
-		return (_top);
-	return (_bottom);
 }
 
 void	handle_100(t_node *stack_a, t_node *stack_b)
