@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:51:24 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 10:56:38 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:11:05 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,38 @@ int	find_quartile(t_node *stack, int start, int end, int stack_size)
 	
 	free(array);
 	return (quartile);
+
+}
+
+int	find_quintile(t_node *stack, int start, int end, int stack_size)
+{
+	int	stack_pos;
+	int	*array;
+	int	array_pos;
+	int	quintile;
+
+	(void)end;
+	array = malloc(sizeof(int) * stack_size);
+	// Store in array
+	stack_pos = 0;
+	array_pos = 0;
+	while (stack && (stack_pos - start < stack_size))
+	{
+		if (stack_pos >= start)
+		{
+			array[array_pos] = stack->next->content;
+			array_pos++;
+		}
+		stack_pos++;
+		stack = stack->next;
+	}
+	// Sort array
+	selection_sort(array, stack_size);
+	// Find quintile
+	quintile = array[(stack_size / 5)];
+	
+	free(array);
+	return (quintile);
 
 }
 

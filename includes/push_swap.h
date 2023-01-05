@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/05 10:58:17 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:11:22 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int		*random_numbers(int size, int threshold);
 
 int		find_median(t_node *stack_a, int start, int end, int stack_size);
 int		find_quartile(t_node *stack, int start, int end, int stack_size);
+int		find_quintile(t_node *stack, int start, int end, int stack_size);
 
 int		selection_sort(int *unsorted, int size);
 int		insertion_sort(int *unsorted, int size);

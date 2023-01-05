@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 11:03:19 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:12:42 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 	int		pushables;
 	int		stack_size;
 	t_node *first;
+	int pivot_switcher = 0;
 
 	// Push -> stack_b (smallest first)
 	stack_size = get_list_size(stack_a) - 1;
 	while (stack_size > 5)
 	{
-		// Find the median
-		//pivot = find_median(stack_a, 0, stack_size, stack_size);
+		// Find the pivot
 		pivot = find_quartile(stack_a, 0, stack_size, stack_size);
 		// Push all numbers < median -> stack_b
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
@@ -134,6 +134,7 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 			}
 			stack_size = get_list_size(stack_a) - 1;
 		}
+		pivot_switcher++;
 	}
 
 	// Sort stack_a	
