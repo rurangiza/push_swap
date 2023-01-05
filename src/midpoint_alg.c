@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 11:12:42 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:23:12 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,35 +67,11 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 	{
 		// Find the pivot
 		pivot = find_quartile(stack_a, 0, stack_size, stack_size);
-		// Push all numbers < median -> stack_b
+		// Push numbers < pivot -> stack_b (smallest first)
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
 		while (pushables > 0 && stack_size > 5)
 		{
 			first = stack_a->next;
-			// Push pivot instead of last pushable
-			if (pushables == 1 && first->next->content < first->content)
-			{
-				int	rotated_items;
-				int	closer_to;
-
-				if (find_node_position(stack_a, pivot) < get_list_size(stack_a) / 2)
-					closer_to = _top;
-				else
-					closer_to = _bottom;
-
-				rotated_items = 0;
-				while (stack_a->next->content != pivot)
-				{
-					if (closer_to == _top)
-						ra(stack_a, stack_b);
-					else
-						rra(stack_a, stack_b);
-					rotated_items++;
-				}
-				pb(stack_a, stack_b); // Push to stack_b
-				pushables--;
-			}
-			
 			// First && Last < pivot
 			if (first->content < pivot && get_last_node(stack_a)->content < pivot)
 			{
