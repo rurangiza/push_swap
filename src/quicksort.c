@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/04 11:05:16 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/05 10:49:00 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 	int		stack_size;
 	int     pushables;
 	int		sorted_items;
-	//int     rotated_items;
+	int     rotated_items;
 
 	stack_size = end - start;
 
@@ -76,15 +76,14 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 
 	// -> stack B
 	pushables = count_pushables(stack_a, pivot, 0, end - start);
-	push_to_b(stack_a, stack_b, pushables, pivot);
-	// rotated_items = push_to_b(stack_a, stack_b, pushables, pivot);	
-	// while (rotated_items-- > 0)
-	// 	rra(stack_a, stack_b);
+	//push_to_b(stack_a, stack_b, pushables, pivot);
+	rotated_items = push_to_b(stack_a, stack_b, pushables, pivot);	
+	while (rotated_items-- > 0)
+		rra(stack_a, stack_b);
 
 	// Move pivot to top of stack_a
 	move_pivot_ontop(stack_a, pivot, stack_b);
-	
-	
+
 	// stack A <-
 	while (stack_b->next != NULL)
 	{
@@ -171,5 +170,3 @@ void    move_pivot_ontop(t_node *stack_a, int pivot, t_node *stack_b)
 		rotated_items--;
 	}
 }
-
-
