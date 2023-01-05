@@ -71,7 +71,7 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
 
 
 ## Optimizations
-### ~ Handle_15
+### ~ Handle 100 numbers
 - 10000 -> 5000 : before calling the quicksort algorithm recursively, I added a condition that check whether the list is already sorted, if it's the case, I stop there
 - 5000 -> 2500 : added a function that replaces quicksort when the list has less then 50 elements in it. That function pushes all elements to stack_b, and once they're all there, pushes them back to stack_b from largest to smallest
     - after every push to stack_b, swap top of stack_b to keep largest numbers on top (if its top element is smaller than the second from the top)
@@ -87,3 +87,7 @@ Key terms: partitioning, pivot, D&C (Devide and Conquer)
     3. And finaly, I push all numbers in stack_b to stack_a (largest first).
 - 750 -> 725 (best < 700) : instead of using a median as pivot, I'm using a quartile (number that seperates a list of numbers in 4 equal parts)
 - 725 -> 690 (average) : remove the piece of code that "pushes pivot instead of last pushable". It was useless and added unecessary operations
+
+### ~ Handle 500 numbers
+Using the same algorithm as the one for 100 numbers, I got 7913 operations (average of 5).
+- 7913 -> 6998 : use octile as pivot until the size of stack_a falls below 100. At that point, I use quartiles as pivots. 
