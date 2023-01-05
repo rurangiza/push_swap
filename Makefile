@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
+#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2023/01/05 13:02:21 by arurangi         ###   ########.fr        #
+#    Updated: 2023/01/05 19:46:03 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${SRC_DIR}quicksort.c \
 					${SRC_DIR}pivot_selection.c \
 					${SRC_DIR}midpoint_alg.c \
-					${SRC_DIR}big_list.c \
+					${SRC_DIR}sort_small.c \
+					${SRC_DIR}sort_medium.c \
+					${SRC_DIR}sort_large.c \
 					${UTILS_DIR}linked_list.c \
 					${UTILS_DIR}sorting_utils.c \
 					${UTILS_DIR}quicksort_utils.c \
