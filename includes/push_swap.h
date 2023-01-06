@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/06 10:12:31 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:45:47 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void    pa(t_node *stack_a, t_node *stack_b);
 void	sort_stack(t_node *stack_a, t_node *stack_b);
 
 void	handle_3(t_node *stack_a, t_node *stack_b);
+void	sort_trio(t_node *stack_a, t_node *stack_b);
+
 void	handle_5(t_node *stack_a, t_node *stack_b);
 void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b);
 void	handle_100(t_node *stack_a, t_node *stack_b);
@@ -71,6 +73,8 @@ void	handle_500(t_node *stack_a, t_node *stack_b);
 
 int		is_sorted(t_node *stack_a);
 int		is_sorted_asc(t_node *stack_a, int start, int end);
+int		is_sorted_desc(t_node *stack, int start, int end);
+
 int		find_smallest_nbr(t_node *stack_a);
 int		find_largest_nbr(t_node *stack_a);
 

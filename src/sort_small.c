@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:36:01 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/06 10:41:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:52:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,39 @@ void	handle_3(t_node *stack_a, t_node *stack_b)
 			sa(stack_a, stack_b);
 	}
 }
+
+void	sort_trio(t_node *stack_a, t_node *stack_b)
+{
+	t_node *first_b;
+	t_node *second_b;
+	
+	//if (get_list_size(stack_a) - 1 <= 3);
+	// swap top 2 numbers in stack_b (keep largest above)
+	if ((get_list_size(stack_b) - 1) <= 3)
+		handle_3(stack_a, stack_b);
+	else
+	{
+		// Top 2
+		if (stack_b->next->content < get_last_node(stack_b)->content)
+			rb(stack_b, stack_a);
+		
+		first_b = stack_b->next;
+		second_b = first_b->next;
+		if (first_b->content < second_b->content)
+			sb(stack_b, stack_a);
+			
+		// first_b = stack_b->next;
+		// second_b = first_b->next;
+		// if ()
+		// // Top 3
+		// if (get_list_size(stack_b) - 1 >= 3)
+		// {
+			
+		// }
+	}
+}
+
+
 
 void	handle_5(t_node *stack_a, t_node *stack_b)
 {

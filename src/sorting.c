@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/06 10:27:58 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 11:37:52 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,14 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 	}
 	if (stack_size <= 3) // 5 cases
 		handle_3(stack_a, stack_b);
-	/*
 	else if (stack_size <= 5)
 		handle_5(stack_a, stack_b);
 	else if (stack_size <= 100)
 		handle_100(stack_a, stack_b);
 	else
 		handle_500(stack_a, stack_b);
+	/*
+	else
 	*/
 }
 

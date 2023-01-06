@@ -3,41 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_medium.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:59:30 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 20:11:50 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/06 11:46:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_trio(t_node *stack_a, t_node *stack_b)
-{
-	t_node *first_b;
-	t_node *second_b;
-	// swap top 2 numbers in stack_b (keep largest above)
-	if ((get_list_size(stack_b) - 1) >= 2)
-	{
-		// Top 2
-		if (stack_b->next->content < get_last_node(stack_b)->content)
-			rb(stack_b, stack_a);
-		
-		first_b = stack_b->next;
-		second_b = first_b->next;
-		if (first_b->content < second_b->content)
-			sb(stack_b, stack_a);
-			
-		// first_b = stack_b->next;
-		// second_b = first_b->next;
-		// if ()
-		// // Top 3
-		// if (get_list_size(stack_b) - 1 >= 3)
-		// {
-			
-		// }
-	}
-}
+
 
 void	handle_100(t_node *stack_a, t_node *stack_b)
 {
@@ -53,6 +28,7 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 	{
 		// Find the pivot
 		pivot = find_quartile(stack_a, 0, stack_size, stack_size);
+		
 		// Push numbers < pivot -> stack_b (smallest first)
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
 		while (pushables > 0 && stack_size > 5)
@@ -89,7 +65,20 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 
 			// swap top 2 numbers in stack_b (keep largest above)
 			if ((get_list_size(stack_b) - 1) >= 2)
-				sort_trio(stack_a, stack_b);
+			{
+				t_node *first_b;
+				t_node *second_b;
+
+				if (stack_b->next->content < get_last_node(stack_b)->content)
+					rb(stack_b, stack_a);
+				
+				first_b = stack_b->next;
+				second_b = first_b->next;
+				if (first_b->content < second_b->content)
+					sb(stack_b, stack_a);
+			}
+				//sort_trio(stack_a, stack_b);
+			
 			// Update stack_size
 			stack_size = get_list_size(stack_a) - 1;
 		}
