@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:36:01 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/05 19:36:45 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/06 10:10:57 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	handle_3(t_node *stack_a, t_node *stack_b)
 	first = stack_a->next;
 	second = first->next;
 	third = second->next;
+
 	
 	if (first->content > second->content && first->content < third->content)
 		sa(stack_a, stack_b);

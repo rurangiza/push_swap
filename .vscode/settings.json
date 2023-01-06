@@ -4,6 +4,7 @@
 		"chrono": "c",
 		"__functional_03": "c",
 		"functional": "c",
-		"__node_handle": "c"
+		"__node_handle": "c",
+		"utility": "c"
 	}
 }

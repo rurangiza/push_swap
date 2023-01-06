@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:24:01 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/05 13:01:16 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:13:05 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,6 @@ int	divisions_by_two(int nbr)
 	return (count);
 }
 
-int	is_sorted_desc(t_node *stack, int start, int end)
-{
-	int	prev_largest;
-	int	index;
-	int	size;
 
-	size = end - start;
-	
-	if (stack->next == NULL)
-		return (1);
-	stack = stack->next;
-	index = 0;
-	while(stack && (index - start < size))
-	{
-		if (index >= start)
-		{
-			if (index == start)
-				prev_largest = stack->content;
-			else if (stack->content > prev_largest)
-				return (0);
-			prev_largest = stack->content;
-		}
-		index++;
-		stack = stack->next;
-	}
-	return (1);
-}
 
 

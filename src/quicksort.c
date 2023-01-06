@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:47:42 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/05 10:49:00 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:12:12 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,9 @@ void	quicksort(t_node *stack_a, t_node *stack_b, int start, int end)
 
 	// Recall quicksort
 	int pivot_index = find_node_position(stack_a, pivot);
-	if (!is_sorted_recursive(stack_a, start, pivot_index))
+	if (!is_sorted_asc(stack_a, start, pivot_index))
 		quicksort(stack_a, stack_b, start, pivot_index);
-	if (!is_sorted_recursive(stack_a, pivot_index + 1, end))
+	if (!is_sorted_asc(stack_a, pivot_index + 1, end))
 		quicksort(stack_a, stack_b, pivot_index + 1, end);
 	
 }

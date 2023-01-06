@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:30:46 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/26 15:59:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:20:09 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,56 @@ int	is_sorted(t_node *stack_a)
 	return (1);
 }
 
-int	is_sorted_recursive(t_node *stack_a, int start, int end)
+int	is_sorted_asc(t_node *stack, int start, int end)
 {
-	int	prev_largest;
+	int	current_largest;
 	int	stack_size;
-	int	position;
+	int	index;
 
-	position = 0;
+	index = 0;
 	stack_size = end - start;
 	
-	if (stack_a->next == NULL)
+	if (stack->next == NULL)
 		return (1);
-	stack_a = stack_a->next;
-	prev_largest = INT_MIN;
-	while(stack_a && (position - start < stack_size))
+	stack = stack->next;
+	current_largest = INT_MIN;
+	while(stack && (index - start < stack_size))
 	{
-		if (position >= start)
+		if (index >= start)
 		{
-			if (stack_a->content < prev_largest)
+			if (stack->content < current_largest)
 				return (0);
-			prev_largest = stack_a->content;
+			current_largest = stack->content;
 		}
-		position++;
-		stack_a = stack_a->next;
+		index++;
+		stack = stack->next;
+	}
+	return (1);
+}
+
+int	is_sorted_desc(t_node *stack, int start, int end)
+{
+	int	current_smallest;
+	int	index;
+	int	stack_size;
+
+	index = 0;
+	stack_size = end - start;
+	
+	if (stack->next == NULL)
+		return (1);
+	stack = stack->next;
+	current_smallest = INT_MAX;
+	while(stack && (index - start < stack_size))
+	{
+		if (index >= start)
+		{
+			if (stack->content > current_smallest)
+				return (0);
+			current_smallest = stack->content;
+		}
+		index++;
+		stack = stack->next;
 	}
 	return (1);
 }
