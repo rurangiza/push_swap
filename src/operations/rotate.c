@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:55:11 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/06 12:01:46 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:39:47 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,7 @@ void    rb(t_node *stack_b, t_node *stack_a)
 }
 
 /* ra and rb at the same time */
-void    rr(t_node *stack_a, t_node *stack_b)
-{
-    
-}
-
-void    ra_sp(t_node *stack_a, t_node *stack_b)
+static void    _ra(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*first;
 	t_node	*second;
@@ -92,7 +87,33 @@ void    ra_sp(t_node *stack_a, t_node *stack_b)
 
 	first->previous = last;
 	second->previous = stack_a;
+}
+static void    _rb(t_node *stack_b, t_node *stack_a)
+{
+    t_node	*first;
+	t_node	*second;
+    t_node	*last;
+	first = stack_b->next;
+	
+	(void)stack_a;
+	if (first == NULL || first->next == NULL)
+		return ;
+	
+	second = first->next;
+	last = get_last_node(stack_b);
+	
+	stack_b->next = second;
+	first->next = last->next;
+	last->next = first;
+
+	first->previous = last;
+	second->previous = stack_b;
+}
+void    rr(t_node *stack_a, t_node *stack_b)
+{
+    _ra(stack_a, stack_b);
+	_rb(stack_b, stack_a);
 
 	display_hor(stack_a, stack_b);
-	//write(1, "ra\n", 3);
+	// write(1, "rr\n", 3);
 }

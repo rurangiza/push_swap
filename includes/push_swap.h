@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/06 10:45:47 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:39:09 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void    rb(t_node *stack_b, t_node *stack_a);
 void    rrb(t_node *stack_b, t_node *stack_a);
 void    pb(t_node *stack_a, t_node *stack_b);
 void    pa(t_node *stack_a, t_node *stack_b);
+void	rr(t_node *stack_a, t_node *stack_b);
+void	rrr(t_node *stack_a, t_node *stack_b);
+void	ss(t_node *stack_a, t_node *stack_b);
 
 /* SORTING */
 void	sort_stack(t_node *stack_a, t_node *stack_b);

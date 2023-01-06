@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:59:30 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/06 11:46:38 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:27:35 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 		handle_5(stack_a, stack_b);
 	
 	// Push -> stack_a (largest first)
+	/*
 	int		largest;
 	int		lgst_position;
 	t_node	*first_a;
@@ -109,4 +110,5 @@ void	handle_100(t_node *stack_a, t_node *stack_b)
 		if (first_a->content > first_a->next->content)
 			sa(stack_a, stack_b);
 	}
+	*/
 }

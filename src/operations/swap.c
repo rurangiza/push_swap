@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:27 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/03 10:35:34 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:40:14 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,59 @@ void    sb(t_node *stack_b, t_node *stack_a)
 	//write(1, "sb\n", 3);
 }
 
-/* sa and sb at the same time. */
-void    ss()
+
+static void	_sa(t_node *stack_a, t_node *stack_b)
 {
-    
+	t_node	*first;
+	t_node	*second;
+	t_node	*third;
+
+	(void)stack_b;
+	first = stack_a->next;
+	if (first->next == NULL)
+		return ;
+	second = first->next;
+	if (second->next != NULL)
+		third = second->next;
+	
+	stack_a->next = second;
+	first->next = second->next;
+	second->next = first;
+	
+	second->previous = stack_a;
+	first->previous = second;
+	if (second->next != NULL)
+		third->previous = first;
+}
+static void	_sb(t_node *stack_b, t_node *stack_a)
+{
+    t_node	*first;
+	t_node	*second;
+	t_node	*third;
+
+	(void)stack_a;
+	first = stack_b->next;
+	if (first->next == NULL)
+		return ;
+	second = first->next;
+	if (second->next == NULL)
+		return ;
+	third = second->next;
+	
+	stack_b->next = second;
+	first->next = second->next;
+	second->next = first;
+	
+	second->previous = stack_b;
+	first->previous = second;
+	third->previous = first;
+}
+/* sa and sb at the same time. */
+void    ss(t_node *stack_a, t_node *stack_b)
+{
+    _sa(stack_a, stack_b);
+	_sb(stack_b, stack_a);
+
+	display_hor(stack_a, stack_b);
+	//write(1, "ss\n", 3);
 }
