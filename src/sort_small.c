@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:36:01 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/06 10:10:57 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:41:50 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,15 @@
 
 void	handle_3(t_node *stack_a, t_node *stack_b)
 {
-	t_node	*first;
-	t_node	*second;
-	t_node	*third;
-	
-	first = stack_a->next;
-	second = first->next;
-	third = second->next;
-
-	
-	if (first->content > second->content && first->content < third->content)
-		sa(stack_a, stack_b);
-	else if (first->content > second->content && second->content > third->content)
+	while (!is_sorted(stack_a))
 	{
-		sa(stack_a, stack_b);
-		rra(stack_a, stack_b);
+		if (is_sorted_asc(stack_a, 0, 2))
+			rra(stack_a, stack_b);
+		else if (is_sorted_asc(stack_a, 1, 3) && find_largest_nbr(stack_a) == stack_a->next->content)
+			ra(stack_a, stack_b);
+		else
+			sa(stack_a, stack_b);
 	}
-	else if (first->content > second->content && first->content > third->content)
-		ra(stack_a, stack_b);
-	else if (first->content < second->content && first->content < third->content)
-	{
-		sa(stack_a, stack_b);
-		ra(stack_a, stack_b);
-	}
-	else if (first->content < second->content && first->content > third->content)
-		rra(stack_a, stack_b);
 }
 
 void	handle_5(t_node *stack_a, t_node *stack_b)

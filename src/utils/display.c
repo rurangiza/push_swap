@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:42:01 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/05 20:09:43 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/06 10:30:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void    display_hor(t_node *stack_a, t_node *stack_b)
     printf("\n");
 	// Waot before refresh
     printf("=> %d operations\n", opGlobal);
-	//usleep(2000000);
+	usleep(2000000);
 }
 
 void    display_stack(t_node *stack_a, t_node *stack_b)
