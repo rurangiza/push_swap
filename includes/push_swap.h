@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 07:12:55 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/09 11:13:54 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,20 @@ void	ss(t_node *stack_a, t_node *stack_b);
 
 /* SORTING */
 void	sort_stack(t_node *stack_a, t_node *stack_b);
-void	small_sort(t_node *stack_a, t_node *stack_b);
-void	medium_sort(t_node *stack_a, t_node *stack_b);
-void	large_sort(t_node *stack_a, t_node *stack_b);
+// void	small_sort(t_node *stack_a, t_node *stack_b);
+// void	medium_sort(t_node *stack_a, t_node *stack_b);
+// void	large_sort(t_node *stack_a, t_node *stack_b);
 
 void	handle_3(t_node *stack_a, t_node *stack_b);
 void	sort_trio(t_node *stack_a, t_node *stack_b);
 
-void	handle_5(t_node *stack_a, t_node *stack_b);
-void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b);
+//void	handle_15(t_node *stack_a, int stack_size, t_node *stack_b);
 void	handle_100(t_node *stack_a, t_node *stack_b);
 void	handle_500(t_node *stack_a, t_node *stack_b);
+
+void	handle_5(t_node *stack_a, t_node *stack_b);
+void	set_two_aside(t_node *stack_a, t_node *stack_b);
+void	bring_two_back(t_node *stack_a, t_node *stack_b);
 
 int		is_sorted(t_node *stack_a);
 int		is_sorted_asc(t_node *stack_a, int start, int end);

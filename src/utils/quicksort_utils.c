@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:28:33 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/03 11:28:12 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 09:01:24 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,7 @@ int	calc_average(t_node *stack_a, int start, int end, int stack_size)
 	return (average);
 }
 
-int	ft_abs(int x)
-{
-	if (x < 0)
-		return -x;
-	else
-		return (x);
-}
+
 
 int count_pushables(t_node *stack, int pivot, int start, int end)
 {

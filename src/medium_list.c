@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_medium.c                                      :+:      :+:    :+:   */
+/*   medium_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:59:30 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 07:17:24 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/09 11:14:56 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-void	medium_sort(t_node *stack_a, t_node *stack_b)
+void	handle_100(t_node *stack_a, t_node *stack_b)
 {
 	int		pivot;
 	int		pushables;
@@ -28,7 +28,6 @@ void	medium_sort(t_node *stack_a, t_node *stack_b)
 	{
 		// Find the pivot
 		pivot = find_quartile(stack_a, 0, stack_size, stack_size);
-		
 		// Push numbers < pivot -> stack_b (smallest first)
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
 		while (pushables > 0 && stack_size > 5)
@@ -86,7 +85,7 @@ void	medium_sort(t_node *stack_a, t_node *stack_b)
 
 	// Sort stack_a	
 	if (!is_sorted(stack_a))
-		small_sort(stack_a, stack_b);
+		handle_5(stack_a, stack_b);
 	
 	// Push -> stack_a (largest first)
 	int		largest;

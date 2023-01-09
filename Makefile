@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2023/01/05 19:46:03 by Arsene           ###   ########.fr        #
+#    Updated: 2023/01/09 11:12:54 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,10 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${SRC_DIR}parsing.c \
 					${SRC_DIR}initializer.c \
 					${SRC_DIR}sorting.c \
-					${SRC_DIR}quicksort.c \
 					${SRC_DIR}pivot_selection.c \
-					${SRC_DIR}midpoint_alg.c \
-					${SRC_DIR}sort_small.c \
-					${SRC_DIR}sort_medium.c \
-					${SRC_DIR}sort_large.c \
+					${SRC_DIR}small_list.c \
+					${SRC_DIR}medium_list.c \
+					${SRC_DIR}large_list.c \
 					${UTILS_DIR}linked_list.c \
 					${UTILS_DIR}sorting_utils.c \
 					${UTILS_DIR}quicksort_utils.c \
