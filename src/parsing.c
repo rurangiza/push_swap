@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 18:26:55 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:31:15 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	**parse_input(int arg_count, char **argv)
 	char	**matrix;
 	int		index;
 
-	index = 0;
 	if (arg_count == 2)
 	{
 		matrix = ft_split(argv[1], ' ');
@@ -26,6 +25,7 @@ char	**parse_input(int arg_count, char **argv)
 	}
 	else
 		matrix = argv + 1;
+	index = 0;
 	while (matrix[index])
 	{
 		if (is_valid_number(matrix, index))
