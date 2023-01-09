@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:06:57 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 16:48:16 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:34:07 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	init_stack(t_node *stack_a, t_node *stack_b, char **matrix)
 
 	stack_a->next = NULL;
 	stack_a->previous = NULL;
-	stack_a->index = -1;
 	stack_b->next = NULL;
 	stack_b->previous = NULL;
 	index = 0;

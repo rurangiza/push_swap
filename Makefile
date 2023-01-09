@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2023/01/09 15:35:27 by arurangi         ###   ########.fr        #
+#    Updated: 2023/01/09 17:35:12 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ LIBFT_DIR	=	./src/library/
 SRC_DIR		=	./src/
 UTILS_DIR	=	./src/utils/
 OP_DIR		=	./src/operations/
-UNIT_TEST	=	./src/unit-testing/
 
 # SOURCE FILES
 SOURCE_FILES	=	${SRC_DIR}main.c \
@@ -28,14 +27,14 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${SRC_DIR}sorting.c \
 					${SRC_DIR}pivot_selection.c \
 					${SRC_DIR}small_list.c \
-					${SRC_DIR}medium_list.c \
+					${SRC_DIR}big_list.c \
 					${UTILS_DIR}linked_list.c \
 					${UTILS_DIR}checker.c \
 					${UTILS_DIR}counter.c \
 					${UTILS_DIR}finder.c \
-					${UTILS_DIR}display.c \
-					${UTILS_DIR}break_msg.c \
+					${UTILS_DIR}debugging.c \
 					${UTILS_DIR}memory_management.c \
+					${UTILS_DIR}error_handling.c \
 					${OP_DIR}push.c \
 					${OP_DIR}swap.c \
 					${OP_DIR}rotate.c \

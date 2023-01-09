@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 17:45:19 by arurangi         ###   ########.fr       */
+/*   Created: 2023/01/09 17:30:16 by arurangi          #+#    #+#             */
+/*   Updated: 2023/01/09 17:30:45 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * A sorting algorithm is set of instructions used to arrange elements
- * of an array/list in a specific order
-*/
+#include "../../includes/push_swap.h"
 
-#include "../includes/push_swap.h"
-
-void	sort_stack(t_node *stack_a, t_node *stack_b)
+int	rmessage(void)
 {
-	int	stack_size;
-
-	stack_size = get_list_size(stack_a) - 1;
-	if (is_sorted(stack_a))
-		return ;
-	if (stack_size <= 5)
-		small_sort(stack_a, stack_b);
-	else
-		big_sort(stack_a, stack_b);
+	write(1, "Error\n", 6);
+	return (0);
 }

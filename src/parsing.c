@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 17:26:35 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:53:44 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ char	**parse_input(int arg_count, char **argv)
 	char	**matrix;
 	int		index;
 
-	if (arg_count == 1)
-		return (rmessage());
 	index = 0;
 	if (arg_count == 2)
+	{
 		matrix = ft_split(argv[1], ' ');
+		if (matrix == NULL)
+			return (NULL);
+	}
 	else
 		matrix = argv + 1;
 	while (matrix[index])
@@ -50,9 +52,9 @@ int	is_valid_number(char **arg_list, int index)
 		return (0);
 	number = ft_atoi(strnum);
 	if (number < INT_MIN || number > INT_MAX)
-		return (error_msg(0, "number bigger/lower than INT_MAX/INT_MIN"));
+		return (rmessage());
 	if (!first_encounter_arg(number, arg_list, index))
-		return (error_msg(0, "there are duplicates of %d", number));
+		return (rmessage());
 	return (1);
 }
 
@@ -61,18 +63,19 @@ int	num_checker(char *strnum, int *sign_counter, int *digit_counter, int index)
 	int	i;
 
 	i = 0;
+	(void)index;
 	while (strnum[i] != '\0')
 	{
 		if (ft_strlen(strnum) == 1 && (!ft_isdigit(strnum[i])))
-			return (error_msg(0, "sign only"));
+			return (rmessage());
 		if (!ft_isdigit(strnum[i]) && !ft_issign(strnum[i]))
-			return (error_msg(0, "argument nº%d is not a valid digit", index));
+			return (rmessage());
 		if (ft_issign(strnum[i]))
 			(*sign_counter)++;
 		if (ft_isdigit(strnum[i]))
 			(*digit_counter)++;
 		if (ft_issign(strnum[i]) && (*digit_counter) > 1)
-			return (error_msg(0, "sign after digit"));
+			return (rmessage());
 		i++;
 	}
 	return (1);
