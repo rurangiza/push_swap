@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 17:33:18 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:26:39 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ enum e_state {
 char	**parse_input(int arg_count, char **argv);
 
 int		is_valid_number(char **arg_list, int index);
-int		first_encounter_arg(int number, char **arguments, int position);
+int		first_encounter_arg(long number, char **arguments, int position);
 
 /* INITIALIZER */
 void	init_stack(t_node *stack_a, t_node *stack_b, char **matrix);
@@ -107,7 +107,8 @@ int		*random_numbers(int size, int threshold);
 /* MEMORY */
 void	free_stacks(t_node *stack_a, t_node *stack_b);
 
-int	num_checker(char *strnum, int *sign_counter, int *digit_counter, int index);
+int		num_checker(char *strnum, int *sign_counter,
+			int *digit_counter, int index);
 
 /* ERROR HANDLING */
 int		rmessage(void);

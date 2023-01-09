@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 17:53:44 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:26:55 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	**parse_input(int arg_count, char **argv)
 
 int	is_valid_number(char **arg_list, int index)
 {
-	int		number;
+	long	number;
 	char	*strnum;
 	int		sign_counter;
 	int		digit_counter;
@@ -52,9 +52,9 @@ int	is_valid_number(char **arg_list, int index)
 		return (0);
 	number = ft_atoi(strnum);
 	if (number < INT_MIN || number > INT_MAX)
-		return (rmessage());
+		return (0);
 	if (!first_encounter_arg(number, arg_list, index))
-		return (rmessage());
+		return (0);
 	return (1);
 }
 
@@ -67,21 +67,21 @@ int	num_checker(char *strnum, int *sign_counter, int *digit_counter, int index)
 	while (strnum[i] != '\0')
 	{
 		if (ft_strlen(strnum) == 1 && (!ft_isdigit(strnum[i])))
-			return (rmessage());
+			return (0);
 		if (!ft_isdigit(strnum[i]) && !ft_issign(strnum[i]))
-			return (rmessage());
+			return (0);
 		if (ft_issign(strnum[i]))
 			(*sign_counter)++;
 		if (ft_isdigit(strnum[i]))
 			(*digit_counter)++;
 		if (ft_issign(strnum[i]) && (*digit_counter) > 1)
-			return (rmessage());
+			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	first_encounter_arg(int number, char **arguments, int position)
+int	first_encounter_arg(long number, char **arguments, int position)
 {
 	int	index;
 
