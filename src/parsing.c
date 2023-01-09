@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/26 14:43:41 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 12:47:53 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,15 @@ char **parse_input(int arg_count, char **argv)
     {
         error_msg(1, "No numbers to sort");
         return (NULL);
-    }
-    
+    }   
     index = 0;
     if (arg_count == 2)
-    {
         matrix = ft_split(argv[1], ' ');
-    }
     else
-    {
-        index = 1; // Do I need this?
         matrix = argv + 1;
-    }
     while (matrix[index])
     {
-        if (valid_number(matrix, index))
+        if (is_valid_number(matrix, index))
             index++;
         else
             return (NULL);
@@ -43,18 +37,11 @@ char **parse_input(int arg_count, char **argv)
     return (matrix);
 }
 
-int valid_number(char **arg_list, int index)
+int num_checker(char *strnum, int *sign_counter, int *digit_counter, int index)
 {
-    int     number;
-    char    *strnum;
-    int     sign_counter;
-    int     digit_counter;
-    int     i;
+    int i;
 
-    sign_counter = 0;
-    digit_counter = 0;
     i = 0;
-    strnum = arg_list[index];
     while (strnum[i] != '\0')
     {
         if (ft_strlen(strnum) == 1 && (!ft_isdigit(strnum[i])))
@@ -62,13 +49,44 @@ int valid_number(char **arg_list, int index)
         if (!ft_isdigit(strnum[i]) && !ft_issign(strnum[i]))
             return (error_msg(0, "argument nº%d is not a valid digit", index));
         if (ft_issign(strnum[i]))
-            sign_counter++;
+            (*sign_counter)++;
         if (ft_isdigit(strnum[i]))
-            digit_counter++;
-        if (ft_issign(strnum[i]) && digit_counter > 1)
+            (*digit_counter)++;
+        if (ft_issign(strnum[i]) && (*digit_counter) > 1)
             return (error_msg(0, "sign after digit"));
         i++;
     }
+    return (1);
+}
+
+int is_valid_number(char **arg_list, int index)
+{
+    int     number;
+    char    *strnum;
+    int     sign_counter;
+    int     digit_counter;
+    //int     i;
+
+    sign_counter = 0;
+    digit_counter = 0;
+    //i = 0;
+    strnum = arg_list[index];
+    if (num_checker(strnum, &sign_counter, &digit_counter, index) == 0)
+        return (0);
+    // while (strnum[i] != '\0')
+    // {
+    //     if (ft_strlen(strnum) == 1 && (!ft_isdigit(strnum[i])))
+    //         return (error_msg(0, "sign only"));
+    //     if (!ft_isdigit(strnum[i]) && !ft_issign(strnum[i]))
+    //         return (error_msg(0, "argument nº%d is not a valid digit", index));
+    //     if (ft_issign(strnum[i]))
+    //         sign_counter++;
+    //     if (ft_isdigit(strnum[i]))
+    //         digit_counter++;
+    //     if (ft_issign(strnum[i]) && digit_counter > 1)
+    //         return (error_msg(0, "sign after digit"));
+    //     i++;
+    // }
     if (sign_counter > 1)
         return (0);
     number = ft_atoi(strnum);
