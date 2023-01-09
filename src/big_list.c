@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium_list.c                                      :+:      :+:    :+:   */
+/*   big_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:59:30 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 15:43:35 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:51:31 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /* *************************** MAIN FUNCTION ******************************** */
 
-void	large_sort(t_node *stack_a, t_node *stack_b)
+void	big_sort(t_node *stack_a, t_node *stack_b)
 {
 	empty_main_stack(stack_a, stack_b, 5);
 	if (!is_sorted(stack_a))
 		small_sort(stack_a, stack_b);
-	empty_temporary_stack(stack_a,stack_b);
+	empty_temporary_stack(stack_a, stack_b);
 }
 
 /* ************************** HELPER FUNCTIONS ****************************** */
@@ -33,10 +33,10 @@ void	empty_main_stack(t_node *stack_a, t_node *stack_b, int cutoff)
 	stack_size = get_list_size(stack_a) - 1;
 	while (stack_size > cutoff)
 	{
-		if (stack_size > 100)
-			pivot = find_octile(stack_a, 0, stack_size, stack_size);
-		else
+		if (stack_size <= 100)
 			pivot = find_quartile(stack_a, 0, stack_size, stack_size);
+		else
+			pivot = find_octile(stack_a, 0, stack_size, stack_size);
 		pushables = count_pushables(stack_a, pivot, 0, stack_size);
 		while (pushables > 0 && stack_size > cutoff)
 		{
@@ -71,7 +71,8 @@ void	empty_temporary_stack(t_node *stack_a, t_node *stack_b)
 	}
 }
 
-void	handle_pushables(t_node *stack_a, t_node *stack_b, int pivot, int *pushables)
+void	handle_pushables(t_node *stack_a, t_node *stack_b, int pivot,
+			int *pushables)
 {
 	t_node	*first;
 	t_node	*last;
@@ -97,20 +98,18 @@ void	handle_pushables(t_node *stack_a, t_node *stack_b, int pivot, int *pushable
 		(*pushables)--;
 	}
 	else
-		ra(stack_a, stack_b);
+		bring_closest_pushable_ontop(stack_a, stack_b, pivot);
 }
 
 void	keep_largest_ontop(t_node *stack_a, t_node *stack_b)
 {
-	t_node *first_b;
-	t_node *second_b;
+	t_node	*first_b;
+	t_node	*second_b;
 
 	if ((get_list_size(stack_b) - 1) >= 2)
 	{
-
 		if (stack_b->next->content < get_last_node(stack_b)->content)
 			rb(stack_b, stack_a);
-		
 		first_b = stack_b->next;
 		second_b = first_b->next;
 		if (first_b->content < second_b->content)

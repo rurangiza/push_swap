@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_utils.c                                    :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:30:46 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 15:33:36 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:49:12 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	is_sorted(t_node *stack_a)
 {
 	int	prev_largest;
-	
+
 	if (stack_a->next == NULL)
 		return (1);
 	stack_a = stack_a->next;
 	prev_largest = stack_a->content;
-	while(stack_a)
+	while (stack_a)
 	{
 		if (stack_a->content < prev_largest)
 			return (0);
@@ -38,12 +38,11 @@ int	is_sorted_asc(t_node *stack, int start, int end)
 
 	index = 0;
 	stack_size = end - start;
-	
 	if (stack->next == NULL)
 		return (1);
 	stack = stack->next;
 	current_largest = INT_MIN;
-	while(stack && (index - start < stack_size))
+	while (stack && (index - start < stack_size))
 	{
 		if (index >= start)
 		{
@@ -65,12 +64,11 @@ int	is_sorted_desc(t_node *stack, int start, int end)
 
 	index = 0;
 	stack_size = end - start;
-	
 	if (stack->next == NULL)
 		return (1);
 	stack = stack->next;
 	current_smallest = INT_MAX;
-	while(stack && (index - start < stack_size))
+	while (stack && (index - start < stack_size))
 	{
 		if (index >= start)
 		{

@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:19:35 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 12:31:35 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:26:22 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	free_stacks(t_node *stack_a, t_node *stack_b)
 {
 	delete_all_nodes(&stack_a);
 	delete_all_nodes(&stack_b);
-	//write(1, "Error\n", 6);
-	// free(stack_a);
-	// free(stack_b);
+}
+
+int	rmessage(void)
+{
+	write(1, "Error\n", 6);
+	return (0);
 }

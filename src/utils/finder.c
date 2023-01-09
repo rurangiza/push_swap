@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:32:02 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 15:33:27 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:56:51 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	find_node_position(t_node *list, int content)
 	return (-1);
 }
 
-int		find_smallest_nbr(t_node *stack_a)
+int	find_smallest_nbr(t_node *stack_a)
 {
 	t_node	*current_node;
 	int		smallest;
@@ -45,7 +45,7 @@ int		find_smallest_nbr(t_node *stack_a)
 	return (smallest);
 }
 
-int		find_largest_nbr(t_node *stack_a)
+int	find_largest_nbr(t_node *stack_a)
 {
 	t_node	*current_node;
 	int		largest;
@@ -59,4 +59,32 @@ int		find_largest_nbr(t_node *stack_a)
 		current_node = current_node->next;
 	}
 	return (largest);
+}
+
+void	bring_closest_pushable_ontop(t_node *stack_a, t_node *stack_b,
+			int pivot)
+{
+	t_node	*front;
+	t_node	*back;
+	int		front_counter;
+	int		back_counter;
+
+	front = stack_a->next;
+	back = get_last_node(stack_a);
+	front_counter = 0;
+	while (front->content >= pivot && front != NULL)
+	{
+		front_counter++;
+		front = front->next;
+	}
+	back_counter = 0;
+	while (back->content >= pivot && back != NULL)
+	{
+		back_counter++;
+		back = back->previous;
+	}
+	if (front_counter <= back_counter)
+		ra(stack_a, stack_b);
+	else
+		rra(stack_a, stack_b);
 }

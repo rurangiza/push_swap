@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:54:27 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/06 13:40:14 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:08:33 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,7 @@
  * Do nothing if there is only one or no elements.
 */
 
-// static void	swap(int *a, int *b)
-// {
-// 	int	tmp;
-
-// 	tmp = *a;
-// 	*a = *b;
-// 	*b = tmp;
-// }
-
-void    sa(t_node *stack_a, t_node *stack_b)
+void	sa(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*first;
 	t_node	*second;
@@ -38,26 +29,22 @@ void    sa(t_node *stack_a, t_node *stack_b)
 	second = first->next;
 	if (second->next != NULL)
 		third = second->next;
-	
 	stack_a->next = second;
 	first->next = second->next;
 	second->next = first;
-	
 	second->previous = stack_a;
 	first->previous = second;
 	if (second->next != NULL)
 		third->previous = first;
-	display_hor(stack_a, stack_b);
-	//write(1, "sa\n", 3);
+	write(1, "sa\n", 3);
 }
-
 
 /* (swap b): Swap the first 2 elements at the top of stack b.
  * Do nothing if there is only one or no elements.
 */
-void    sb(t_node *stack_b, t_node *stack_a)
+void	sb(t_node *stack_b, t_node *stack_a)
 {
-    t_node	*first;
+	t_node	*first;
 	t_node	*second;
 	t_node	*third;
 
@@ -69,19 +56,14 @@ void    sb(t_node *stack_b, t_node *stack_a)
 	if (second->next == NULL)
 		return ;
 	third = second->next;
-	
 	stack_b->next = second;
 	first->next = second->next;
 	second->next = first;
-	
 	second->previous = stack_b;
 	first->previous = second;
 	third->previous = first;
-
-	display_hor(stack_a, stack_b);
-	//write(1, "sb\n", 3);
+	write(1, "sb\n", 3);
 }
-
 
 static void	_sa(t_node *stack_a, t_node *stack_b)
 {
@@ -96,19 +78,18 @@ static void	_sa(t_node *stack_a, t_node *stack_b)
 	second = first->next;
 	if (second->next != NULL)
 		third = second->next;
-	
 	stack_a->next = second;
 	first->next = second->next;
 	second->next = first;
-	
 	second->previous = stack_a;
 	first->previous = second;
 	if (second->next != NULL)
 		third->previous = first;
 }
+
 static void	_sb(t_node *stack_b, t_node *stack_a)
 {
-    t_node	*first;
+	t_node	*first;
 	t_node	*second;
 	t_node	*third;
 
@@ -120,21 +101,18 @@ static void	_sb(t_node *stack_b, t_node *stack_a)
 	if (second->next == NULL)
 		return ;
 	third = second->next;
-	
 	stack_b->next = second;
 	first->next = second->next;
 	second->next = first;
-	
 	second->previous = stack_b;
 	first->previous = second;
 	third->previous = first;
 }
-/* sa and sb at the same time. */
-void    ss(t_node *stack_a, t_node *stack_b)
-{
-    _sa(stack_a, stack_b);
-	_sb(stack_b, stack_a);
 
-	display_hor(stack_a, stack_b);
-	//write(1, "ss\n", 3);
+/* sa and sb at the same time. */
+void	ss(t_node *stack_a, t_node *stack_b)
+{
+	_sa(stack_a, stack_b);
+	_sb(stack_b, stack_a);
+	write(1, "ss\n", 3);
 }
