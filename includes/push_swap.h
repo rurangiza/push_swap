@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/06 13:39:09 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 07:12:55 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ void	ss(t_node *stack_a, t_node *stack_b);
 
 /* SORTING */
 void	sort_stack(t_node *stack_a, t_node *stack_b);
+void	small_sort(t_node *stack_a, t_node *stack_b);
+void	medium_sort(t_node *stack_a, t_node *stack_b);
+void	large_sort(t_node *stack_a, t_node *stack_b);
 
 void	handle_3(t_node *stack_a, t_node *stack_b);
 void	sort_trio(t_node *stack_a, t_node *stack_b);

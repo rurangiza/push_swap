@@ -6,13 +6,13 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:35:49 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/05 19:37:25 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/01/09 07:16:44 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	handle_500(t_node *stack_a, t_node *stack_b)
+void	large_sort(t_node *stack_a, t_node *stack_b)
 {
 	int		pivot;
 	int		pushables;
@@ -79,7 +79,7 @@ void	handle_500(t_node *stack_a, t_node *stack_b)
 	// Sort stack_a	
 	break_msg("5 Hundred Triage");
 	if (!is_sorted(stack_a))
-		handle_5(stack_a, stack_b);
+		small_sort(stack_a, stack_b);
 	
 	// Push -> stack_a (largest first)
 	int		largest;

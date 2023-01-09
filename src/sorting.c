@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:45:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/06 13:27:01 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 07:15:42 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ void	sort_stack(t_node *stack_a, t_node *stack_b)
 		success_msg(1, "aleready sorted");
 		return ;
 	}
-	if (stack_size <= 3) // 5 cases
-		handle_3(stack_a, stack_b);
-	else if (stack_size <= 5)
-		handle_5(stack_a, stack_b);
+	if (stack_size <= 5)
+		small_sort(stack_a, stack_b);
 	else if (stack_size <= 100)
-		handle_100(stack_a, stack_b);
+		medium_sort(stack_a, stack_b);
 	else
-		handle_500(stack_a, stack_b);
+		large_sort(stack_a, stack_b);
 	/*
 	else
 	*/
