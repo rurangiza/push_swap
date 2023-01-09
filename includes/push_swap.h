@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 12:38:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:41:39 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		first_encounter_arg(int number, char **arguments, int position);
 /* INITIALIZER */
 void	init_stack(t_node *stack_a, t_node *stack_b, char **matrix);
 
-void    push(int node_content, t_node *stack);
+void    add_to_stack(int node_content, t_node *stack);
 t_node	*create_node(int content);
 void	add_back(t_node **lst, t_node *new);
 void	delete_all_nodes(t_node **lst);
@@ -65,6 +65,9 @@ void	ss(t_node *stack_a, t_node *stack_b);
 
 /* SORTING */
 void	sort_stack(t_node *stack_a, t_node *stack_b);
+
+void	small_sort(t_node *stack_a, t_node *stack_b);
+void	large_sort(t_node *stack_a, t_node *stack_b);
 
 void	handle_3(t_node *stack_a, t_node *stack_b);
 void	sort_trio(t_node *stack_a, t_node *stack_b);

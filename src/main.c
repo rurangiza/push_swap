@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:12 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 12:26:09 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:47:23 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
  * using the lowest number of actions
 */
 
-#include <stdio.h>
 #include "../includes/push_swap.h"
-//#include "../includes/unit_test.h"
-
-
 
 int main(int arg_count, char **argv)
 {

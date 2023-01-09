@@ -6,13 +6,26 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:36:01 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 12:12:12 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:40:23 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /* *************************** MAIN FUNCTION ******************************** */
+
+void	small_sort(t_node *stack_a, t_node *stack_b)
+{
+	if (get_list_size(stack_a) - 1 <= 3)
+		handle_3(stack_a, stack_b);
+	else
+	{
+		set_two_aside(stack_a, stack_b);
+		if (!is_sorted(stack_a))
+			handle_3(stack_a, stack_b);
+		bring_two_back(stack_a, stack_b);
+	}
+}
 
 void	handle_3(t_node *stack_a, t_node *stack_b)
 {
@@ -28,13 +41,13 @@ void	handle_3(t_node *stack_a, t_node *stack_b)
 	}
 }
 
-void	handle_5(t_node *stack_a, t_node *stack_b)
-{
-	set_two_aside(stack_a, stack_b);
-	if (!is_sorted(stack_a))
-		handle_3(stack_a, stack_b);
-	bring_two_back(stack_a, stack_b);
-}
+// void	handle_5(t_node *stack_a, t_node *stack_b)
+// {
+// 	set_two_aside(stack_a, stack_b);
+// 	if (!is_sorted(stack_a))
+// 		handle_3(stack_a, stack_b);
+// 	bring_two_back(stack_a, stack_b);
+// }
 
 /* **************************** HELPER FUNCTIONS **************************** */
 

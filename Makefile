@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2023/01/09 12:30:15 by arurangi         ###   ########.fr        #
+#    Updated: 2023/01/09 15:35:27 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,9 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${SRC_DIR}small_list.c \
 					${SRC_DIR}medium_list.c \
 					${UTILS_DIR}linked_list.c \
-					${UTILS_DIR}sorting_utils.c \
-					${UTILS_DIR}quicksort_utils.c \
+					${UTILS_DIR}checker.c \
+					${UTILS_DIR}counter.c \
+					${UTILS_DIR}finder.c \
 					${UTILS_DIR}display.c \
 					${UTILS_DIR}break_msg.c \
 					${UTILS_DIR}memory_management.c \

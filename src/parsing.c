@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 12:47:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:43:48 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,28 +65,12 @@ int is_valid_number(char **arg_list, int index)
     char    *strnum;
     int     sign_counter;
     int     digit_counter;
-    //int     i;
 
     sign_counter = 0;
     digit_counter = 0;
-    //i = 0;
     strnum = arg_list[index];
     if (num_checker(strnum, &sign_counter, &digit_counter, index) == 0)
         return (0);
-    // while (strnum[i] != '\0')
-    // {
-    //     if (ft_strlen(strnum) == 1 && (!ft_isdigit(strnum[i])))
-    //         return (error_msg(0, "sign only"));
-    //     if (!ft_isdigit(strnum[i]) && !ft_issign(strnum[i]))
-    //         return (error_msg(0, "argument nº%d is not a valid digit", index));
-    //     if (ft_issign(strnum[i]))
-    //         sign_counter++;
-    //     if (ft_isdigit(strnum[i]))
-    //         digit_counter++;
-    //     if (ft_issign(strnum[i]) && digit_counter > 1)
-    //         return (error_msg(0, "sign after digit"));
-    //     i++;
-    // }
     if (sign_counter > 1)
         return (0);
     number = ft_atoi(strnum);
@@ -97,9 +81,6 @@ int is_valid_number(char **arg_list, int index)
     return (1);
 }
 
-
-
-/* BEWARE!!! index will start with 1 or 0 depending on arg_list type */
 int	first_encounter_arg(int number, char **arguments, int position)
 {
 	int index;

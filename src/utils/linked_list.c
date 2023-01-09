@@ -6,13 +6,9 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:53:44 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/23 11:39:41 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:46:48 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
- * Linked Lists Operations
-*/
 
 #include "../../includes/push_swap.h"
 
@@ -38,16 +34,11 @@ void	add_back(t_node **lst, t_node *new)
 		*lst = new;
 		return ;
 	}
-	//printf("Current: (%d) / ", new->content);
 	new->previous = get_last_node(*lst);
 	get_last_node(*lst)->next = new;
-	//printf("Previous %d\n", new->previous->content);
 	new->index = new->previous->index + 1;
 }
 
-/*
- * Returns the last node of the list
-*/
 t_node	*get_last_node(t_node *lst)
 {
 	if (!lst)

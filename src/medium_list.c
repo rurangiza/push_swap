@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:59:30 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 12:11:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:43:35 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 /* *************************** MAIN FUNCTION ******************************** */
 
-void	handle_100(t_node *stack_a, t_node *stack_b)
+void	large_sort(t_node *stack_a, t_node *stack_b)
 {
 	empty_main_stack(stack_a, stack_b, 5);
 	if (!is_sorted(stack_a))
-		handle_5(stack_a, stack_b);
+		small_sort(stack_a, stack_b);
 	empty_temporary_stack(stack_a,stack_b);
 }
 
