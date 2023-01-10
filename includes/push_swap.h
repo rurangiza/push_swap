@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/10 09:51:28 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:54:07 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,5 @@ int		*random_numbers(int size, int threshold);
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MEMORY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 int		free_stacks(t_node *stack_a, t_node *stack_b, int return_value);
-
 
 #endif
