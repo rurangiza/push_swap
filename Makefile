@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 09:27:45 by Arsene            #+#    #+#              #
-#    Updated: 2023/01/09 17:35:12 by arurangi         ###   ########.fr        #
+#    Updated: 2023/01/10 09:46:04 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ SOURCE_FILES	=	${SRC_DIR}main.c \
 					${UTILS_DIR}finder.c \
 					${UTILS_DIR}debugging.c \
 					${UTILS_DIR}memory_management.c \
-					${UTILS_DIR}error_handling.c \
 					${OP_DIR}push.c \
 					${OP_DIR}swap.c \
 					${OP_DIR}rotate.c \
