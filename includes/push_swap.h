@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/10 09:54:07 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:58:17 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ typedef struct s_node {
 	struct s_node	*next;
 	struct s_node	*previous;
 }	t_node;
-
-enum e_state {
-	_top = 1,
-	_bottom = 2,
-};
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PARSING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 char	**parse_input(int arg_count, char **argv);
@@ -75,6 +70,8 @@ void	empty_temporary_stack(t_node *stack_a, t_node *stack_b);
 int		count_pushables(t_node *stack_a, int pivot, int start, int end);
 void	handle_pushables(t_node *stack_a, t_node *stack_b,
 			int pivot, int *pushables);
+void	bring_closest_pushable_ontop(t_node *stack_a, t_node *stack_b,
+			int pivot);
 void	keep_largest_ontop(t_node *stack_a, t_node *stack_b);
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CHECKER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -90,18 +87,7 @@ int		find_node_position(t_node *list, int content);
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PIVOT SELECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 int		find_quartile(t_node *stack, int start, int end, int stack_size);
 int		find_octile(t_node *stack, int start, int end, int stack_size);
-/* COUNTERS */
-
-void	bring_closest_pushable_ontop(t_node *stack_a, t_node *stack_b,
-			int pivot);
-
 int		selection_sort(int *unsorted, int size);
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DISPLAY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-void	break_msg(char *message, ...);
-void	display_hor(t_node *stack_a, t_node *stack_b);
-int		first_encounter_gen(int number, int *list, int position);
-int		*random_numbers(int size, int threshold);
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MEMORY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 int		free_stacks(t_node *stack_a, t_node *stack_b, int return_value);
