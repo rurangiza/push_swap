@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:55:15 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 18:31:15 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:25:48 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	is_valid_number(char **arg_list, int index)
 	sign_counter = 0;
 	digit_counter = 0;
 	strnum = arg_list[index];
-	if (num_checker(strnum, &sign_counter, &digit_counter, index) == 0)
+	if (num_checker(strnum, &sign_counter, &digit_counter) == 0)
 		return (0);
 	if (sign_counter > 1)
 		return (0);
@@ -58,12 +58,11 @@ int	is_valid_number(char **arg_list, int index)
 	return (1);
 }
 
-int	num_checker(char *strnum, int *sign_counter, int *digit_counter, int index)
+int	num_checker(char *strnum, int *sign_counter, int *digit_counter)
 {
 	int	i;
 
 	i = 0;
-	(void)index;
 	while (strnum[i] != '\0')
 	{
 		if (ft_strlen(strnum) == 1 && (!ft_isdigit(strnum[i])))

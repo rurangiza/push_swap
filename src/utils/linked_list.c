@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:53:44 by arurangi          #+#    #+#             */
-/*   Updated: 2023/01/09 17:34:42 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:17:14 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	add_back(t_node **lst, t_node *new)
 	}
 	new->previous = get_last_node(*lst);
 	get_last_node(*lst)->next = new;
-	// new->index = new->previous->index + 1;
 }
 
 t_node	*get_last_node(t_node *lst)
