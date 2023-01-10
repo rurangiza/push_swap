@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:26:35 by Arsene            #+#    #+#             */
-/*   Updated: 2023/01/09 18:26:39 by arurangi         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:03:09 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		first_encounter_arg(long number, char **arguments, int position);
 /* INITIALIZER */
 void	init_stack(t_node *stack_a, t_node *stack_b, char **matrix);
 
-void	load_in_stack(int node_content, t_node *stack);
+void	load_into_stack(int node_content, t_node *stack);
 t_node	*create_node(int content);
 void	add_back(t_node **lst, t_node *new);
 void	delete_all_nodes(t_node **lst);
@@ -86,6 +86,8 @@ int		is_sorted_desc(t_node *stack, int start, int end);
 int		find_smallest_nbr(t_node *stack_a);
 int		find_largest_nbr(t_node *stack_a);
 int		find_node_position(t_node *list, int content);
+
+int		find_pivot(t_node *stack, int start, int stack_size, int portion);
 int		find_quartile(t_node *stack, int start, int end, int stack_size);
 int		find_octile(t_node *stack, int start, int end, int stack_size);
 int		find_sextuplet(t_node *stack, int start, int end, int stack_size);
